@@ -4,11 +4,16 @@
 // Every <Image> on the site resolves its src through this file. Nothing else
 // hardcodes an image path.
 //
-// Right now each entry points at a generated placeholder in /public/placeholder/.
-// To ship real photography: drop the photo in /public/photos/, change the `src`
-// here, and the whole site picks it up. Nothing else needs to be touched.
+// Entries currently point at Pexels stock in /public/photos/, pulled by
+// `scripts/fetch-photos.mjs` (see public/photos/ATTRIBUTION.md for credits).
 //
-// `note` describes the shot to take — hand this list to whoever is shooting.
+// ⚠ Stock photos are other people's work. They are a stand-in so the site reads
+// as finished — they are NOT a portfolio. Replace them with real Bulldog job
+// photos before this is presented as the company's own work. The `note` on each
+// entry describes the shot to take; hand this list to whoever is shooting.
+//
+// To swap one in: drop the photo in /public/photos/, change the `src` here.
+// Nothing else on the site needs to be touched.
 
 export type MediaEntry = {
   src: string;
@@ -16,7 +21,7 @@ export type MediaEntry = {
   note: string;
 };
 
-const P = (name: string) => `/placeholder/${name}.svg`;
+const P = (name: string) => `/photos/${name}.jpg`;
 
 export const media = {
   // ---- Brand ----

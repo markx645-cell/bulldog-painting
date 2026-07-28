@@ -69,27 +69,32 @@ Until it is flipped, the site deliberately publishes no rating markup, and the
 
 ### 3. Photography — `content/media.ts`
 
-Every image on the site resolves through that one registry, and each entry
-currently points at a generated placeholder in `public/placeholder/`. Each entry
-carries a `note` describing the shot to take — hand that list to whoever is
-shooting.
+The site currently runs on **Pexels stock photography** (41 images in
+`public/photos/`, credits in `public/photos/ATTRIBUTION.md`). It looks finished,
+but stock photos are pictures of other people's work.
 
-To swap in a real photo: drop it in `public/photos/`, change the `src` on that
-entry, done. Nothing else references image paths.
+**This matters most for the projects gallery.** `/projects` presents nine
+before/after pairs as Bulldog's own jobs. They are stock images of unrelated
+rooms and houses. Showing them as your portfolio is a false-advertising problem,
+not just a cosmetic one — swap those nine pairs for real job photos, or pull the
+page, before anyone is invited to look at the site.
 
-Slots needing photos:
+Hero and service images are lower-risk: they read as illustrative rather than
+as claims about specific work. Still worth replacing when you have real photos.
 
-| Key | Shot |
-|---|---|
-| `homeHero` | Painter cutting in at a ceiling line, bright natural light, 3:2 |
-| `crew` | Full crew in front of a branded van, 16:9, overcast day |
-| `colorConsult` | Fan deck against a wall with two brushed-out samples, 4:3 |
-| `processHero` | A prepped room — masked trim, papered floor, wrapped furniture |
-| `serviceAreaMap` | Map graphic of the seven counties in `site.ts`, 16:9 |
-| 18 service heroes | One per service — see the `note` on each entry |
-| `galleryPairs` | 9 before/after pairs for the projects gallery |
+To swap one in: drop the file in `public/photos/`, change that entry's `src` in
+`content/media.ts`. Nothing else on the site references image paths. Each entry
+has a `note` describing the shot to take — hand that list to whoever is shooting.
 
-Regenerate placeholders any time with `node scripts/make-placeholders.mjs`.
+To re-pull stock (different search terms, or a slot that missed):
+
+```
+PEXELS_KEY=xxxxx node scripts/fetch-photos.mjs            # all slots
+PEXELS_KEY=xxxxx node scripts/fetch-photos.mjs homeHero   # one slot
+```
+
+The key is read from the environment and is deliberately not stored in the repo,
+which is public.
 
 ### 4. Also worth doing
 

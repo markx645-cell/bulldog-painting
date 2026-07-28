@@ -52,7 +52,7 @@ All copy lives in flat TypeScript under `/content`. No database, no CMS.
 | `content/site.ts` | Business facts, stats, offers, warranty, process, nav |
 | `content/services.ts` | All 17 services — copy, includes, FAQs, pricing |
 | `content/areas.ts` | Coverage — 8 counties, 170+ communities grouped under each |
-| `content/media.ts` | **Every image path on the site**, in one registry |
+| `content/media.ts` | **Every image path on the site**, in one registry. Currently Pexels stock in `public/photos/` — see `ATTRIBUTION.md` |
 | `content/reviews.ts` | Customer reviews (currently placeholder) |
 | `content/faqs.ts` | Shared FAQs appended to every service page |
 | `content/projects.ts` | Before/after gallery entries |
@@ -139,8 +139,14 @@ Emit `FAQPage` schema from **one** `FaqAccordion` per page (`withSchema`).
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # out/ is the deployable
-node scripts/make-placeholders.mjs   # regenerate placeholder art
+
+# Re-pull stock photography (key from env — never commit it, repo is public)
+PEXELS_KEY=xxxxx node scripts/fetch-photos.mjs [slot...]
 ```
+
+**Do not run `npm run build` while `npm run dev` is running** — both write to
+`.next` and the production build pulls the chunks out from under the dev server,
+which then 500s on every route. Stop the dev server first.
 
 ---
 

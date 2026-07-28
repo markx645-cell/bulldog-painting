@@ -34,7 +34,7 @@ export default function ProjectsPage() {
 
       <BeforeAfterGallery
         heading="Recent projects"
-        lead="Interiors, exteriors, cabinets, brick, decks, and commercial. Photos are placeholders until real job shots are added — see content/media.ts."
+        lead="Interiors, exteriors, cabinets, brick, decks, and commercial."
       />
 
       <CTASection withForm />
