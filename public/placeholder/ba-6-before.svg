@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Project 6 — Before">
+  <defs>
+    <linearGradient id="g623" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C08A2E"/>
+      <stop offset="1" stop-color="#8A6220"/>
+    </linearGradient>
+    <pattern id="pg623" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="34" height="34" fill="none"/>
+      <rect width="17" height="34" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#g623)"/>
+  <rect width="800" height="600" fill="url(#pg623)"/>
+  <g transform="translate(400 300)" text-anchor="middle" fill="#ffffff">
+    <text y="-14" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="31" font-weight="700" opacity="0.94">Project 6 — Before</text>
+    <text y="24" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" opacity="0.62">PLACEHOLDER — REPLACE IN content/media.ts</text>
+  </g>
+</svg>
