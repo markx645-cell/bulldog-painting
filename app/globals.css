@@ -80,46 +80,29 @@
       radial-gradient(circle at 85% 70%, rgba(27, 94, 75, 0.55), transparent 50%);
   }
 
-  /* ---------- Header background ----------
-     The header is built from separate stacked bars, so that on mobile the nav
-     can scroll away while the call/quote bar stays pinned. To run ONE image
-     across all of them with no seam, every band paints the same image scaled
-     to the full header height and shifted to its own position inside it.
-
-     --hdr-h  total header height at this breakpoint
-     --hdr-y  this band's offset within that height
-
-     Width is 100% on every band, so all bands scale the image identically and
-     the joins line up exactly. Heights below must match the Tailwind classes
-     in Header.tsx — mobile 36+56+96, desktop 36+96. */
-  .hdr-band {
-    --hdr-h: 188px;
-    --hdr-y: 0px;
-    --hdr-scrim: linear-gradient(rgba(11, 38, 30, 0.8), rgba(11, 38, 30, 0.8));
-    background-image: var(--hdr-scrim), url('/photos/header-bg.jpg');
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100% 100%, 100% var(--hdr-h);
-    background-position: 0 0, 0 var(--hdr-y);
+  /* ---------- Header ----------
+     The header overlays the page, so at the top it has no background at all and
+     the hero runs behind it. `.hdr-solid` is added once you scroll past the
+     hero, where the links would otherwise land on pale page content. */
+  .hdr-solid {
+    background-image:
+      linear-gradient(rgba(11, 38, 30, 0.93), rgba(11, 38, 30, 0.97)),
+      url('/photos/header-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%, cover;
+    background-position: center;
+    box-shadow: 0 10px 34px rgba(11, 38, 30, 0.34);
   }
 
-  .hdr-band-2 {
-    --hdr-y: -36px;
-  }
-
-  /* Last band before the page content. Its scrim deepens to solid pine-900 at
-     the bottom edge so it meets the hero on exactly the same colour — without
-     this the header reads a shade lighter and you get a visible line. */
-  .hdr-band-main {
-    --hdr-y: -92px;
-    --hdr-scrim: linear-gradient(rgba(11, 38, 30, 0.72), rgba(11, 38, 30, 0.99));
+  /* First element on a page clears the overlaid header. Must match the header
+     height: mobile 36 + 56 + 96, desktop 36 + 96. */
+  .under-header {
+    padding-top: 188px;
   }
 
   @media (min-width: 768px) {
-    .hdr-band {
-      --hdr-h: 132px;
-    }
-    .hdr-band-main {
-      --hdr-y: -36px;
+    .under-header {
+      padding-top: 132px;
     }
   }
 

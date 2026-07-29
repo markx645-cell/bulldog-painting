@@ -37,8 +37,10 @@ const heroCategories = [
 export default function HomePage() {
   return (
     <>
-      {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-pine-900">
+      {/* ---------- HERO ----------
+          The header overlays this section, so the image runs to the very top of
+          the page and `under-header` pushes the copy clear of the nav. */}
+      <section className="under-header relative overflow-hidden bg-pine-900">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
 
         <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
@@ -59,9 +61,19 @@ export default function HomePage() {
             className="absolute inset-0"
             style={{ backgroundImage: 'linear-gradient(to top, #0B261E 0%, rgba(11,38,30,0) 22%)' }}
           />
+          {/* Darkens the top of the image so the overlaid nav stays legible
+              where it crosses the photo. */}
+          <div
+            className="absolute inset-x-0 top-0 h-48"
+            style={{
+              backgroundImage:
+                'linear-gradient(to bottom, rgba(11,38,30,0.92) 0%, rgba(11,38,30,0.55) 45%, rgba(11,38,30,0) 100%)',
+            }}
+          />
         </div>
 
-        <div className="container-x relative py-12 lg:py-16">
+        {/* under-header already clears the nav, so the top padding here is small */}
+        <div className="container-x relative pb-12 pt-6 lg:pb-16 lg:pt-8">
           <div className="max-w-xl animate-fade-up lg:max-w-[38rem]">
             <p className="eyebrow">Cincinnati &amp; Surrounding Areas</p>
             <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
