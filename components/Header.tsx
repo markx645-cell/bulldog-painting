@@ -180,8 +180,8 @@ export default function Header() {
       {/* z-50, above the utility bar, so the overhanging logo sits on top of it
           rather than being covered by it */}
       <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-50">
-        {/* h-12 at every breakpoint — the band offsets in globals.css assume it */}
-        <div className="flex h-12 w-full items-center justify-between gap-4 px-5 sm:px-8">
+        {/* 58px at every breakpoint — the band offsets in globals.css assume it */}
+        <div className="flex h-[58px] w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
             {/* From md up the logo is taller than the bar and the negative margin
                 lifts it, so it overlaps the utility bar above instead of
@@ -202,7 +202,7 @@ export default function Header() {
               >
                 <Link
                   href={group.href}
-                  className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
+                  className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
                 >
                   {group.label}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -215,7 +215,7 @@ export default function Header() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-md px-3 py-2 text-sm text-graphite hover:bg-cream hover:text-pine"
+                        className="block rounded-md px-3 py-2 text-xs text-graphite hover:bg-cream hover:text-pine"
                       >
                         {child.label}
                       </Link>
@@ -228,7 +228,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
+                className="px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
               >
                 {item.label}
               </Link>
@@ -241,7 +241,7 @@ export default function Header() {
             >
               <Link
                 href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
+                className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
               >
                 {nav.about.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -254,7 +254,7 @@ export default function Header() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm text-graphite hover:bg-cream hover:text-pine"
+                      className="block rounded-md px-3 py-2 text-xs text-graphite hover:bg-cream hover:text-pine"
                     >
                       {child.label}
                     </Link>
@@ -269,14 +269,14 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4">
             <a
               href={site.phoneHref}
-              className="hidden items-center gap-2 whitespace-nowrap font-display text-xl font-extrabold tabular-nums leading-none text-white transition-colors hover:text-brass lg:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap font-display text-sm font-extrabold tabular-nums leading-none text-white transition-colors hover:text-brass lg:inline-flex"
             >
               <PhoneIcon className="text-brass" />
               {site.phone}
             </a>
             <Link
               href="/contact"
-              className="btn-brass hidden whitespace-nowrap !px-5 !py-2 !text-xs lg:inline-flex"
+              className="btn-brass hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
             >
               Free Estimate
             </Link>
