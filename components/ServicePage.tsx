@@ -17,8 +17,6 @@ const categoryLabel = {
   interior: { label: 'Interior Painting', href: '/interior-painting' },
   exterior: { label: 'Exterior Painting', href: '/exterior-painting' },
   commercial: { label: 'Commercial Painting', href: '/commercial-painting' },
-  // Specialty services are their own hub, so the breadcrumb is just the page.
-  specialty: { label: 'Painter for a Day', href: '/painter-for-a-day' },
 } as const;
 
 export default function ServicePage({ service }: { service: Service }) {

@@ -41,7 +41,6 @@ images of other people's work are a placeholder, not a portfolio.
 | frontDoor | front-door-painting.jpg | Ben Prater | https://www.pexels.com/photo/creative-trompe-l-oeil-painted-front-door-decoration-37621239/ |
 | headerBg | header-bg.jpg | Adam Balcombe | https://www.pexels.com/photo/close-up-of-unevenly-painted-green-background-8337525/ |
 | interior | interior-painting.jpg | Max Vakhtbovych | https://www.pexels.com/photo/clean-unfurnished-apartment-room-8146336/ |
-| painterDay | painter-for-a-day.jpg | Blue Bird | https://www.pexels.com/photo/crop-photo-of-person-putting-tape-on-wall-7217961/ |
 | popcorn | popcorn-ceiling-removal.jpg | Tima Miroshnichenko | https://www.pexels.com/photo/man-polishing-the-ceiling-6474129/ |
 | pressureWash | pressure-washing.jpg | Erik Mclean | https://www.pexels.com/photo/man-in-sunglasses-washing-sports-car-4876639/ |
 | processHero | process-hero.jpg | Blue Bird | https://www.pexels.com/photo/painting-materials-on-floor-7217935/ |

@@ -1,10 +1,5 @@
 import Link from 'next/link';
-import {
-  interiorServices,
-  exteriorServices,
-  commercialServices,
-  specialtyServices,
-} from '@/content/services';
+import { interiorServices, exteriorServices, commercialServices } from '@/content/services';
 
 function Column({
   title,
@@ -75,13 +70,9 @@ export default function ServicesGrid() {
             items={exteriorServices.map((s) => ({ slug: s.slug, name: s.name, lead: s.lead }))}
           />
           <Column
-            title="Commercial & Specialty"
-            blurb="Offices, retail, and multifamily scheduled around your hours — plus a single painter by the day for the small stuff."
-            items={[...commercialServices, ...specialtyServices].map((s) => ({
-              slug: s.slug,
-              name: s.name,
-              lead: s.lead,
-            }))}
+            title="Commercial"
+            blurb="Offices, retail, multifamily, and light industrial, scheduled around your hours."
+            items={commercialServices.map((s) => ({ slug: s.slug, name: s.name, lead: s.lead }))}
           />
         </div>
       </div>

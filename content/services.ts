@@ -5,7 +5,7 @@ export type Faq = { q: string; a: string };
 export type Service = {
   /** URL segment — becomes /{slug} */
   slug: string;
-  category: 'interior' | 'exterior' | 'commercial' | 'specialty';
+  category: 'interior' | 'exterior' | 'commercial';
   /** Short name used in nav, cards, breadcrumbs */
   name: string;
   h1: string;
@@ -1020,95 +1020,7 @@ export const services: Service[] = [
       },
     ],
     related: ['interior-painting', 'exterior-painting', 'garage-floor-epoxy'],
-  },
-
-  // ══════════════════════════════════════════════════════════ SPECIALTY ═══
-  {
-    slug: 'painter-for-a-day',
-    category: 'specialty',
-    name: 'Painter for a Day',
-    h1: 'Painter for a Day',
-    metaTitle: 'Painter for a Day in Cincinnati — Hourly Painting Service',
-    metaDescription:
-      'Book a professional painter for a single day in Cincinnati and the surrounding areas. Your punch list, one flat day rate, prep and cleanup included. No minimum project size.',
-    eyebrow: 'One painter · One day · Your list',
-    lead: 'A flat day rate for the jobs too small to bother quoting — touch-ups, a single room, the door you have been meaning to repaint.',
-    hero: 'painterDay',
-    intro: [
-      'Most painting companies will not quote a job under a few thousand dollars, because mobilising a crew for half a day costs nearly as much as a full one. That leaves a lot of homeowners stuck with a list of small things nobody will come out for.',
-      'So we sell the day itself. One of our painters arrives at 8am with brushes, rollers, drop cloths, and a ladder, works through your list in the order you set, and cleans up before leaving at 4pm. No project minimum, no quoting back and forth over a $300 job.',
-    ],
-    includes: [
-      {
-        title: 'Eight working hours',
-        body: 'Eight on-site hours, 8am to 4pm, with a half-hour break that is not billed. If the list finishes early we move to the next thing on it rather than leaving at noon.',
-      },
-      {
-        title: 'You set the order',
-        body: 'We walk the list with you first thing and agree a priority order, so if the day runs out it runs out on the thing that mattered least.',
-      },
-      {
-        title: 'Prep and cleanup are inside the day',
-        body: 'Masking, drop cloths, and cleanup are part of the eight hours, not extra. We tell you honestly at the walkthrough how much of the day the prep will eat.',
-      },
-      {
-        title: 'Small repairs included',
-        body: 'Nail holes, dents, minor cracks, and caulk gaps get filled as part of the work. Anything needing a proper patch and multiple dry cycles we will flag as its own job.',
-      },
-      {
-        title: 'Full-time employee, not a temp',
-        body: 'The painter who shows up is one of our W-2 crew, background-checked and uniformed, and carries our insurance. This is not a labour-broker service.',
-      },
-      {
-        title: 'Paint at our cost',
-        body: 'You can supply your own, or we bring it and bill it at what we paid — contractor pricing, receipt attached. No markup on materials for day-rate work.',
-      },
-    ],
-    detail: [
-      {
-        heading: 'What actually fits in one day',
-        body: [
-          'Realistic single-day scopes, assuming walls in decent shape: one average bedroom in two coats including cutting in. Or the trim and doors across two or three rooms. Or a front door plus shutters. Or a hallway and stairwell. Or touch-ups scattered across an entire house, which is the most common booking we get.',
-          'What does not fit, however much anyone wants it to: a whole-house interior, a room that needs wallpaper stripped first, kitchen cabinets, or anything exterior that needs washing and a dry-out window. Those are multi-day jobs and pretending otherwise just means a rushed finish.',
-        ],
-      },
-      {
-        heading: 'When a fixed quote beats a day rate',
-        body: [
-          'If your list is genuinely more than a day, stop and get a normal quote. Two or three booked days will cost you more than a fixed-price job covering the same scope, because a project quote lets us schedule a crew efficiently instead of sending one painter back three times.',
-          'Day rate is also the wrong tool for anything where prep is the bulk of the work. A room with heavy water damage, walls that need a full skim, or exterior wood that needs scraping will burn the entire day on preparation and leave you with a room that is primed and unfinished. We will tell you that at the walkthrough rather than take the booking and hand you a half-done room at 4pm.',
-        ],
-      },
-    ],
-    pricing: {
-      label: 'Flat day rate',
-      range: '$560 one painter · $1,040 two painters',
-      note: 'Eight on-site hours, prep and cleanup included, materials at our cost on top. Two painters is not quite double because there is only one drive and one setup. Half days are not offered — the setup and cleanup overhead makes them poor value for you.',
-    },
-    faqs: [
-      {
-        q: 'Is there a minimum?',
-        a: 'One day is the minimum, and it is also the maximum you can book at this rate before a fixed quote makes more sense for you. We do not do half days: setup and cleanup are a fixed cost regardless, so a half day would cost nearly two-thirds of a full one.',
-      },
-      {
-        q: 'What if the list is not finished by 4pm?',
-        a: 'You book another day, or we quote the remainder properly. Because we agree a priority order first thing, whatever is unfinished is whatever you ranked lowest. We do not run over and bill you for it without asking.',
-      },
-      {
-        q: 'Can I have them do a bit of everything around the house?',
-        a: 'Yes, and that is the most popular use of it. Scuffed hallway, a couple of doors, the ceiling stain in the bathroom, the trim in the front room. A day of scattered touch-ups makes a house feel dramatically better for very little money.',
-      },
-      {
-        q: 'Do I need to buy the paint beforehand?',
-        a: 'Not unless you want to. Tell us the colors when you book and we will bring them and bill them at cost with the receipt. If you already have half-used cans from the original build, even better — bring them out and we will use them for touch-ups.',
-      },
-      {
-        q: 'Will one painter move furniture?',
-        a: 'They will move what one person can safely shift alone. Anything heavy, awkward, or fragile should be moved before 8am, otherwise you are paying day rate for furniture removal instead of painting.',
-      },
-    ],
-    related: ['interior-painting', 'trim-and-door-painting', 'drywall-repair', 'front-door-painting'],
-  },
+  }
 ];
 
 export const serviceBySlug = new Map(services.map((s) => [s.slug, s]));
@@ -1116,7 +1028,6 @@ export const serviceBySlug = new Map(services.map((s) => [s.slug, s]));
 export const interiorServices = services.filter((s) => s.category === 'interior');
 export const exteriorServices = services.filter((s) => s.category === 'exterior');
 export const commercialServices = services.filter((s) => s.category === 'commercial');
-export const specialtyServices = services.filter((s) => s.category === 'specialty');
 
 export function getService(slug: string): Service {
   const s = serviceBySlug.get(slug);

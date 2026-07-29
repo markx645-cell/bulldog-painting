@@ -126,10 +126,6 @@ const SLOTS = {
     file: 'pressure-washing',
     queries: ['pressure washing house siding', 'power washing driveway', 'pressure washer cleaning'],
   },
-  painterDay: {
-    file: 'painter-for-a-day',
-    queries: ['painter painting trim brush indoors', 'man painting room brush', 'painter working alone room'],
-  },
   // Posters for the video-testimonial cards. Portrait, person-facing — a photo
   // of a room reads wrong on a card that claims to be someone talking.
   videoPoster1: {

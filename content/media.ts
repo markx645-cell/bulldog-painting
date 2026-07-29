@@ -159,11 +159,6 @@ export const media = {
     alt: 'Siding being pressure washed before painting',
     note: 'Action shot, clean stripe visible against dirty siding.',
   },
-  painterDay: {
-    src: P('painter-for-a-day'),
-    alt: 'A painter cutting in trim during a single-day booking',
-    note: 'Landscape 3:2. One painter working alone in a furnished room — should read as a small job, not a full crew.',
-  },
   cost: {
     src: P('painting-cost'),
     alt: 'An itemized painting estimate on a clipboard',

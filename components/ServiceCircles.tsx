@@ -15,18 +15,16 @@ type Circle = {
   label: string;
   href: string;
   color: string;
-  icon: 'interior' | 'exterior' | 'cabinets' | 'commercial' | 'floors' | 'day';
+  icon: 'interior' | 'exterior' | 'cabinets' | 'commercial' | 'floors' | 'color';
 };
 
-// Colour consultation is not a badge here — it gets a full section of its own
-// further down the homepage, and repeating it would just crowd the row.
 const circles: Circle[] = [
   { label: 'Interior Painting', href: '/interior-painting', color: '#1B5E4B', icon: 'interior' },
   { label: 'Exterior Painting', href: '/exterior-painting', color: '#2F7D66', icon: 'exterior' },
   { label: 'Cabinet Refinishing', href: '/cabinet-painting', color: '#C08A2E', icon: 'cabinets' },
   { label: 'Commercial Painting', href: '/commercial-painting', color: '#22282E', icon: 'commercial' },
   { label: 'Floor Coatings', href: '/garage-floor-epoxy', color: '#103A2E', icon: 'floors' },
-  { label: 'Painter for a Day', href: '/painter-for-a-day', color: '#A2731F', icon: 'day' },
+  { label: 'Color Consultation', href: '/contact', color: '#A2731F', icon: 'color' },
 ];
 
 function Icon({ name }: { name: Circle['icon'] }) {
@@ -85,13 +83,13 @@ function Icon({ name }: { name: Circle['icon'] }) {
           <path d="M10.6 7v12.5M13.4 7v12.5" />
         </svg>
       );
-    case 'day': // clock with a brush across it — one painter, one day
+    case 'color': // fanned swatch deck
       return (
         <svg {...common}>
-          <circle cx="10.5" cy="10.5" r="7.5" />
-          <path d="M10.5 6.2v4.6l3 1.8" />
-          <path d="M15.8 20.6l4.4-4.4" />
-          <path d="M18.6 14.2l2.6 2.6-1.5 1.5-2.6-2.6z" />
+          <path d="M11.4 20.6L4.2 13.4a1.4 1.4 0 0 1 0-2l7.2-7.2a1.4 1.4 0 0 1 2 0l1.4 1.4" />
+          <path d="M14.8 5.6l2.6 2.6a1.4 1.4 0 0 1 0 2l-6 6" />
+          <path d="M17.4 11.6l2.4 2.4a1.4 1.4 0 0 1 0 2l-3.4 3.4a1.4 1.4 0 0 1-2 0l-3-3" />
+          <circle cx="9" cy="9" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
     default:
