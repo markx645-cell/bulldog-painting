@@ -92,7 +92,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 w-full">
         {/* Top utility bar — desktop */}
-        <div className="hidden bg-pine-900 text-white md:block">
+        <div className="hdr-band hidden text-white md:block">
           <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
@@ -126,7 +126,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 1 — offer / info */}
-        <div className="bg-pine-900 md:hidden">
+        <div className="hdr-band md:hidden">
           <div className="relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
@@ -153,7 +153,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 2 — quote / phone split */}
-        <div className="bg-pine-900 md:hidden">
+        <div className="hdr-band hdr-band-2 md:hidden">
           <div className="flex h-14 items-stretch">
             <Link
               href="/contact"
@@ -177,8 +177,9 @@ export default function Header() {
       {/* Main bar — sticky on desktop, scrolls away on mobile.
           Dark so it runs straight into the pine-900 hero every page opens with;
           a white bar here reads as a separate block sitting on top of the page. */}
-      <div className="bg-pine-900 md:sticky md:top-9 md:z-40">
-        <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:h-24 sm:px-8">
+      <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-40">
+        {/* h-24 at every breakpoint — the band offsets in globals.css assume it */}
+        <div className="flex h-24 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
             <Logo priority className="h-16 w-auto sm:h-20" />
           </Link>
@@ -290,7 +291,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto bg-pine-900 lg:hidden">
+        <div className="max-h-[calc(100vh-6rem)] overflow-y-auto bg-pine-900 lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.interior)}
             {renderMobileGroup(nav.exterior)}

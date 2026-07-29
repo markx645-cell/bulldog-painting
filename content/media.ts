@@ -34,6 +34,15 @@ export const media = {
     note: 'Supplied brand lockup. Wordmark and strapline are inside the artwork.',
   },
 
+  // Header band texture. Referenced from globals.css (.hdr-band), not through
+  // <Photo>, because it is a CSS background — but it is registered here so the
+  // slot is visible alongside every other image on the site.
+  headerBg: {
+    src: P('header-bg'),
+    alt: '',
+    note: 'Wide brushed-paint texture, ~2400x340. Must be evenly toned — white nav text sits on it.',
+  },
+
   // ---- Home ----
   homeHero: {
     src: P('home-hero'),

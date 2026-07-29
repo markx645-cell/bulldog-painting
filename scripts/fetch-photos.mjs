@@ -27,6 +27,17 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 /** `file` must match the filename content/media.ts asks for.
  *  orientation: landscape | portrait | square */
 const SLOTS = {
+  // Wide, short strip — it gets stretched across the header bands, so the
+  // source is cropped near that aspect to keep the distortion invisible.
+  // Pinned by photo ID: search results drift, and this one was chosen because
+  // it is evenly toned enough to keep white nav text legible across the whole
+  // width. Do not swap it for a search without checking that again.
+  headerBg: {
+    file: 'header-bg',
+    id: 8337525, // deep brushed green, Adam Balcombe
+    size: { width: 2400, height: 340 },
+    queries: ['dark green painted wall texture'],
+  },
   homeHero: {
     file: 'home-hero',
     queries: ['painter painting wall roller interior', 'house painter working indoors', 'man painting wall roller'],
@@ -177,8 +188,31 @@ async function download(photo, outPath, { width, height }) {
   return { bytes: out.length, w: meta.width, h: meta.height };
 }
 
-async function grab(name, { queries, pick = 0, orientation = 'landscape', file }, size) {
+async function grab(name, { queries, pick = 0, orientation = 'landscape', file, id }, size) {
   const outPath = path.join(OUT_DIR, `${file ?? name}.jpg`);
+
+  // An explicit photo ID wins over search — used where a specific image was
+  // chosen deliberately and must not drift when results change.
+  if (id) {
+    const res = await fetch(`https://api.pexels.com/v1/photos/${id}`, {
+      headers: { Authorization: KEY },
+    });
+    if (res.ok) {
+      const photo = await res.json();
+      const info = await download(photo, outPath, size);
+      attribution.push({
+        slot: name,
+        file: `${file ?? name}.jpg`,
+        photographer: photo.photographer,
+        url: photo.url,
+        query: `pinned id ${id}`,
+      });
+      console.log(`OK  ${name.padEnd(16)} ${info.w}x${info.h} ${(info.bytes / 1024).toFixed(0)}KB  by ${photo.photographer} (pinned)`);
+      return true;
+    }
+    console.error(`  ${name}: pinned id ${id} failed (${res.status}), falling back to search`);
+  }
+
   for (const q of queries) {
     const photos = await search(q, orientation);
     const photo = photos[pick] ?? photos[0];
@@ -208,7 +242,8 @@ const wanted = (k) => only.length === 0 || only.includes(k);
 for (const [name, cfg] of Object.entries(SLOTS)) {
   if (!wanted(name)) continue;
   const size =
-    cfg.orientation === 'portrait' ? { width: 1000, height: 1250 } : { width: 1600, height: 1067 };
+    cfg.size ??
+    (cfg.orientation === 'portrait' ? { width: 1000, height: 1250 } : { width: 1600, height: 1067 });
   await grab(name, cfg, size);
 }
 
