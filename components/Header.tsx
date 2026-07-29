@@ -93,7 +93,7 @@ export default function Header() {
       <header className="sticky top-0 z-50 w-full">
         {/* Top utility bar — desktop */}
         <div className="hdr-band hidden text-white md:block">
-          <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
+          <div className="spectrum-bar relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
                 showOffer ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'
@@ -127,7 +127,7 @@ export default function Header() {
 
         {/* Mobile bar 1 — offer / info */}
         <div className="hdr-band md:hidden">
-          <div className="relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
+          <div className="spectrum-bar relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
                 showOffer ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'

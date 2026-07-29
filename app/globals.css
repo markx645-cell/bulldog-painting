@@ -143,6 +143,71 @@
   }
 }
 
+/* ---------- Spectrum bar ----------
+   The top utility strip cycles a paint-swatch spectrum, which is a fair thing
+   for a painting company to do with that space.
+
+   Two layers: a low-opacity wash across the whole strip so colour visibly
+   moves behind the text, and a crisp 3px line along the bottom edge. The text
+   sits between them and stays white on dark, so legibility never depends on
+   where the animation happens to be.
+
+   The palette is paint tones rather than a neon rainbow, and it deliberately
+   stops short of fire-engine red — the brand rules out red, and it is also the
+   other Bulldog company's colour.
+
+   Panned with transform on a 200%-wide element rather than background-position:
+   it stays on the compositor, and the gradient lists the palette twice so
+   translating exactly -50% loops with no jump. */
+:root {
+  --spectrum: linear-gradient(
+    90deg,
+    #1b5e4b 0%, #2f7d66 5%, #3e8fa8 10%, #3b5fa5 15%, #6b4e9b 20%, #9b4e7a 25%,
+    #c4643c 30%, #d89a2e 35%, #a8b23c 40%, #4e9b62 45%, #1b5e4b 50%,
+    #2f7d66 55%, #3e8fa8 60%, #3b5fa5 65%, #6b4e9b 70%, #9b4e7a 75%,
+    #c4643c 80%, #d89a2e 85%, #a8b23c 90%, #4e9b62 95%, #1b5e4b 100%
+  );
+}
+
+.spectrum-bar::before,
+.spectrum-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 200%;
+  background-image: var(--spectrum);
+  pointer-events: none;
+  animation: spectrum-pan 22s linear infinite;
+}
+
+/* wash behind the text. Plain alpha rather than a screen blend: screen over a
+   dark base lifts the ochre end of the palette far enough to fight the white
+   text, and the contrast then depends on where the loop happens to be. */
+.spectrum-bar::before {
+  top: 0;
+  bottom: 0;
+  opacity: 0.28;
+}
+
+/* crisp swatch line along the bottom edge */
+.spectrum-bar::after {
+  bottom: 0;
+  height: 3px;
+}
+
+@keyframes spectrum-pan {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spectrum-bar::before,
+  .spectrum-bar::after {
+    animation: none;
+  }
+}
+
 /* ---------- Torn paint edge between sections ----------
    Every section ends with a ragged edge painted in the NEXT section's colour,
    so the boundary reads as paint torn over the section below rather than a
