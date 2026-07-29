@@ -10,7 +10,7 @@ import QualityControl from '@/components/QualityControl';
 import VideoTestimonials from '@/components/VideoTestimonials';
 import ColorConsult from '@/components/ColorConsult';
 import ProcessSteps from '@/components/ProcessSteps';
-import WhyUs from '@/components/WhyUs';
+import MissionValues from '@/components/MissionValues';
 import BeforeAfterGallery from '@/components/BeforeAfterGallery';
 import WarrantyHighlight from '@/components/WarrantyHighlight';
 import FinancingBand from '@/components/FinancingBand';
@@ -171,7 +171,7 @@ export default function HomePage() {
 
       <AboutBlock />
 
-      <WhyUs />
+      <MissionValues />
 
       <QualityControl />
 

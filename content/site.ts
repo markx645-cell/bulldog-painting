@@ -208,6 +208,50 @@ export const aboutHome = {
   ],
 } as const;
 
+// Homepage mission & values.
+//
+// Written as conduct we can be held to, not adjectives. "Flawless results that
+// stand the test of time" is the sort of line every painter's site already has
+// and no customer believes; each of these is a specific thing we do or refuse
+// to do, and a customer could call us out on any of them.
+export const mission = {
+  headline: 'Our mission & values',
+  lead: 'Prep it properly, paint it once, stand behind it for five years. Everything below is a practice, not a promise — you can check us against all six.',
+} as const;
+
+export const values = [
+  {
+    icon: 'prep',
+    title: 'Prep Before Paint',
+    body: 'On most jobs we spend more days preparing than painting. It is the least glamorous part of the schedule and the only one that decides whether the finish lasts.',
+  },
+  {
+    icon: 'doc',
+    title: 'Written, Never Verbal',
+    body: 'Prep, primer, product, coats, and labor itemized on paper before you commit. No handshake numbers, and no change order without a conversation first.',
+  },
+  {
+    icon: 'crew',
+    title: 'The Same Crew Throughout',
+    body: 'A named lead on site from day one to walkthrough, backed by painters on our payroll. You are not meeting a new subcontractor on Wednesday.',
+  },
+  {
+    icon: 'honest',
+    title: 'We Say When Not to Hire Us',
+    body: 'If the wall is still wet, if a lighter-prep job is the smarter spend, or if replacement beats painting, we tell you and lose the work. That is the whole point.',
+  },
+  {
+    icon: 'clean',
+    title: 'Your House Back Each Evening',
+    body: 'Floors swept, tools out, furniture returned when a room is finished. Not a single push to tidy up on the last afternoon.',
+  },
+  {
+    icon: 'shield',
+    title: 'We Come Back',
+    body: 'Five years, in writing, on our workmanship. If something we did fails, we return and fix it — no invoice and no argument about whose fault it was.',
+  },
+] as const;
+
 // Homepage quality-control block. Each one is a thing we actually do on site,
 // not a slogan — if it cannot be pointed at during a walkthrough, cut it.
 export const qualityStandards = [
