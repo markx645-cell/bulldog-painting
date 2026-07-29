@@ -51,7 +51,7 @@ export const trustPoints = [
   { icon: 'star', stat: '4.9★', label: 'Across 400+ homeowner reviews' },
   { icon: 'brush', stat: '3,200+', label: `Homes painted since ${site.founded}` },
   { icon: 'shield', stat: '5-Year', label: 'Written workmanship warranty' },
-  { icon: 'crew', stat: 'W-2 Crews', label: 'Employees, never day labor' },
+  { icon: 'crew', stat: 'W-2 Crews', label: 'Employees, never subcontracted out' },
 ] as const;
 
 // Current offers. Keep this honest — these are the only two we run.
@@ -143,7 +143,7 @@ export const pillars = [
   },
   {
     icon: 'crew',
-    title: 'W-2 Crews, Never Day Labor',
+    title: 'W-2 Crews, Never Subcontracted Out',
     body: 'Eleven full-time painters on payroll. Background-checked, uniformed, and the same faces on your job from day one to walkthrough.',
   },
   {
@@ -202,7 +202,7 @@ export const aboutHome = {
   ],
   points: [
     `Family-owned and operated since ${site.founded}`,
-    'W-2 painters, background-checked — never day labor',
+    'W-2 painters, background-checked — never subcontracted out',
     'EPA Lead-Safe certified for pre-1978 homes',
     'Written, itemized estimates with prep broken out',
   ],

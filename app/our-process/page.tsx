@@ -143,7 +143,7 @@ export default function ProcessPage() {
             </h2>
             <p className="mt-4 leading-relaxed text-slate">
               Every painter who works on your house is a W-2 employee — background-checked, uniformed, and
-              trained on our prep standard. We do not subcontract, and we do not pick up day labor to hit a
+              trained on our prep standard. The work is never subcontracted out, not even to hit a
               deadline.
             </p>
             <p className="mt-4 leading-relaxed text-slate">

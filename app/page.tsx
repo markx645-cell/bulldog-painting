@@ -105,9 +105,9 @@ export default function HomePage() {
               <span className="block text-brass">Painted once.</span>
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-200">
-              Family-owned since {site.founded}. {stats.crewCount} full-time painters on payroll — never day
-              labor — {stats.homesPainted} homes finished, and a written five-year warranty on the work
-              itself, not just the paint.
+              Family-owned since {site.founded}. {stats.crewCount} full-time painters on payroll — never
+              subcontracted out — {stats.homesPainted} homes finished, and a written five-year warranty on
+              the work itself, not just the paint.
             </p>
 
             <div className="mt-5 flex items-center gap-2">
