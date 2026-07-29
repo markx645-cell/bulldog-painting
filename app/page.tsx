@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Photo from '@/components/Photo';
 import Stars from '@/components/Stars';
 import TrustBar from '@/components/TrustBar';
+import ServiceCircles from '@/components/ServiceCircles';
 import ServicesGrid from '@/components/ServicesGrid';
 import ColorConsult from '@/components/ColorConsult';
 import ProcessSteps from '@/components/ProcessSteps';
@@ -111,6 +112,8 @@ export default function HomePage() {
       </section>
 
       <TrustBar />
+
+      <ServiceCircles />
 
       <ServicesGrid />
 
