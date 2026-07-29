@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Photo from '@/components/Photo';
 import Stars from '@/components/Stars';
 import TrustBar from '@/components/TrustBar';
-import RatingStrip from '@/components/RatingStrip';
 import ServiceCircles from '@/components/ServiceCircles';
 import ServiceShowcase from '@/components/ServiceShowcase';
 import AboutBlock from '@/components/AboutBlock';
@@ -149,8 +148,6 @@ export default function HomePage() {
       </section>
 
       <TrustBar />
-
-      <RatingStrip />
 
       <ServiceCircles />
 
