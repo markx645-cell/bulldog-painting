@@ -116,6 +116,10 @@ const SLOTS = {
     file: 'pressure-washing',
     queries: ['pressure washing house siding', 'power washing driveway', 'pressure washer cleaning'],
   },
+  painterDay: {
+    file: 'painter-for-a-day',
+    queries: ['painter painting trim brush indoors', 'man painting room brush', 'painter working alone room'],
+  },
   cost: {
     file: 'painting-cost',
     queries: ['calculator invoice paperwork desk', 'estimate document clipboard', 'budget planning documents'],
@@ -215,8 +219,22 @@ for (const pair of PAIRS) {
   }
 }
 
+// Merge with any existing credits, so running a subset does not wipe the rest.
+const ATTRIB_PATH = path.join(OUT_DIR, 'ATTRIBUTION.md');
+if (fs.existsSync(ATTRIB_PATH)) {
+  const fetched = new Set(attribution.map((a) => a.slot));
+  for (const line of fs.readFileSync(ATTRIB_PATH, 'utf8').split('\n')) {
+    const m = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/);
+    if (!m || m[1] === 'Slot' || m[1].startsWith('---')) continue;
+    if (!fetched.has(m[1])) {
+      attribution.push({ slot: m[1], file: m[2], photographer: m[3], url: m[4] });
+    }
+  }
+}
+attribution.sort((a, b) => a.slot.localeCompare(b.slot));
+
 fs.writeFileSync(
-  path.join(OUT_DIR, 'ATTRIBUTION.md'),
+  ATTRIB_PATH,
   '# Photo credits\n\n' +
     'Stock photography from [Pexels](https://www.pexels.com), free to use under the\n' +
     '[Pexels licence](https://www.pexels.com/license/). Credit is not required but is\n' +
@@ -229,5 +247,6 @@ fs.writeFileSync(
     '\n',
   'utf8',
 );
+
 
 console.log(`\nDone. ${attribution.length} photos in public/photos/, credits in ATTRIBUTION.md`);

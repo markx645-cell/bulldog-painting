@@ -225,7 +225,8 @@ export const nav = {
   },
   simple: [
     { label: 'Commercial', href: '/commercial-painting' },
-    { label: 'Painting Cost', href: '/painting-cost' },
+    { label: 'Painter for a Day', href: '/painter-for-a-day' },
+    { label: 'Pricing', href: '/painting-cost' },
     { label: 'Financing', href: '/financing' },
   ],
   about: {
