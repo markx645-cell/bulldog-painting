@@ -8,7 +8,6 @@ import WarrantyHighlight from '@/components/WarrantyHighlight';
 import FaqAccordion from '@/components/FaqAccordion';
 import CTASection from '@/components/CTASection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
-import QuoteForm from '@/components/QuoteForm';
 import { getService, serviceBySlug, type Service } from '@/content/services';
 import { sharedFaqs } from '@/content/faqs';
 import { site, stats } from '@/content/site';
@@ -104,42 +103,29 @@ export default function ServicePage({ service }: { service: Service }) {
 
       <TrustBar />
 
-      {/* ---------- INTRO + FORM ---------- */}
+      {/* ---------- INTRO ----------
+          Single full-width column. Prose stays capped at max-w-3xl — full
+          container width is far past a comfortable line length to read. */}
       <section className="section bg-white">
-        <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-          <div>
-            <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
-              What {service.name.toLowerCase()} actually involves
-            </h2>
-            <div className="prose-body max-w-2xl">
-              {service.intro.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-
-            <h3 className="mt-10 font-display text-xl font-bold text-graphite">What is included</h3>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2" data-reveal-stagger>
-              {service.includes.map((inc) => (
-                <div key={inc.title} className="rounded-xl border border-slate-200 bg-cream p-5">
-                  <h4 className="font-display text-sm font-bold text-pine">{inc.title}</h4>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate">{inc.body}</p>
-                </div>
-              ))}
-            </div>
+        <div className="container-x">
+          <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
+            What {service.name.toLowerCase()} actually involves
+          </h2>
+          <div className="prose-body max-w-3xl">
+            {service.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
 
-          {/* top offset clears the sticky header: 36px utility bar + 48px main bar */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lift">
-              <h3 className="font-display text-lg font-bold text-graphite">
-                Free estimate, written and itemized
-              </h3>
-              <p className="mb-4 mt-1 text-sm text-slate">
-                Usually scheduled within two business days.
-              </p>
-              <QuoteForm compact />
-            </div>
-          </aside>
+          <h3 className="mt-10 font-display text-xl font-bold text-graphite">What is included</h3>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
+            {service.includes.map((inc) => (
+              <div key={inc.title} className="rounded-xl border border-slate-200 bg-cream p-5">
+                <h4 className="font-display text-sm font-bold text-pine">{inc.title}</h4>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate">{inc.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
