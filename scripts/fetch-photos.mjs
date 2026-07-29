@@ -131,6 +131,28 @@ const SLOTS = {
     file: 'painter-for-a-day',
     queries: ['painter painting trim brush indoors', 'man painting room brush', 'painter working alone room'],
   },
+  // Posters for the video-testimonial cards. Portrait, person-facing — a photo
+  // of a room reads wrong on a card that claims to be someone talking.
+  videoPoster1: {
+    file: 'video-poster-1',
+    orientation: 'portrait',
+    queries: ['woman smiling at home portrait', 'happy woman living room portrait'],
+  },
+  videoPoster2: {
+    file: 'video-poster-2',
+    orientation: 'portrait',
+    queries: ['man smiling at home portrait', 'happy man house portrait'],
+  },
+  videoPoster3: {
+    file: 'video-poster-3',
+    orientation: 'portrait',
+    queries: ['couple at home smiling', 'couple standing house portrait'],
+  },
+  videoPoster4: {
+    file: 'video-poster-4',
+    orientation: 'portrait',
+    queries: ['senior woman smiling home', 'older man portrait home'],
+  },
   cost: {
     file: 'painting-cost',
     queries: ['calculator invoice paperwork desk', 'estimate document clipboard', 'budget planning documents'],

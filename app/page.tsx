@@ -3,20 +3,23 @@ import type { Metadata } from 'next';
 import Photo from '@/components/Photo';
 import Stars from '@/components/Stars';
 import TrustBar from '@/components/TrustBar';
+import RatingStrip from '@/components/RatingStrip';
 import ServiceCircles from '@/components/ServiceCircles';
-import ServicesGrid from '@/components/ServicesGrid';
+import ServiceShowcase from '@/components/ServiceShowcase';
+import AboutBlock from '@/components/AboutBlock';
+import QualityControl from '@/components/QualityControl';
+import VideoTestimonials from '@/components/VideoTestimonials';
 import ColorConsult from '@/components/ColorConsult';
 import ProcessSteps from '@/components/ProcessSteps';
 import WhyUs from '@/components/WhyUs';
 import BeforeAfterGallery from '@/components/BeforeAfterGallery';
-import OffersGrid from '@/components/OffersGrid';
 import WarrantyHighlight from '@/components/WarrantyHighlight';
 import FinancingBand from '@/components/FinancingBand';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
 import ReviewsList from '@/components/ReviewsList';
 import FaqAccordion from '@/components/FaqAccordion';
 import CTASection from '@/components/CTASection';
-import { site, stats } from '@/content/site';
+import { site, stats, commercialSegments } from '@/content/site';
 import { reviews } from '@/content/reviews';
 import { sharedFaqs } from '@/content/faqs';
 
@@ -33,6 +36,40 @@ const heroCategories = [
   { label: 'Cabinets', href: '/cabinet-painting' },
   { label: 'Commercial', href: '/commercial-painting' },
 ];
+
+const residentialCards = [
+  {
+    title: 'Interior Painting',
+    body: 'Walls, ceilings, and trim in an occupied house — room by room, everything back in place each evening, two full coats in low-VOC product.',
+    href: '/interior-painting',
+    image: 'interior' as const,
+  },
+  {
+    title: 'Exterior Painting',
+    body: 'Washed, scraped, primed, and two-coated to survive Ohio Valley freeze-thaw. Lead-safe containment on anything built before 1978.',
+    href: '/exterior-painting',
+    image: 'exterior' as const,
+  },
+  {
+    title: 'Cabinet Refinishing',
+    body: 'Doors sprayed flat in our shop for a factory-smooth finish, boxes sprayed in place behind containment. Roughly a third of replacement cost.',
+    href: '/cabinet-painting',
+    image: 'cabinets' as const,
+  },
+  {
+    title: 'Free Color Consultation',
+    body: 'A certified consultant and large samples brushed on your own walls, so you see the colour in your own light before anything is ordered.',
+    href: '/contact',
+    image: 'colorConsult' as const,
+  },
+];
+
+const commercialCards = commercialSegments.map((s, i) => ({
+  title: s.title,
+  body: s.body,
+  href: '/commercial-painting',
+  image: (['commercial', 'basement', 'epoxy'] as const)[i],
+}));
 
 export default function HomePage() {
   return (
@@ -113,25 +150,41 @@ export default function HomePage() {
 
       <TrustBar />
 
+      <RatingStrip />
+
       <ServiceCircles />
 
-      <ServicesGrid />
+      <ServiceShowcase
+        eyebrow="For your home"
+        heading="Residential painting"
+        lead="Inside and out, on houses from 1880s Covington brick to last year's build in Union."
+        cards={residentialCards}
+        cta={{ label: 'See All Services', href: '/interior-painting' }}
+        tone="cream"
+      />
 
-      <ColorConsult />
+      <ServiceShowcase
+        eyebrow="For your property"
+        heading="Commercial painting"
+        lead="Scheduled around your hours, not ours — nights, weekends, and phased so nobody loses a trading day."
+        cards={commercialCards}
+        cta={{ label: 'Commercial Painting', href: '/commercial-painting' }}
+        tone="white"
+      />
 
-      <ProcessSteps tone="dark" />
+      <AboutBlock />
 
       <WhyUs />
 
+      <QualityControl />
+
+      <ProcessSteps />
+
+      <ColorConsult />
+
       <BeforeAfterGallery limit={4} moreHref="/projects" />
 
-      <OffersGrid />
-
-      <WarrantyHighlight />
-
-      <FinancingBand />
-
-      <ServiceAreaSection />
+      <VideoTestimonials />
 
       {/* ---------- REVIEWS ---------- */}
       <section className="section bg-white">
@@ -150,6 +203,12 @@ export default function HomePage() {
           <ReviewsList reviews={reviews} moreHref="/reviews" limit={6} />
         </div>
       </section>
+
+      <WarrantyHighlight />
+
+      <FinancingBand />
+
+      <ServiceAreaSection variant="cards" />
 
       <FaqAccordion faqs={sharedFaqs} heading="Before you call" tone="cream" />
 

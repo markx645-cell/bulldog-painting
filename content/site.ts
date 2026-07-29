@@ -192,6 +192,59 @@ export const process = [
   },
 ] as const;
 
+// Homepage "about" block.
+export const aboutHome = {
+  eyebrow: 'Who you are hiring',
+  headline: 'Cincinnati painters since 2004',
+  body: [
+    'Bulldog Painting is a family-owned crew working out of Cincinnati, covering both sides of the river and seven counties around it. Two decades, 3,200 homes, and eleven painters who are on our payroll rather than picked up for the week.',
+    'We are not the cheapest quote you will get, and we will tell you plainly when the cheapest quote is the right one — a rental between tenants, or a house going on the market in sixty days. What we are good at is the work that has to last: exteriors that take Ohio Valley freeze-thaw, plaster walls in century-old houses, and kitchens where the finish gets touched every day.',
+  ],
+  points: [
+    'Family-owned and operated since 2004',
+    'W-2 painters, background-checked — never day labor',
+    'EPA Lead-Safe certified for pre-1978 homes',
+    'Written, itemized estimates with prep broken out',
+  ],
+} as const;
+
+// Homepage quality-control block. Each one is a thing we actually do on site,
+// not a slogan — if it cannot be pointed at during a walkthrough, cut it.
+export const qualityStandards = [
+  {
+    title: 'Surface preparation',
+    body: 'Wash, scrape, sand, fill, caulk, spot-prime. Nine out of ten coating failures start here, which is why prep is its own line on your estimate rather than something folded into the square-foot rate.',
+  },
+  {
+    title: 'The right product for the substrate',
+    body: 'Bonding primer over chalked aluminum, stain-blocker over cedar and water marks, alkali-resistant over fresh masonry. Premium Sherwin-Williams and Benjamin Moore topcoats. The primer is named on the quote.',
+  },
+  {
+    title: 'A crew lead on site all day',
+    body: 'Every job has a named lead who is there start to finish, not a foreman rotating between four addresses. You have their number for the duration.',
+  },
+  {
+    title: 'You sign off, not us',
+    body: 'We walk the job with you at the end, punch-list anything you spot, and fix it before we invoice. The five-year written warranty is handed over on that walkthrough.',
+  },
+] as const;
+
+// Commercial segments shown on the homepage. All route to /commercial-painting.
+export const commercialSegments = [
+  {
+    title: 'Offices & Retail',
+    body: 'Suites, corridors, and storefronts painted overnight and on weekends in zero-VOC product, so you open the next morning with no odor and no lost trading day.',
+  },
+  {
+    title: 'Multifamily & HOA',
+    body: 'Unit turns priced per floor plan with a committed turnaround, plus common areas and building exteriors. Leasing can schedule move-ins without guessing.',
+  },
+  {
+    title: 'Light Industrial',
+    body: 'Warehouse interiors, dock areas, and mezzanines, including floor line striping and safety marking. Lift work and after-hours labor itemized, never buried.',
+  },
+] as const;
+
 // Coverage lives in content/areas.ts — counties and the communities under each.
 
 export const nav = {

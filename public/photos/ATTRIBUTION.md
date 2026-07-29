@@ -49,4 +49,8 @@ images of other people's work are a placeholder, not a portfolio.
 | serviceAreaMap | service-area-map.jpg | Sinful | https://www.pexels.com/photo/cincinnati-skyline-at-dusk-with-bridges-33303158/ |
 | siding | siding-painting.jpg | Erik Mclean | https://www.pexels.com/photo/exterior-of-old-building-with-gray-doors-7475555/ |
 | trimDoors | trim-and-door-painting.jpg | Blue Bird | https://www.pexels.com/photo/crop-photo-of-person-putting-tape-on-wall-7217961/ |
+| videoPoster1 | video-poster-1.jpg | Anna Shvets | https://www.pexels.com/photo/cheerful-senior-woman-sitting-at-table-with-cup-of-tea-5257621/ |
+| videoPoster2 | video-poster-2.jpg | Matheus Bertelli | https://www.pexels.com/photo/a-man-sitting-on-a-couch-in-a-living-room-15141485/ |
+| videoPoster3 | video-poster-3.jpg | Tima Miroshnichenko | https://www.pexels.com/photo/happy-couple-sitting-on-a-couch-5813748/ |
+| videoPoster4 | video-poster-4.jpg | Anna Shvets | https://www.pexels.com/photo/cheerful-senior-woman-sitting-at-table-with-cup-of-tea-5257621/ |
 | wallpaper | wallpaper-removal.jpg | Francesco Ungaro | https://www.pexels.com/photo/major-home-renovation-15798781/ |

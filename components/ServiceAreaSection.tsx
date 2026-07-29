@@ -10,7 +10,72 @@ import { serviceCounties, serviceCommunities, communityCount, featuredPlaces } f
  * Coverage is defined in content/areas.ts. Add a county or community there and
  * it appears here, on /service-areas, and in the footer.
  */
-export default function ServiceAreaSection({ compact = false }: { compact?: boolean }) {
+/** Nine headline places for the homepage card grid. */
+const CARD_PLACES = featuredPlaces.slice(0, 9);
+
+export default function ServiceAreaSection({
+  compact = false,
+  variant = 'full',
+}: {
+  compact?: boolean;
+  variant?: 'full' | 'cards';
+}) {
+  if (variant === 'cards') {
+    return (
+      <section className="section bg-white">
+        <div className="container-x text-center">
+          <p className="eyebrow-dark">Where we work</p>
+          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            Areas we serve
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-slate">
+            {communityCount}+ communities across {serviceCounties.length} counties in Ohio, Kentucky,
+            and Indiana.
+          </p>
+
+          <ul
+            className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3"
+            data-reveal-stagger
+          >
+            {CARD_PLACES.map((p) => (
+              <li
+                key={p}
+                className="rounded-xl border border-slate-200 bg-cream px-4 py-5 transition-colors hover:border-pine"
+              >
+                <span className="flex items-center justify-center gap-2 font-display text-sm font-bold text-graphite">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#C08A2E"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+                    <circle cx="12" cy="10" r="2.8" />
+                  </svg>
+                  {p}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-8 text-slate">
+            Not sure if we reach you?{' '}
+            <Link href="/service-areas" className="font-semibold text-pine hover:underline">
+              See every community we cover
+            </Link>
+            , or call and we will tell you straight.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={`section ${compact ? 'bg-white' : 'bg-cream'}`}>
       <div className="container-x text-center">
