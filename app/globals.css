@@ -6,6 +6,12 @@
   :root {
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-display: 'Sora', system-ui, sans-serif;
+
+    /* Ragged top edge used to mask the section transitions. Solid along the
+       bottom, torn along the top, with a few detached flecks so it reads as
+       paint rather than a saw blade. Stretched to the full width via
+       preserveAspectRatio='none'. */
+    --paint-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0 40H1440V11.8Q1331.5 12.6 1290.4 14.6Q1257.4 11.1 1224.4 10L1213.7 25.4L1152.5 12.1Q1117.7 9.6 1082.9 10Q1061 10.1 1039.1 12.2Q1015.5 12.8 991.9 15.5Q968 17.3 944 17.3Q936.6 20.4 929.2 22.8L871.7 14.7Q836.3 16.2 800.9 15.7L791.4 24.5Q760 21.6 728.7 18Q696.5 15.5 664.4 10.5Q629.2 10.5 594 10.7Q563.8 12.7 533.5 11.9Q507.4 15.2 481.3 15.5Q473.9 20.2 466.5 21.9Q427.4 18.5 388.3 18Q362.8 15.8 337.2 16.5Q296.4 13.5 255.7 12.3Q230.8 13.3 206 16.5Q164.8 14.5 123.6 11.8Q85.2 14.7 46.7 15.7Q23.4 17.3 0 16.9Z'/%3E%3Cellipse fill='%23000' cx='249' cy='32' rx='6.6' ry='3'/%3E%3Cellipse fill='%23000' cx='598' cy='34' rx='4.8' ry='2.3'/%3E%3Cellipse fill='%23000' cx='977' cy='31' rx='7.4' ry='2.9'/%3E%3Cellipse fill='%23000' cx='1285' cy='35' rx='4.2' ry='2'/%3E%3Cellipse fill='%23000' cx='430' cy='33' rx='3.2' ry='1.7'/%3E%3Cellipse fill='%23000' cx='1131' cy='30' rx='5.4' ry='2.5'/%3E%3C/svg%3E");
   }
 
   html {
@@ -134,6 +140,67 @@
       #22282e 80% 100%
     );
   }
+}
+
+/* ---------- Torn paint edge between sections ----------
+   Every section ends with a ragged edge painted in the NEXT section's colour,
+   so the boundary reads as paint torn over the section below rather than a
+   ruled line.
+
+   The colour rules match on [class~="..."] rather than .bg-pine. Tailwind
+   clones any rule that names a utility some @apply also uses, so `.bg-pine`
+   produced a duplicate `:has(+ section.btn-primary)` — harmless but dead
+   weight. Attribute selectors are left alone.
+
+   Drawn as a masked ::after INSIDE each section rather than an element
+   overhanging the next one, because several sections are `overflow-hidden`
+   for their hero images and would clip anything sticking out.
+
+   `:has(+ ...)` is how a section learns which colour follows it. Where that is
+   unsupported --edge-next stays unset, background-color resolves to
+   transparent, and the boundary is simply straight as before. */
+main > section {
+  position: relative;
+}
+
+main > section::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 26px;
+  background-color: var(--edge-next, transparent);
+  pointer-events: none;
+  z-index: 2;
+  -webkit-mask-image: var(--paint-edge);
+  mask-image: var(--paint-edge);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  main > section::after {
+    height: 38px;
+  }
+}
+
+/* Which colour comes next */
+main > section:has(+ section[class~='bg-white']) {
+  --edge-next: #ffffff;
+}
+main > section:has(+ section[class~='bg-cream']) {
+  --edge-next: #fbf8f3;
+}
+main > section:has(+ section[class~='bg-pine-900']) {
+  --edge-next: #0b261e;
+}
+main > section:has(+ section[class~='bg-pine']) {
+  --edge-next: #1b5e4b;
+}
+/* The footer closes every page on pine-900 */
+main > section:last-child {
+  --edge-next: #0b261e;
 }
 
 /* ---------- Scroll reveal ----------
