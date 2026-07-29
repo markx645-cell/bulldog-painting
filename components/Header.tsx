@@ -177,11 +177,18 @@ export default function Header() {
       {/* Main bar — sticky on desktop, scrolls away on mobile.
           Dark so it runs straight into the pine-900 hero every page opens with;
           a white bar here reads as a separate block sitting on top of the page. */}
-      <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-40">
-        {/* h-24 at every breakpoint — the band offsets in globals.css assume it */}
-        <div className="flex h-24 w-full items-center justify-between gap-4 px-5 sm:px-8">
+      {/* z-50, above the utility bar, so the overhanging logo sits on top of it
+          rather than being covered by it */}
+      <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-50">
+        {/* h-12 at every breakpoint — the band offsets in globals.css assume it */}
+        <div className="flex h-12 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
-            <Logo priority className="h-16 w-auto sm:h-20" />
+            {/* From md up the logo is taller than the bar and the negative margin
+                lifts it, so it overlaps the utility bar above instead of
+                stretching the row. -mt-10 on an h-20 logo puts its top exactly
+                at the top of the 36px utility bar. Below md the utility area is
+                two bars of live content, so the logo stays inside its own row. */}
+            <Logo priority className="h-11 w-auto md:-mt-10 md:h-20" />
           </Link>
 
           {/* Desktop nav */}
@@ -257,22 +264,24 @@ export default function Header() {
             </div>
           </nav>
 
+          {/* Single-line phone and CTA — the 48px bar has no room for the
+              stacked "Call Us" label or a two-line button. */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <a href={site.phoneHref} className="hidden text-right leading-none lg:block">
-              <span className="mb-0.5 block font-display text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
-                Call Us
-              </span>
-              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-white transition-colors hover:text-brass">
-                {site.phone}
-              </span>
+            <a
+              href={site.phoneHref}
+              className="hidden items-center gap-2 whitespace-nowrap font-display text-xl font-extrabold tabular-nums leading-none text-white transition-colors hover:text-brass lg:inline-flex"
+            >
+              <PhoneIcon className="text-brass" />
+              {site.phone}
             </a>
-            <Link href="/contact" className="btn-brass hidden !px-5 !py-2 text-center !leading-tight lg:inline-flex">
-              Get Your
-              <br />
+            <Link
+              href="/contact"
+              className="btn-brass hidden whitespace-nowrap !px-5 !py-2 !text-xs lg:inline-flex"
+            >
               Free Estimate
             </Link>
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-md bg-pine lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-md bg-pine lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -291,7 +300,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-6rem)] overflow-y-auto bg-pine-900 lg:hidden">
+        <div className="max-h-[calc(100vh-9rem)] overflow-y-auto bg-pine-900 lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.interior)}
             {renderMobileGroup(nav.exterior)}
