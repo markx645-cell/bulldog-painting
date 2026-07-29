@@ -13,7 +13,7 @@ import { reviewsArePlaceholder } from '@/content/reviews';
  */
 export default function RatingStrip() {
   return (
-    <section className="bg-pine-900 py-7">
+    <section className="bg-pine-900 pb-16 pt-8">
       <div className="container-x">
         <div className="flex flex-col items-center gap-5 lg:flex-row lg:justify-between">
           <div className="flex items-center gap-3 text-center lg:text-left">

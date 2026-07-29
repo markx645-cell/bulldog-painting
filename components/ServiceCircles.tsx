@@ -101,7 +101,7 @@ function Icon({ name }: { name: Circle['icon'] }) {
 
 export default function ServiceCircles() {
   return (
-    <section className="bg-white py-12 sm:py-14">
+    <section className="bg-white pb-20 pt-12 sm:pb-24 sm:pt-14">
       <div className="container-x">
         <ul
           className="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-6"

@@ -3,7 +3,7 @@ import { qualityStandards, warranty } from '@/content/site';
 
 export default function QualityControl() {
   return (
-    <section className="relative overflow-hidden bg-pine-900 py-14 text-white sm:py-16">
+    <section className="relative overflow-hidden bg-pine-900 pb-20 pt-14 text-white sm:pb-24 sm:pt-16">
       <div className="paint-wash absolute inset-0" aria-hidden="true" />
 
       <div className="container-x relative">

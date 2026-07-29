@@ -49,7 +49,9 @@ function Icon({ name }: { name: string }) {
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-slate-200 bg-white py-8">
+    // No border: the torn edge above already separates this from the hero, and
+    // a rule underneath it read as a stray straight line. pb clears the tear.
+    <section className="bg-white pb-16 pt-9">
       <div className="container-x grid grid-cols-2 gap-6 lg:grid-cols-4" data-reveal-stagger>
         {trustPoints.map((p) => (
           <div key={p.label} className="flex items-start gap-3">

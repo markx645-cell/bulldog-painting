@@ -72,8 +72,11 @@
     @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.14em] text-pine;
   }
 
+  /* Extra bottom padding is not decoration: the torn edge is drawn inside the
+     bottom of each section, so content needs to clear it or the tear cuts
+     straight through the last line of text. */
   .section {
-    @apply py-14 sm:py-16;
+    @apply pb-20 pt-14 sm:pb-24 sm:pt-16;
   }
 
   .prose-body p {
@@ -243,7 +246,7 @@ main > section::after {
   content: '';
   position: absolute;
   inset: auto 0 -1px 0;
-  height: 30px;
+  height: 22px;
   background-color: var(--edge-next, transparent);
   pointer-events: none;
   z-index: 2;
@@ -259,7 +262,7 @@ main > section::after {
 
 @media (min-width: 768px) {
   main > section::after {
-    height: 46px;
+    height: 34px;
   }
 }
 
