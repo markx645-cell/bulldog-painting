@@ -72,10 +72,10 @@ export default function WhyUs() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">Why homeowners pick us</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             Six reasons the finish lasts
           </h2>
-          <p className="mt-4 text-slate">
+          <p className="mt-4 text-steel">
             {stats.homesPainted} homes since {site.founded}, {stats.crewCount} full-time painters on payroll, and a
             written warranty behind every one of them.
           </p>
@@ -85,13 +85,13 @@ export default function WhyUs() {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="rounded-xl border border-slate-200 bg-white p-6 shadow-card transition-colors hover:border-pine"
+              className="rounded-xl border border-steel-200 bg-white p-6 shadow-card transition-colors hover:border-crimson"
             >
-              <span className="text-pine">
+              <span className="text-crimson">
                 <PillarIcon name={p.icon} />
               </span>
-              <h3 className="mt-4 font-display text-lg font-bold text-graphite">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate">{p.body}</p>
+              <h3 className="mt-4 font-display text-lg font-bold text-ink">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-steel">{p.body}</p>
             </div>
           ))}
         </div>

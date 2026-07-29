@@ -49,18 +49,18 @@ function Icon({ name }: { name: string }) {
 
 export default function TrustBar() {
   return (
-    <section className="border-b border-slate-200 bg-white py-9">
+    <section className="border-b border-steel-200 bg-white py-9">
       <div className="container-x grid grid-cols-2 gap-6 lg:grid-cols-4" data-reveal-stagger>
         {trustPoints.map((p) => (
           <div key={p.label} className="flex items-start gap-3">
-            <span className="mt-0.5 shrink-0 text-pine">
+            <span className="mt-0.5 shrink-0 text-crimson">
               <Icon name={p.icon} />
             </span>
             <span>
-              <span className="block font-display text-xl font-extrabold leading-none text-graphite">
+              <span className="block font-display text-xl font-extrabold leading-none text-ink">
                 {p.stat}
               </span>
-              <span className="mt-1 block text-sm leading-snug text-slate">{p.label}</span>
+              <span className="mt-1 block text-sm leading-snug text-steel">{p.label}</span>
             </span>
           </div>
         ))}

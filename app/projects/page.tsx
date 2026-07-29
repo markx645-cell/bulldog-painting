@@ -16,14 +16,14 @@ export default function ProjectsPage() {
     <>
       <Breadcrumbs trail={[{ label: 'Projects', href: '/projects' }]} />
 
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="container-x relative py-12 text-center lg:py-16">
           <p className="eyebrow">Our work</p>
           <h1 className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
             Before and after
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-steel-200">
             Jobs from across both sides of the river, with a note on each about what actually made the
             difference — usually something that happened before the paint came out.
           </p>

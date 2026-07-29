@@ -25,10 +25,10 @@ export default function ServiceAreaSection({
       <section className="section bg-white">
         <div className="container-x text-center">
           <p className="eyebrow-dark">Where we work</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             Areas we serve
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate">
+          <p className="mx-auto mt-3 max-w-2xl text-steel">
             {communityCount}+ communities across {serviceCounties.length} counties in Ohio, Kentucky,
             and Indiana.
           </p>
@@ -40,15 +40,15 @@ export default function ServiceAreaSection({
             {CARD_PLACES.map((p) => (
               <li
                 key={p}
-                className="rounded-xl border border-slate-200 bg-cream px-4 py-5 transition-colors hover:border-pine"
+                className="rounded-xl border border-steel-200 bg-cream px-4 py-5 transition-colors hover:border-crimson"
               >
-                <span className="flex items-center justify-center gap-2 font-display text-sm font-bold text-graphite">
+                <span className="flex items-center justify-center gap-2 font-display text-sm font-bold text-ink">
                   <svg
                     width="15"
                     height="15"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#C08A2E"
+                    stroke="#d01d21"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -64,9 +64,9 @@ export default function ServiceAreaSection({
             ))}
           </ul>
 
-          <p className="mt-8 text-slate">
+          <p className="mt-8 text-steel">
             Not sure if we reach you?{' '}
-            <Link href="/service-areas" className="font-semibold text-pine hover:underline">
+            <Link href="/service-areas" className="font-semibold text-crimson hover:underline">
               See every community we cover
             </Link>
             , or call and we will tell you straight.
@@ -80,10 +80,10 @@ export default function ServiceAreaSection({
     <section className={`section ${compact ? 'bg-white' : 'bg-cream'}`}>
       <div className="container-x text-center">
         <p className="eyebrow-dark">Where we work</p>
-        <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+        <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
           Cincinnati &amp; surrounding areas
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-slate">
+        <p className="mx-auto mt-3 max-w-2xl text-steel">
           {communityCount}+ communities across {serviceCounties.length} counties in Ohio, Kentucky, and
           Indiana — and crews based close enough to reach any of it inside an hour.
         </p>
@@ -94,7 +94,7 @@ export default function ServiceAreaSection({
               {featuredPlaces.map((p) => (
                 <li
                   key={p}
-                  className="inline-block rounded-full border border-slate-300 bg-cream px-3.5 py-1.5 text-xs font-semibold text-graphite"
+                  className="inline-block rounded-full border border-steel-300 bg-cream px-3.5 py-1.5 text-xs font-semibold text-ink"
                 >
                   {p}
                 </li>
@@ -102,7 +102,7 @@ export default function ServiceAreaSection({
             </ul>
             <Link
               href="/service-areas"
-              className="mt-6 inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-pine hover:underline"
+              className="mt-6 inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-crimson hover:underline"
             >
               See all {communityCount}+ communities
               <svg
@@ -128,14 +128,14 @@ export default function ServiceAreaSection({
               />
             </div>
 
-            <p className="mt-10 font-display text-sm font-bold uppercase tracking-wide text-graphite">
+            <p className="mt-10 font-display text-sm font-bold uppercase tracking-wide text-ink">
               Counties we serve
             </p>
             <ul className="mx-auto mt-4 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
               {serviceCounties.map((c) => (
                 <li
                   key={c.name}
-                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-graphite"
+                  className="rounded-xl border border-steel-200 bg-white px-4 py-3 text-sm font-semibold text-ink"
                 >
                   {c.name}, {c.state}
                 </li>
@@ -145,8 +145,8 @@ export default function ServiceAreaSection({
             <div className="mx-auto mt-10 max-w-4xl gap-x-8 text-left sm:columns-2 lg:columns-3">
               {serviceCommunities.map((g) => (
                 <div key={g.county} className="mb-5 break-inside-avoid">
-                  <p className="font-display text-sm font-bold text-graphite">{g.county}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate">
+                  <p className="font-display text-sm font-bold text-ink">{g.county}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-steel">
                     {g.places.slice(0, 6).join(' · ')}
                     {g.places.length > 6 ? ` and ${g.places.length - 6} more` : ''}
                   </p>

@@ -18,15 +18,15 @@ export default function ReviewsList({
         {shown.map((r, i) => (
           <figure
             key={`${r.name}-${i}`}
-            className="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-card"
+            className="flex flex-col rounded-xl border border-steel-200 bg-white p-6 shadow-card"
           >
             <Stars count={r.rating} />
-            <blockquote className="mt-4 flex-1 leading-relaxed text-graphite">
+            <blockquote className="mt-4 flex-1 leading-relaxed text-ink">
               &ldquo;{r.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-5 border-t border-slate-200 pt-4">
-              <span className="block font-display text-sm font-bold text-graphite">{r.name}</span>
-              <span className="mt-0.5 block text-xs text-slate">
+            <figcaption className="mt-5 border-t border-steel-200 pt-4">
+              <span className="block font-display text-sm font-bold text-ink">{r.name}</span>
+              <span className="mt-0.5 block text-xs text-steel">
                 {r.location} · {r.project}
               </span>
             </figcaption>

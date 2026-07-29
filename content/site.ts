@@ -9,7 +9,9 @@
 export const site = {
   name: 'Bulldog Painting',
   shortName: 'Bulldog Painting',
-  tagline: 'Prepped Right. Painted Once.',
+  // Matches the strapline inside the logo artwork. The header shows this line
+  // directly beside the mark, so anything else reads as two competing taglines.
+  tagline: 'Built Tough. Sealed Right.',
   founded: 2001,
   yearsInBusiness: '25+',
   url: 'https://bulldogpainting.com',

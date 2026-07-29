@@ -19,7 +19,7 @@ export default function ReviewsPage() {
     <>
       <Breadcrumbs trail={[{ label: 'Reviews', href: '/reviews' }]} />
 
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="container-x relative py-12 text-center lg:py-16">
           <p className="eyebrow">In their words</p>
@@ -29,7 +29,7 @@ export default function ReviewsPage() {
           <div className="mt-4 flex justify-center">
             <Stars count={5} animate />
           </div>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-steel-200">
             Across Google, Facebook, BBB, and Angi. Every one of them from a homeowner in Greater
             Cincinnati or Northern Kentucky.
           </p>
@@ -37,10 +37,10 @@ export default function ReviewsPage() {
           <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.ratings.map((r) => (
               <div key={r.platform} className="rounded-xl border border-white/20 bg-white/5 p-4">
-                <span className="block font-display text-2xl font-extrabold text-brass-200">
+                <span className="block font-display text-2xl font-extrabold text-bone">
                   {r.score}
                 </span>
-                <span className="mt-1 block text-xs uppercase tracking-widest text-slate-300">
+                <span className="mt-1 block text-xs uppercase tracking-widest text-steel-300">
                   {r.platform}
                 </span>
               </div>
@@ -54,7 +54,7 @@ export default function ReviewsPage() {
       <section className="section bg-cream">
         <div className="container-x">
           {reviewsArePlaceholder && (
-            <div className="mx-auto mb-10 max-w-3xl rounded-xl border border-brass bg-brass-200/50 p-5 text-sm leading-relaxed text-graphite">
+            <div className="mx-auto mb-10 max-w-3xl rounded-xl border border-crimson bg-bone/50 p-5 text-sm leading-relaxed text-ink">
               <strong className="font-display uppercase tracking-widest">Build note — remove before launch.</strong>{' '}
               The reviews below are placeholder text, not real customer feedback. Replace them in{' '}
               <code>content/reviews.ts</code> with genuine reviews pulled from your Google, Facebook, BBB,

@@ -16,7 +16,7 @@ export default function Stars({
           height="16"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className={animate ? 'star-pop text-brass' : 'text-brass'}
+          className={animate ? 'star-pop text-crimson' : 'text-crimson'}
           style={animate ? { animationDelay: `${0.15 + i * 0.09}s` } : undefined}
           aria-hidden="true"
         >

@@ -62,7 +62,7 @@ export default function Header() {
             height="18"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#C08A2E"
+            stroke="#d01d21"
             strokeWidth="2.5"
             className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             aria-hidden="true"
@@ -77,7 +77,7 @@ export default function Header() {
                 key={child.href}
                 href={child.href}
                 onClick={close}
-                className="block py-2 text-sm text-slate-300 hover:text-brass"
+                className="block py-2 text-sm text-steel-300 hover:text-crimson"
               >
                 {child.label}
               </Link>
@@ -103,7 +103,7 @@ export default function Header() {
                 <span className="whitespace-nowrap text-[13px] font-semibold">Included:</span>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-brass px-4 py-1 text-[13px] font-bold leading-none text-graphite transition hover:bg-brass-600 hover:text-white"
+                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-4 py-1 text-[13px] font-bold leading-none text-ink transition hover:bg-crimson-600 hover:text-white"
                 >
                   {offer.headline} with every estimate
                 </Link>
@@ -136,13 +136,13 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={close}
-                className="inline-flex items-center whitespace-nowrap rounded-sm bg-brass px-3 py-1 leading-none text-graphite"
+                className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-3 py-1 leading-none text-ink"
               >
                 Free color consultation with every estimate
               </Link>
             </div>
             <div
-              className={`absolute inset-0 flex items-center justify-between gap-2 px-3 text-slate-300 transition-all duration-500 ease-in-out ${
+              className={`absolute inset-0 flex items-center justify-between gap-2 px-3 text-steel-300 transition-all duration-500 ease-in-out ${
                 showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
             >
@@ -158,7 +158,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-pine px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
+              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
             >
               Free Estimate
@@ -167,7 +167,7 @@ export default function Header() {
               href={site.phoneHref}
               className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-base font-extrabold tabular-nums text-white"
             >
-              <PhoneIcon className="text-brass" />
+              <PhoneIcon className="text-crimson" />
               {site.phone}
             </a>
           </div>
@@ -175,7 +175,7 @@ export default function Header() {
       </header>
 
       {/* Main bar — sticky on desktop, scrolls away on mobile.
-          Dark so it runs straight into the pine-900 hero every page opens with;
+          Dark so it runs straight into the dark hero every page opens with;
           a white bar here reads as a separate block sitting on top of the page. */}
       {/* z-50, above the utility bar, so the overhanging logo sits on top of it
           rather than being covered by it */}
@@ -202,7 +202,7 @@ export default function Header() {
               >
                 <Link
                   href={group.href}
-                  className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
+                  className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
                 >
                   {group.label}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -210,12 +210,12 @@ export default function Header() {
                   </svg>
                 </Link>
                 {openMenu === group.label && (
-                  <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-slate-200 bg-white p-2 shadow-lift">
+                  <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-white p-2 shadow-lift">
                     {group.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-md px-3 py-2 text-xs text-graphite hover:bg-cream hover:text-pine"
+                        className="block rounded-md px-3 py-2 text-xs text-ink hover:bg-cream hover:text-crimson"
                       >
                         {child.label}
                       </Link>
@@ -228,7 +228,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
+                className="px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
               >
                 {item.label}
               </Link>
@@ -241,7 +241,7 @@ export default function Header() {
             >
               <Link
                 href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-brass"
+                className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
               >
                 {nav.about.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -249,12 +249,12 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.about.label && (
-                <div className="absolute right-0 top-full w-60 rounded-lg border border-slate-200 bg-white p-2 shadow-lift">
+                <div className="absolute right-0 top-full w-60 rounded-lg border border-steel-200 bg-white p-2 shadow-lift">
                   {nav.about.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-xs text-graphite hover:bg-cream hover:text-pine"
+                      className="block rounded-md px-3 py-2 text-xs text-ink hover:bg-cream hover:text-crimson"
                     >
                       {child.label}
                     </Link>
@@ -269,19 +269,19 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4">
             <a
               href={site.phoneHref}
-              className="hidden items-center gap-2 whitespace-nowrap font-display text-sm font-extrabold tabular-nums leading-none text-white transition-colors hover:text-brass lg:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap font-display text-sm font-extrabold tabular-nums leading-none text-white transition-colors hover:text-crimson lg:inline-flex"
             >
-              <PhoneIcon className="text-brass" />
+              <PhoneIcon className="text-crimson" />
               {site.phone}
             </a>
             <Link
               href="/contact"
-              className="btn-brass hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
+              className="btn-secondary hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
             >
               Free Estimate
             </Link>
             <button
-              className="flex h-10 w-10 items-center justify-center rounded-md bg-pine lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -300,7 +300,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-9rem)] overflow-y-auto bg-pine-900 lg:hidden">
+        <div className="max-h-[calc(100vh-9rem)] overflow-y-auto bg-ink lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.interior)}
             {renderMobileGroup(nav.exterior)}
@@ -309,7 +309,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-white/10 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white hover:text-brass"
+                className="border-b border-white/10 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white hover:text-crimson"
               >
                 {item.label}
               </Link>

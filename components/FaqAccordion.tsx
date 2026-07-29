@@ -37,19 +37,19 @@ export default function FaqAccordion({
       <div className="container-x">
         <div className="mx-auto max-w-3xl">
           <p className="eyebrow-dark">FAQ</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">{heading}</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">{heading}</h2>
 
-          <div className="mt-8 divide-y divide-slate-200 border-y border-slate-200">
+          <div className="mt-8 divide-y divide-steel-200 border-y border-steel-200">
             {faqs.map((f) => (
               <details key={f.q} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-bold text-graphite marker:hidden">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-bold text-ink marker:hidden">
                   {f.q}
                   <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#1B5E4B"
+                    stroke="#d01d21"
                     strokeWidth="2.4"
                     className="mt-0.5 shrink-0 transition-transform group-open:rotate-45"
                     aria-hidden="true"
@@ -57,7 +57,7 @@ export default function FaqAccordion({
                     <path d="M12 5v14M5 12h14" strokeLinecap="round" />
                   </svg>
                 </summary>
-                <p className="mt-3 max-w-2xl leading-relaxed text-slate">{f.a}</p>
+                <p className="mt-3 max-w-2xl leading-relaxed text-steel">{f.a}</p>
               </details>
             ))}
           </div>

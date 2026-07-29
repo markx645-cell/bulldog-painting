@@ -7,10 +7,10 @@ export default function WarrantyHighlight() {
       <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
         <div>
           <p className="eyebrow-dark">In writing</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             {warranty.headline}
           </h2>
-          <p className="mt-4 leading-relaxed text-slate">{warranty.lead}</p>
+          <p className="mt-4 leading-relaxed text-steel">{warranty.lead}</p>
           <Link href="/our-process" className="btn-ghost mt-7">
             See how we prep
           </Link>
@@ -18,14 +18,14 @@ export default function WarrantyHighlight() {
 
         <div className="space-y-4" data-reveal-stagger>
           {warranty.points.map((p) => (
-            <div key={p.title} className="rounded-xl border border-slate-200 bg-cream p-6">
+            <div key={p.title} className="rounded-xl border border-steel-200 bg-cream p-6">
               <div className="flex items-start gap-3">
                 <svg
                   width="22"
                   height="22"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#1B5E4B"
+                  stroke="#d01d21"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -36,8 +36,8 @@ export default function WarrantyHighlight() {
                   <path d="M9 12l2 2 4-4" />
                 </svg>
                 <div>
-                  <h3 className="font-display text-base font-bold text-graphite">{p.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate">{p.body}</p>
+                  <h3 className="font-display text-base font-bold text-ink">{p.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-steel">{p.body}</p>
                 </div>
               </div>
             </div>

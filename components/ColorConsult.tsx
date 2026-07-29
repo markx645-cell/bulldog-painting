@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import Photo from '@/components/Photo';
 
+// Example paint colours a customer might actually pick — deliberately NOT the
+// brand palette. This block is about their choice, not our logo.
 const swatches = [
-  { name: 'Pine Shade', hex: '#1B5E4B' },
-  { name: 'Weathered Brass', hex: '#C08A2E' },
   { name: 'Riverbank Clay', hex: '#A9755C' },
   { name: 'Ohio Fog', hex: '#B9C0BC' },
   { name: 'Chalk Cream', hex: '#EFE7D8' },
-  { name: 'Graphite', hex: '#22282E' },
+  { name: 'Sage Hollow', hex: '#8A9A7B' },
+  { name: 'Harbour Blue', hex: '#41637E' },
+  { name: 'Graphite', hex: '#3A3A3C' },
 ];
 
 /** Paint-specific section — the thing a painting site has that a window site
@@ -22,16 +24,16 @@ export default function ColorConsult() {
 
         <div>
           <p className="eyebrow-dark">Included with every estimate</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             Pick the color in your own light
           </h2>
-          <p className="mt-4 leading-relaxed text-slate">
+          <p className="mt-4 leading-relaxed text-steel">
             A two-inch chip under fluorescent store lighting tells you almost nothing about how a color will
             look on your north-facing living room wall at four in the afternoon. So we stop guessing: our
             consultant brushes out large samples on your actual walls and you live with them for a couple of
             days before anything is ordered.
           </p>
-          <p className="mt-4 leading-relaxed text-slate">
+          <p className="mt-4 leading-relaxed text-steel">
             It costs you nothing and it is the single cheapest way to avoid the most expensive mistake in
             painting — finishing a house in a color you do not like.
           </p>
@@ -44,7 +46,7 @@ export default function ColorConsult() {
                   style={{ backgroundColor: s.hex }}
                   aria-hidden="true"
                 />
-                <span className="mt-1.5 block text-[10px] uppercase tracking-wide text-slate">
+                <span className="mt-1.5 block text-[10px] uppercase tracking-wide text-steel">
                   {s.name}
                 </span>
               </li>

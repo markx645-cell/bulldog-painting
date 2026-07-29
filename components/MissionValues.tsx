@@ -70,7 +70,7 @@ function ValueIcon({ name }: { name: string }) {
 
 /** Alternating brand tones — enough separation to read as distinct badges
  *  without turning the grid into a rainbow. */
-const tones = ['#1B5E4B', '#2F7D66', '#C08A2E', '#22282E', '#103A2E', '#A2731F'];
+const tones = ['#d01d21', '#8c0d10', '#d01d21', '#110c09', '#2b221b', '#b01216'];
 
 export default function MissionValues() {
   return (
@@ -78,17 +78,17 @@ export default function MissionValues() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">What we hold to</p>
-          <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             {mission.headline}
           </h2>
-          <p className="mt-4 leading-relaxed text-slate">{mission.lead}</p>
+          <p className="mt-4 leading-relaxed text-steel">{mission.lead}</p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
           {values.map((v, i) => (
             <div
               key={v.title}
-              className="rounded-2xl border border-slate-200 bg-white p-7 shadow-card transition-all hover:-translate-y-1 hover:border-pine hover:shadow-lift"
+              className="rounded-2xl border border-steel-200 bg-white p-7 shadow-card transition-all hover:-translate-y-1 hover:border-crimson hover:shadow-lift"
             >
               <span
                 className="flex h-14 w-14 items-center justify-center rounded-full text-white"
@@ -96,8 +96,8 @@ export default function MissionValues() {
               >
                 <ValueIcon name={v.icon} />
               </span>
-              <h3 className="mt-5 font-display text-lg font-bold text-graphite">{v.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate">{v.body}</p>
+              <h3 className="mt-5 font-display text-lg font-bold text-ink">{v.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-steel">{v.body}</p>
             </div>
           ))}
         </div>

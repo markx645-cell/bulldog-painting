@@ -9,33 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Bulldog Painting palette — deep pine green, brass, cream.
-        // Deliberately no red and no true black.
-        pine: {
-          DEFAULT: '#1B5E4B',
-          600: '#164C3D',
-          700: '#103A2E',
-          800: '#0E3227',
-          900: '#0B261E',
+        // Black / red / white, matched to bulldogremodelgroup.com so the two
+        // Bulldog brands read as one family.
+        crimson: {
+          DEFAULT: '#d01d21',
+          600: '#b01216',
+          700: '#8c0d10',
+          200: '#f7c9ca',
         },
-        brass: {
-          DEFAULT: '#C08A2E',
-          600: '#A2731F',
-          200: '#EFDDBB',
+        ink: {
+          DEFAULT: '#110c09', // body text and dark section backgrounds
+          900: '#080604',
+          800: '#1d1611',
+          700: '#2b221b',
         },
-        graphite: {
-          DEFAULT: '#22282E', // body text — charcoal, not black
-          800: '#2C333B',
-          700: '#3A424B',
+        // Warm neutrals, so greys sit with the warm black rather than fighting it
+        steel: {
+          DEFAULT: '#57534e',
+          400: '#a8a29e',
+          300: '#d6d3d1',
+          200: '#e7e5e4',
+          100: '#f5f5f4',
         },
-        slate: {
-          DEFAULT: '#4A5561',
-          400: '#98A2AE',
-          300: '#CBD2DA',
-          200: '#E4E9ED',
-          100: '#F1F4F6',
-        },
-        cream: '#FBF8F3',
+        bone: '#fafaf9', // page background
+        cream: '#f6f5f1', // subtle panels inside white sections
       },
       fontFamily: {
         display: ['var(--font-display)', 'Sora', 'system-ui', 'sans-serif'],
@@ -43,8 +40,8 @@ const config: Config = {
         serif: ['var(--font-serif)', 'Georgia', 'Cambria', 'serif'],
       },
       boxShadow: {
-        card: '0 1px 3px rgba(11,38,30,0.06), 0 8px 24px rgba(11,38,30,0.07)',
-        lift: '0 12px 40px rgba(11,38,30,0.14)',
+        card: '0 1px 3px rgba(17,12,9,0.06), 0 8px 24px rgba(17,12,9,0.07)',
+        lift: '0 12px 40px rgba(17,12,9,0.14)',
       },
       maxWidth: {
         container: '1200px',

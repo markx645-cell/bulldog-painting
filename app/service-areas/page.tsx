@@ -57,14 +57,14 @@ export default function ServiceAreasPage() {
       <Breadcrumbs trail={[{ label: 'Areas We Serve', href: '/service-areas' }]} />
 
       {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="container-x relative py-12 text-center lg:py-16">
           <p className="eyebrow">Service Area</p>
           <h1 className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
             Areas We Serve
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-steel-200">
             We paint in {communityCount}+ communities across {serviceCounties.length} counties in
             Cincinnati and the surrounding areas. If you are nearby, there is a good chance we already
             have a crew on your street.
@@ -79,10 +79,10 @@ export default function ServiceAreasPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow-dark">Counties</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
               Counties we serve
             </h2>
-            <p className="mt-4 text-slate">
+            <p className="mt-4 text-steel">
               Ohio, Kentucky, and Indiana. No zone pricing and no travel surcharge inside this map.
             </p>
           </div>
@@ -91,14 +91,14 @@ export default function ServiceAreasPage() {
             {serviceCounties.map((c) => (
               <div
                 key={c.name}
-                className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-cream px-4 py-3.5 text-sm font-semibold text-graphite"
+                className="flex items-center gap-2.5 rounded-xl border border-steel-200 bg-cream px-4 py-3.5 text-sm font-semibold text-ink"
               >
                 <svg
                   width="16"
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#C08A2E"
+                  stroke="#d01d21"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -124,10 +124,10 @@ export default function ServiceAreasPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow-dark">Cities &amp; Neighborhoods</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
               Communities we serve
             </h2>
-            <p className="mt-4 text-slate">
+            <p className="mt-4 text-steel">
               {communityCount}+ neighborhoods, cities, and towns across Greater Cincinnati.
             </p>
           </div>
@@ -135,13 +135,13 @@ export default function ServiceAreasPage() {
           <div className="mt-10 space-y-9">
             {serviceCommunities.map((group) => (
               <div key={group.county}>
-                <h3 className="flex items-center gap-2.5 font-display text-lg font-extrabold text-pine">
+                <h3 className="flex items-center gap-2.5 font-display text-lg font-extrabold text-crimson">
                   <svg
                     width="18"
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#C08A2E"
+                    stroke="#d01d21"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -157,14 +157,14 @@ export default function ServiceAreasPage() {
                   {group.places.map((place) => (
                     <li
                       key={place}
-                      className="mb-1.5 flex break-inside-avoid gap-2 text-sm leading-snug text-slate"
+                      className="mb-1.5 flex break-inside-avoid gap-2 text-sm leading-snug text-steel"
                     >
                       <svg
                         width="14"
                         height="14"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#1B5E4B"
+                        stroke="#d01d21"
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -186,10 +186,10 @@ export default function ServiceAreasPage() {
       {/* ---------- SERVICES AVAILABLE ---------- */}
       <section className="section bg-white">
         <div className="container-x">
-          <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
             Everything we do, everywhere we go
           </h2>
-          <p className="mt-2 max-w-2xl text-slate">
+          <p className="mt-2 max-w-2xl text-steel">
             One crew for the whole property, inside and out — the same list in every community above.
           </p>
           <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -197,9 +197,9 @@ export default function ServiceAreasPage() {
               <li key={s.slug}>
                 <Link
                   href={`/${s.slug}`}
-                  className="flex items-center gap-2 py-1.5 text-sm text-graphite hover:text-pine"
+                  className="flex items-center gap-2 py-1.5 text-sm text-ink hover:text-crimson"
                 >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass" aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" aria-hidden="true" />
                   {s.name}
                 </Link>
               </li>
@@ -211,17 +211,17 @@ export default function ServiceAreasPage() {
       {/* ---------- DON'T SEE YOUR AREA ---------- */}
       <section className="section bg-cream">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl bg-pine-900 px-6 py-14 text-center">
+          <div className="relative overflow-hidden rounded-3xl bg-ink px-6 py-14 text-center">
             <div className="paint-wash absolute inset-0" aria-hidden="true" />
             <div className="relative">
               <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
                 Don&rsquo;t see your area?
               </h2>
-              <p className="mx-auto mt-3 max-w-xl text-slate-200">
+              <p className="mx-auto mt-3 max-w-xl text-steel-200">
                 The list is where we work most weeks, not a fence. Call and we will tell you straight
                 whether we can get a crew to you.
               </p>
-              <a href={site.phoneHref} className="btn-brass mt-7">
+              <a href={site.phoneHref} className="btn-secondary mt-7">
                 Call {site.phone}
               </a>
             </div>

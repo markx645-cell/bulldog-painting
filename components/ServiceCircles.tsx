@@ -19,12 +19,12 @@ type Circle = {
 };
 
 const circles: Circle[] = [
-  { label: 'Interior Painting', href: '/interior-painting', color: '#1B5E4B', icon: 'interior' },
-  { label: 'Exterior Painting', href: '/exterior-painting', color: '#2F7D66', icon: 'exterior' },
-  { label: 'Cabinet Refinishing', href: '/cabinet-painting', color: '#C08A2E', icon: 'cabinets' },
-  { label: 'Commercial Painting', href: '/commercial-painting', color: '#22282E', icon: 'commercial' },
-  { label: 'Floor Coatings', href: '/garage-floor-epoxy', color: '#103A2E', icon: 'floors' },
-  { label: 'Color Consultation', href: '/contact', color: '#A2731F', icon: 'color' },
+  { label: 'Interior Painting', href: '/interior-painting', color: '#d01d21', icon: 'interior' },
+  { label: 'Exterior Painting', href: '/exterior-painting', color: '#8c0d10', icon: 'exterior' },
+  { label: 'Cabinet Refinishing', href: '/cabinet-painting', color: '#d01d21', icon: 'cabinets' },
+  { label: 'Commercial Painting', href: '/commercial-painting', color: '#110c09', icon: 'commercial' },
+  { label: 'Floor Coatings', href: '/garage-floor-epoxy', color: '#2b221b', icon: 'floors' },
+  { label: 'Color Consultation', href: '/contact', color: '#b01216', icon: 'color' },
 ];
 
 function Icon({ name }: { name: Circle['icon'] }) {
@@ -112,12 +112,12 @@ export default function ServiceCircles() {
                 className="group flex flex-col items-center text-center focus:outline-none"
               >
                 <span
-                  className="flex h-[86px] w-[86px] items-center justify-center rounded-full text-white shadow-card transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lift group-focus-visible:ring-2 group-focus-visible:ring-pine group-focus-visible:ring-offset-2 sm:h-[96px] sm:w-[96px]"
+                  className="flex h-[86px] w-[86px] items-center justify-center rounded-full text-white shadow-card transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lift group-focus-visible:ring-2 group-focus-visible:ring-crimson group-focus-visible:ring-offset-2 sm:h-[96px] sm:w-[96px]"
                   style={{ backgroundColor: c.color }}
                 >
                   <Icon name={c.icon} />
                 </span>
-                <span className="mt-3.5 max-w-[9.5rem] font-display text-[11px] font-bold uppercase leading-tight tracking-[0.09em] text-graphite transition-colors group-hover:text-pine sm:text-xs">
+                <span className="mt-3.5 max-w-[9.5rem] font-display text-[11px] font-bold uppercase leading-tight tracking-[0.09em] text-ink transition-colors group-hover:text-crimson sm:text-xs">
                   {c.label}
                 </span>
               </Link>

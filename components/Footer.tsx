@@ -6,7 +6,7 @@ import Logo from '@/components/Logo';
 export default function Footer() {
   const year = 2026;
   return (
-    <footer className="bg-pine-900 text-slate-300">
+    <footer className="bg-ink text-steel-300">
       <div className="swatch-strip h-1.5 w-full" aria-hidden="true" />
 
       <div className="container-x grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
@@ -14,13 +14,13 @@ export default function Footer() {
           <Link href="/" className="inline-flex items-center" aria-label={site.name}>
             <Logo className="h-28 w-auto" />
           </Link>
-          <p className="mt-4 font-display text-sm uppercase tracking-widest text-brass">{site.tagline}</p>
+          <p className="mt-4 font-display text-sm uppercase tracking-widest text-crimson">{site.tagline}</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
             Family-owned painting contractor serving Cincinnati and the surrounding areas since{' '}
             {site.founded}. W-2 crews, written pricing, and a five-year workmanship warranty.
           </p>
           <div className="mt-5 space-y-1 text-sm">
-            <a href={site.phoneHref} className="block font-bold text-white hover:text-brass">
+            <a href={site.phoneHref} className="block font-bold text-white hover:text-crimson">
               {site.phone}
             </a>
             <a href={`mailto:${site.email}`} className="block hover:text-white">
@@ -78,18 +78,18 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-8">
           <h4 className="mb-3 font-display text-sm uppercase tracking-widest text-white">
-            <Link href="/service-areas" className="hover:text-brass">
+            <Link href="/service-areas" className="hover:text-crimson">
               Areas We Serve
             </Link>
           </h4>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-steel-400">
             {serviceCounties.map((c) => `${c.name}, ${c.state}`).join(' · ')}
           </p>
           <p className="mt-3 flex flex-wrap gap-x-3 gap-y-2 text-sm">
             {featuredPlaces.map((p) => (
               <span key={p}>{p}</span>
             ))}
-            <Link href="/service-areas" className="font-semibold text-brass hover:underline">
+            <Link href="/service-areas" className="font-semibold text-crimson hover:underline">
               + all {communityCount} communities
             </Link>
           </p>
@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-wrap items-center justify-center gap-x-5 gap-y-2 py-5 text-[11px] uppercase tracking-widest text-slate-400">
+        <div className="container-x flex flex-wrap items-center justify-center gap-x-5 gap-y-2 py-5 text-[11px] uppercase tracking-widest text-steel-400">
           {certifications.map((c) => (
             <span key={c}>{c}</span>
           ))}

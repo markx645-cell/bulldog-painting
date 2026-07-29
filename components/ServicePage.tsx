@@ -58,7 +58,7 @@ export default function ServicePage({ service }: { service: Service }) {
       />
 
       {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
           <Photo name={service.hero} priority className="object-cover object-center" sizes="52vw" />
@@ -66,7 +66,7 @@ export default function ServicePage({ service }: { service: Service }) {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(to right, #0B261E 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
+                'linear-gradient(to right, #110c09 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
             }}
           />
         </div>
@@ -77,16 +77,16 @@ export default function ServicePage({ service }: { service: Service }) {
             <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
               {service.h1}
             </h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-200">{service.lead}</p>
+            <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">{service.lead}</p>
 
             <div className="mt-5 flex items-center gap-2">
               <Stars count={5} animate />
               <span className="text-sm font-semibold text-white">{stats.googleRating}/5</span>
-              <span className="text-sm text-slate-300">· {stats.reviewsLabel}</span>
+              <span className="text-sm text-steel-300">· {stats.reviewsLabel}</span>
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-brass">
+              <Link href="/contact" className="btn-secondary">
                 Get a Free Estimate
               </Link>
               <a href={site.phoneHref} className="btn-outline-light">
@@ -108,7 +108,7 @@ export default function ServicePage({ service }: { service: Service }) {
           container width is far past a comfortable line length to read. */}
       <section className="section bg-white">
         <div className="container-x">
-          <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
             What {service.name.toLowerCase()} actually involves
           </h2>
           <div className="prose-body max-w-3xl">
@@ -117,12 +117,12 @@ export default function ServicePage({ service }: { service: Service }) {
             ))}
           </div>
 
-          <h3 className="mt-10 font-display text-xl font-bold text-graphite">What is included</h3>
+          <h3 className="mt-10 font-display text-xl font-bold text-ink">What is included</h3>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
             {service.includes.map((inc) => (
-              <div key={inc.title} className="rounded-xl border border-slate-200 bg-cream p-5">
-                <h4 className="font-display text-sm font-bold text-pine">{inc.title}</h4>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate">{inc.body}</p>
+              <div key={inc.title} className="rounded-xl border border-steel-200 bg-cream p-5">
+                <h4 className="font-display text-sm font-bold text-crimson">{inc.title}</h4>
+                <p className="mt-1.5 text-sm leading-relaxed text-steel">{inc.body}</p>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default function ServicePage({ service }: { service: Service }) {
         <div className="container-x max-w-3xl">
           {service.detail.map((d) => (
             <div key={d.heading} className="mb-10 last:mb-0">
-              <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">{d.heading}</h2>
+              <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{d.heading}</h2>
               <div className="prose-body">
                 {d.body.map((p, i) => (
                   <p key={i}>{p}</p>
@@ -153,7 +153,7 @@ export default function ServicePage({ service }: { service: Service }) {
       {service.related.length > 0 && (
         <section className="section bg-cream">
           <div className="container-x">
-            <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
               Often done at the same time
             </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
@@ -164,12 +164,12 @@ export default function ServicePage({ service }: { service: Service }) {
                   <Link
                     key={slug}
                     href={`/${r.slug}`}
-                    className="group rounded-xl border border-slate-200 bg-white p-5 shadow-card transition-colors hover:border-pine"
+                    className="group rounded-xl border border-steel-200 bg-white p-5 shadow-card transition-colors hover:border-crimson"
                   >
-                    <h3 className="font-display text-base font-bold text-graphite group-hover:text-pine">
+                    <h3 className="font-display text-base font-bold text-ink group-hover:text-crimson">
                       {r.name}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate">{r.lead}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-steel">{r.lead}</p>
                   </Link>
                 );
               })}

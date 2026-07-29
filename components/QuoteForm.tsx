@@ -35,7 +35,7 @@ export default function QuoteForm({ compact = false }: { compact?: boolean }) {
   };
 
   const field =
-    'w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-sm text-graphite placeholder:text-slate-400 focus:border-pine focus:outline-none focus:ring-1 focus:ring-pine';
+    'w-full rounded-md border border-steel-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-steel-400 focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson';
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
@@ -87,9 +87,9 @@ export default function QuoteForm({ compact = false }: { compact?: boolean }) {
         {sent ? 'Opening your email…' : 'Request My Free Estimate'}
       </button>
 
-      <p className="text-center text-xs leading-relaxed text-slate">
+      <p className="text-center text-xs leading-relaxed text-steel">
         No obligation, no high-pressure sales. Or call{' '}
-        <a href={site.phoneHref} className="font-semibold text-pine hover:underline">
+        <a href={site.phoneHref} className="font-semibold text-crimson hover:underline">
           {site.phone}
         </a>
         .

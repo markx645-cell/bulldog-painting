@@ -41,14 +41,14 @@ export default function FinancingPage() {
     <>
       <Breadcrumbs trail={[{ label: 'Financing', href: '/financing' }]} />
 
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="container-x relative py-12 text-center lg:py-16">
           <p className="eyebrow">Pay over time</p>
           <h1 className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
             {financing.headline}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-steel-200">
             {financing.lead}
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function FinancingPage() {
 
       <section className="section bg-white">
         <div className="container-x max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-graphite sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
             An honest word about financing
           </h2>
           <div className="prose-body">

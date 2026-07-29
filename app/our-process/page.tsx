@@ -48,7 +48,7 @@ export default function ProcessPage() {
     <>
       <Breadcrumbs trail={[{ label: 'Our Process', href: '/our-process' }]} />
 
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 hidden w-[50%] lg:block">
           <Photo name="processHero" priority className="object-cover object-center" sizes="50vw" />
@@ -56,7 +56,7 @@ export default function ProcessPage() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(to right, #0B261E 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
+                'linear-gradient(to right, #110c09 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
             }}
           />
         </div>
@@ -66,7 +66,7 @@ export default function ProcessPage() {
             <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl">
               Prep is 70% of the job
             </h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-200">
+            <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">
               Nine out of ten paint failures are prep failures, not product failures. Which is why most of
               our schedule is spent on the parts that do not show up in the after photo.
             </p>
@@ -86,10 +86,10 @@ export default function ProcessPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow-dark">The unglamorous part</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
               Six things that happen before the finish coat
             </h2>
-            <p className="mt-4 text-slate">
+            <p className="mt-4 text-steel">
               None of these show in a photo. All of them decide whether you are repainting in year five or
               year fifteen.
             </p>
@@ -97,12 +97,12 @@ export default function ProcessPage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
             {prepStages.map((s, i) => (
-              <div key={s.title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
-                <span className="font-display text-sm font-bold uppercase tracking-widest text-brass">
+              <div key={s.title} className="rounded-xl border border-steel-200 bg-white p-6 shadow-card">
+                <span className="font-display text-sm font-bold uppercase tracking-widest text-crimson">
                   Step {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-2 font-display text-lg font-bold text-graphite">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{s.body}</p>
+                <h3 className="mt-2 font-display text-lg font-bold text-ink">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>
               </div>
             ))}
           </div>
@@ -114,16 +114,16 @@ export default function ProcessPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow-dark">Before any of it</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
               What happens at the estimate
             </h2>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal-stagger>
             {estimateSteps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-slate-200 bg-cream p-6">
-                <span className="font-display text-4xl font-bold text-brass">{s.step}</span>
-                <h3 className="mt-3 font-display text-lg font-bold text-pine">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{s.body}</p>
+              <div key={s.step} className="rounded-xl border border-steel-200 bg-cream p-6">
+                <span className="font-display text-4xl font-bold text-crimson">{s.step}</span>
+                <h3 className="mt-3 font-display text-lg font-bold text-crimson">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>
               </div>
             ))}
           </div>
@@ -138,15 +138,15 @@ export default function ProcessPage() {
           </div>
           <div>
             <p className="eyebrow-dark">Who is in your house</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
               {stats.crewCount} painters, all on payroll
             </h2>
-            <p className="mt-4 leading-relaxed text-slate">
+            <p className="mt-4 leading-relaxed text-steel">
               Every painter who works on your house is a W-2 employee — background-checked, uniformed, and
               trained on our prep standard. The work is never subcontracted out, not even to hit a
               deadline.
             </p>
-            <p className="mt-4 leading-relaxed text-slate">
+            <p className="mt-4 leading-relaxed text-steel">
               That matters most after the job. When a warranty call comes in, the crew lead who ran your
               project is still here, still on payroll, and is the person who comes back. That is not true
               of a subcontracted crew, which is the whole reason we do it this way.

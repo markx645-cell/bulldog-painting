@@ -7,10 +7,10 @@ export default function NotFound() {
     <section className="section bg-cream">
       <div className="container-x max-w-2xl py-16 text-center">
         <p className="eyebrow-dark">404</p>
-        <h1 className="mt-2 font-display text-4xl font-bold text-graphite sm:text-5xl">
+        <h1 className="mt-2 font-display text-4xl font-bold text-ink sm:text-5xl">
           That page has been painted over
         </h1>
-        <p className="mt-4 leading-relaxed text-slate">
+        <p className="mt-4 leading-relaxed text-steel">
           The link is broken or the page has moved. Here is where most people are heading.
         </p>
 
@@ -19,7 +19,7 @@ export default function NotFound() {
             <li key={s.slug}>
               <Link
                 href={`/${s.slug}`}
-                className="inline-block rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-graphite transition-colors hover:border-pine hover:text-pine"
+                className="inline-block rounded-full border border-steel-300 bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-crimson hover:text-crimson"
               >
                 {s.name}
               </Link>

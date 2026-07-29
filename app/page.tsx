@@ -74,7 +74,7 @@ export default function HomePage() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-pine-900">
+      <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
 
         <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
@@ -88,12 +88,12 @@ export default function HomePage() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(to right, #0B261E 0%, rgba(11,38,30,0.88) 10%, rgba(11,38,30,0.25) 32%, rgba(11,38,30,0) 58%)',
+                'linear-gradient(to right, #110c09 0%, rgba(11,38,30,0.88) 10%, rgba(11,38,30,0.25) 32%, rgba(11,38,30,0) 58%)',
             }}
           />
           <div
             className="absolute inset-0"
-            style={{ backgroundImage: 'linear-gradient(to top, #0B261E 0%, rgba(11,38,30,0) 22%)' }}
+            style={{ backgroundImage: 'linear-gradient(to top, #110c09 0%, rgba(11,38,30,0) 22%)' }}
           />
         </div>
 
@@ -102,9 +102,9 @@ export default function HomePage() {
             <p className="eyebrow">Cincinnati &amp; Surrounding Areas</p>
             <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Prepped right.
-              <span className="block text-brass">Painted once.</span>
+              <span className="block text-crimson">Painted once.</span>
             </h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-200">
+            <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">
               Family-owned since {site.founded}. {stats.crewCount} full-time painters on payroll — never
               subcontracted out — {stats.homesPainted} homes finished, and a written five-year warranty on
               the work itself, not just the paint.
@@ -113,7 +113,7 @@ export default function HomePage() {
             <div className="mt-5 flex items-center gap-2">
               <Stars count={5} animate />
               <span className="text-sm font-semibold text-white">{stats.googleRating}/5</span>
-              <span className="text-sm text-slate-300">· {stats.reviewsLabel}</span>
+              <span className="text-sm text-steel-300">· {stats.reviewsLabel}</span>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -121,9 +121,9 @@ export default function HomePage() {
                 <Link
                   key={c.label}
                   href={c.href}
-                  className="group rounded-lg border border-white/20 bg-white/5 px-4 py-4 text-center transition-all hover:border-brass hover:bg-white/10"
+                  className="group rounded-lg border border-white/20 bg-white/5 px-4 py-4 text-center transition-all hover:border-crimson hover:bg-white/10"
                 >
-                  <span className="font-display text-sm font-semibold uppercase tracking-wide text-white group-hover:text-brass">
+                  <span className="font-display text-sm font-semibold uppercase tracking-wide text-white group-hover:text-crimson">
                     {c.label}
                   </span>
                 </Link>
@@ -131,7 +131,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-brass">
+              <Link href="/contact" className="btn-secondary">
                 Get a Free Estimate
               </Link>
               <a href={site.phoneHref} className="btn-outline-light">
@@ -188,12 +188,12 @@ export default function HomePage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow-dark">In their words</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
-              <Link href="/reviews" className="transition-colors hover:text-pine">
+            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+              <Link href="/reviews" className="transition-colors hover:text-crimson">
                 What homeowners say
               </Link>
             </h2>
-            <p className="mt-4 text-slate">
+            <p className="mt-4 text-steel">
               A sample of what customers have written after the crew packed up.
             </p>
           </div>

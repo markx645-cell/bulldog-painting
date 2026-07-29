@@ -8,7 +8,7 @@ import { videoTestimonials } from '@/content/video-testimonials';
 function PlayIcon() {
   return (
     <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-lift transition group-hover:scale-105">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#1B5E4B" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#d01d21" aria-hidden="true">
         <path d="M8 5v14l11-7z" />
       </svg>
     </span>
@@ -23,10 +23,10 @@ export default function VideoTestimonials() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">In their own words</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             Video testimonials
           </h2>
-          <p className="mt-4 text-slate">
+          <p className="mt-4 text-steel">
             Read enough five-star reviews and they blur together. A homeowner on camera, standing in
             the room we painted, is harder to fake and easier to trust.
           </p>
@@ -38,9 +38,9 @@ export default function VideoTestimonials() {
             return (
               <figure
                 key={t.id}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card"
+                className="overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-card"
               >
-                <div className="relative aspect-[3/4] bg-pine-900">
+                <div className="relative aspect-[3/4] bg-ink">
                   {hasClip && playing === t.id ? (
                     <video
                       className="h-full w-full object-cover"
@@ -70,13 +70,13 @@ export default function VideoTestimonials() {
                           type="button"
                           onClick={() => setPlaying(t.id)}
                           aria-label={`Play video testimonial from ${t.name}`}
-                          className="group absolute inset-0 flex items-center justify-center bg-graphite/15"
+                          className="group absolute inset-0 flex items-center justify-center bg-ink/15"
                         >
                           <PlayIcon />
                         </button>
                       ) : (
                         /* No dead play button while the clip does not exist */
-                        <span className="absolute bottom-3 left-3 rounded bg-graphite/85 px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-widest text-white">
+                        <span className="absolute bottom-3 left-3 rounded bg-ink/85 px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-widest text-white">
                           Clip to come
                         </span>
                       )}
@@ -84,9 +84,9 @@ export default function VideoTestimonials() {
                   )}
                 </div>
                 <figcaption className="p-5">
-                  <p className="text-sm leading-relaxed text-graphite">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="mt-3 font-display text-sm font-bold text-graphite">{t.name}</p>
-                  <p className="mt-0.5 text-xs text-slate">
+                  <p className="text-sm leading-relaxed text-ink">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="mt-3 font-display text-sm font-bold text-ink">{t.name}</p>
+                  <p className="mt-0.5 text-xs text-steel">
                     {t.location} · {t.project}
                   </p>
                 </figcaption>

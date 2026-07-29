@@ -3,9 +3,10 @@
 Bulldog Painting — a Next.js site optimised for local SEO. Every page is
 pre-rendered to static HTML at build time (`output: 'export'`).
 
-Standalone brand. It is **not** the same business as Bulldog Windows & Doors
-(`../project 2 connie`) — different palette, different services, no shared
-content. Project 2 is the architectural reference only.
+A separate business from Bulldog Windows & Doors (`../project 2 connie`) and
+Bulldog Remodel Group (`../project 3 kitchen bath remodel`) — different
+services, no shared content. Project 2 is the architectural reference; the
+palette is matched to Bulldog Remodel Group so the brands read as one family.
 
 ---
 
@@ -14,16 +15,21 @@ content. Project 2 is the architectural reference only.
 Premium, modern, elegant. Subtle animations, proper spacing, clear visual
 hierarchy. No emoji icons. No generic gradients.
 
-**Palette — deliberately no red and no true black:**
+**Palette — black, red, white. Matched to bulldogremodelgroup.com so the two
+Bulldog brands read as one family.** (This supersedes the earlier no-red rule.)
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| `pine` | `#1B5E4B` | Primary accent, buttons, links |
-| `pine-900` | `#0B261E` | Dark section backgrounds |
-| `brass` | `#C08A2E` | Secondary accent, eyebrows, stats |
-| `graphite` | `#22282E` | Body text (charcoal, not black) |
-| `slate` | `#4A5561` | Secondary text |
-| `cream` | `#FBF8F3` | Page background |
+| `crimson` | `#d01d21` | Primary accent, buttons, links, eyebrows |
+| `ink` | `#110c09` | Body text and dark section backgrounds |
+| `ink-700` | `#2b221b` | Raised panels on dark |
+| `steel` | `#57534e` | Secondary text |
+| `steel-200` | `#e7e5e4` | Borders |
+| `bone` | `#fafaf9` | Page background |
+| `cream` | `#f6f5f1` | Subtle panels inside white sections |
+
+Secondary CTAs (`.btn-secondary`) are **white**, not red — they sit beside
+`.btn-primary` on dark sections and two red buttons give no hierarchy.
 
 Fonts: Sora (display), Inter (body), Fraunces (serif accent).
 
@@ -50,7 +56,7 @@ All copy lives in flat TypeScript under `/content`. No database, no CMS.
 | File | Holds |
 |------|-------|
 | `content/site.ts` | Business facts, stats, offers, warranty, process, nav |
-| `content/services.ts` | All 17 services — copy, includes, FAQs, pricing |
+| `content/services.ts` | All 17 services — copy, includes, FAQs. **No pricing: the site publishes no prices** |
 | `content/areas.ts` | Coverage — 8 counties, 170+ communities grouped under each |
 | `content/media.ts` | **Every image path on the site**, in one registry. Currently Pexels stock in `public/photos/` — see `ATTRIBUTION.md` |
 | `content/reviews.ts` | Customer reviews (currently placeholder) |
@@ -84,7 +90,7 @@ and cities on `/service-areas` and in the footer.
 |-------|--------|
 | `/` | `app/page.tsx` |
 | `/{service}` | `app/[service]/page.tsx` — 17 pages from `services` |
-| Static pages | `/contact`, `/reviews`, `/projects`, `/our-process`, `/financing`, `/service-areas`, `/painting-cost` |
+| Static pages | `/contact`, `/reviews`, `/projects`, `/our-process`, `/financing`, `/service-areas` |
 
 Static route folders take precedence over the `[service]` dynamic segment, so
 `/contact` never collides with it. `dynamicParams = false` means only the

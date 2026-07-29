@@ -35,8 +35,8 @@ export default function ServiceShowcase({
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">{eyebrow}</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">{heading}</h2>
-          <p className="mt-4 text-slate">{lead}</p>
+          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">{heading}</h2>
+          <p className="mt-4 text-steel">{lead}</p>
         </div>
 
         <div
@@ -49,7 +49,7 @@ export default function ServiceShowcase({
             <Link
               key={c.title}
               href={c.href}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition-all hover:-translate-y-1 hover:border-pine hover:shadow-lift"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-card transition-all hover:-translate-y-1 hover:border-crimson hover:shadow-lift"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Photo
@@ -67,11 +67,11 @@ export default function ServiceShowcase({
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-lg font-bold text-graphite group-hover:text-pine">
+                <h3 className="font-display text-lg font-bold text-ink group-hover:text-crimson">
                   {c.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate">{c.body}</p>
-                <span className="mt-4 inline-flex items-center gap-2 font-display text-[11px] font-bold uppercase tracking-widest text-pine">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-steel">{c.body}</p>
+                <span className="mt-4 inline-flex items-center gap-2 font-display text-[11px] font-bold uppercase tracking-widest text-crimson">
                   Learn more
                   <svg
                     width="14"
@@ -93,7 +93,7 @@ export default function ServiceShowcase({
 
         {cta && (
           <div className="mt-10 text-center">
-            <Link href={cta.href} className={dark ? 'btn-brass' : 'btn-ghost'}>
+            <Link href={cta.href} className={dark ? 'btn-secondary' : 'btn-ghost'}>
               {cta.label}
             </Link>
           </div>

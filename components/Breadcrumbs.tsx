@@ -22,12 +22,12 @@ export default function Breadcrumbs({ trail }: { trail: Crumb[] }) {
   return (
     // Dark to match the header and the hero it sits between — a light strip
     // here would reintroduce the seam the dark header exists to remove.
-    <nav aria-label="Breadcrumb" className="bg-pine-900">
+    <nav aria-label="Breadcrumb" className="bg-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <ol className="container-x flex flex-wrap items-center gap-x-2 gap-y-1 pt-4 text-xs text-slate-400">
+      <ol className="container-x flex flex-wrap items-center gap-x-2 gap-y-1 pt-4 text-xs text-steel-400">
         {items.map((c, i) => {
           const last = i === items.length - 1;
           return (
@@ -38,10 +38,10 @@ export default function Breadcrumbs({ trail }: { trail: Crumb[] }) {
                 </span>
               ) : (
                 <>
-                  <Link href={c.href} className="hover:text-brass">
+                  <Link href={c.href} className="hover:text-crimson">
                     {c.label}
                   </Link>
-                  <span aria-hidden="true" className="text-slate-400/60">
+                  <span aria-hidden="true" className="text-steel-400/60">
                     /
                   </span>
                 </>

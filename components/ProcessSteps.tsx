@@ -11,18 +11,18 @@ export default function ProcessSteps({
 }) {
   const dark = tone === 'dark';
   return (
-    <section className={`section ${dark ? 'bg-pine-900' : 'bg-white'}`}>
+    <section className={`section ${dark ? 'bg-ink' : 'bg-white'}`}>
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className={dark ? 'eyebrow' : 'eyebrow-dark'}>How it works</p>
           <h2
             className={`mt-2 font-display text-3xl font-bold sm:text-4xl ${
-              dark ? 'text-white' : 'text-graphite'
+              dark ? 'text-white' : 'text-ink'
             }`}
           >
             {heading}
           </h2>
-          <p className={`mt-4 ${dark ? 'text-slate-300' : 'text-slate'}`}>{lead}</p>
+          <p className={`mt-4 ${dark ? 'text-steel-300' : 'text-steel'}`}>{lead}</p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
           {process.map((s) => (
@@ -30,17 +30,17 @@ export default function ProcessSteps({
               key={s.step}
               className={`rounded-xl border p-6 transition-colors ${
                 dark
-                  ? 'border-white/15 bg-white/5 hover:border-brass'
-                  : 'border-slate-200 bg-cream shadow-card hover:border-pine'
+                  ? 'border-white/15 bg-white/5 hover:border-crimson'
+                  : 'border-steel-200 bg-cream shadow-card hover:border-crimson'
               }`}
             >
-              <span className="font-display text-4xl font-bold text-brass">{s.step}</span>
+              <span className="font-display text-4xl font-bold text-crimson">{s.step}</span>
               <h3
-                className={`mt-3 font-display text-lg font-bold ${dark ? 'text-white' : 'text-pine'}`}
+                className={`mt-3 font-display text-lg font-bold ${dark ? 'text-white' : 'text-crimson'}`}
               >
                 {s.title}
               </h3>
-              <p className={`mt-2 text-sm leading-relaxed ${dark ? 'text-slate-300' : 'text-slate'}`}>
+              <p className={`mt-2 text-sm leading-relaxed ${dark ? 'text-steel-300' : 'text-steel'}`}>
                 {s.body}
               </p>
             </div>

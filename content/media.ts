@@ -30,7 +30,7 @@ export const media = {
   // source if the logo is ever revised.
   logo: {
     src: '/logo.png',
-    alt: 'Bulldog Painting — Interior & Exterior',
+    alt: 'Bulldog Painting — Built Tough, Sealed Right',
     note: 'Supplied brand lockup. Wordmark and strapline are inside the artwork.',
   },
 
