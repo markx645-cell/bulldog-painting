@@ -3,10 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  videoTestimonials,
-  videoTestimonialsArePlaceholder,
-} from '@/content/video-testimonials';
+import { videoTestimonials } from '@/content/video-testimonials';
 
 function PlayIcon() {
   return (
@@ -34,19 +31,6 @@ export default function VideoTestimonials() {
             the room we painted, is harder to fake and easier to trust.
           </p>
         </div>
-
-        {videoTestimonialsArePlaceholder && (
-          <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-brass bg-brass-200/50 p-5 text-sm leading-relaxed text-graphite">
-            <strong className="font-display uppercase tracking-widest">
-              Build note — remove before launch.
-            </strong>{' '}
-            These are placeholder cards. The photos are stock images of people with no connection to
-            Bulldog, and the names and quotes are invented. Film real customers, add the clips to{' '}
-            <code>/public/videos/</code>, fill in <code>content/video-testimonials.ts</code>, get a
-            written release from anyone on camera, then set{' '}
-            <code>videoTestimonialsArePlaceholder</code> to <code>false</code>.
-          </div>
-        )}
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
           {videoTestimonials.map((t) => {
