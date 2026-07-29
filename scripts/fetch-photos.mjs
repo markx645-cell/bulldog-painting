@@ -38,10 +38,9 @@ const SLOTS = {
     size: { width: 2400, height: 340 },
     queries: ['dark green painted wall texture'],
   },
-  homeHero: {
-    file: 'home-hero',
-    queries: ['painter painting wall roller interior', 'house painter working indoors', 'man painting wall roller'],
-  },
+  // homeHero is intentionally absent: the homepage hero uses real branded
+  // photography (human/exterior.png -> public/photos/hero-exterior.jpg) and
+  // must never be replaced by a stock fetch.
   crew: {
     file: 'crew',
     queries: ['construction workers team portrait', 'painters team working house', 'contractor crew van'],

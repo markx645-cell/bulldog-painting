@@ -40,7 +40,6 @@ images of other people's work are a placeholder, not a portfolio.
 | fence | fence-painting.jpg | Shazard R. | https://www.pexels.com/photo/wooden-shed-on-a-backyard-11903184/ |
 | frontDoor | front-door-painting.jpg | Ben Prater | https://www.pexels.com/photo/creative-trompe-l-oeil-painted-front-door-decoration-37621239/ |
 | headerBg | header-bg.jpg | Adam Balcombe | https://www.pexels.com/photo/close-up-of-unevenly-painted-green-background-8337525/ |
-| homeHero | home-hero.jpg | Malte Luk | https://www.pexels.com/photo/person-holding-paint-roller-on-wall-1669754/ |
 | interior | interior-painting.jpg | Max Vakhtbovych | https://www.pexels.com/photo/clean-unfurnished-apartment-room-8146336/ |
 | painterDay | painter-for-a-day.jpg | Blue Bird | https://www.pexels.com/photo/crop-photo-of-person-putting-tape-on-wall-7217961/ |
 | popcorn | popcorn-ceiling-removal.jpg | Tima Miroshnichenko | https://www.pexels.com/photo/man-polishing-the-ceiling-6474129/ |

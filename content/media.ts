@@ -44,10 +44,13 @@ export const media = {
   },
 
   // ---- Home ----
+  // Real branded photograph, not stock. Source is human/exterior.png at the
+  // repo root; this is the optimised copy. Deliberately NOT named home-hero so
+  // scripts/fetch-photos.mjs can never overwrite it with a stock image.
   homeHero: {
-    src: P('home-hero'),
-    alt: 'A Bulldog Painting crew lead cutting in a clean line at a living-room ceiling',
-    note: 'Landscape 3:2. Painter in uniform cutting in at a ceiling line. Bright, natural light.',
+    src: P('hero-exterior'),
+    alt: 'A Bulldog Painting painter on a ladder cutting in fresh paint on a home exterior',
+    note: 'Supplied brand photography — keep. Do not replace with stock.',
   },
   crew: {
     src: P('crew'),
