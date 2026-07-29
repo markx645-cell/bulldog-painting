@@ -22,7 +22,7 @@ export default function Breadcrumbs({ trail }: { trail: Crumb[] }) {
   return (
     // Dark to match the header and the hero it sits between — a light strip
     // here would reintroduce the seam the dark header exists to remove.
-    <nav aria-label="Breadcrumb" className="under-header bg-pine-900">
+    <nav aria-label="Breadcrumb" className="bg-pine-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

@@ -35,17 +35,6 @@ export default function Header() {
     return () => clearTimeout(id);
   }, [showOffer]);
 
-  // The header sits ON the hero rather than above it, so at the top of the page
-  // it is fully transparent and the hero image runs behind it. Once you scroll
-  // past the hero it needs its own background or the links land on pale content.
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   const close = () => {
     setMobileOpen(false);
     setOpenGroup(null);
@@ -100,18 +89,10 @@ export default function Header() {
   };
 
   return (
-    // Overlays the page instead of sitting above it, so the hero runs edge to
-    // edge behind it and there is no band separating header from content.
-    // Fixed on desktop; absolute on mobile, where a pinned 188px header would
-    // eat most of a phone screen — there it simply scrolls away with the page.
-    <header
-      className={`absolute inset-x-0 top-0 z-50 w-full transition-shadow duration-300 md:fixed ${
-        scrolled ? 'hdr-solid' : ''
-      }`}
-    >
-      <div>
+    <>
+      <header className="sticky top-0 z-50 w-full">
         {/* Top utility bar — desktop */}
-        <div className="hidden text-white md:block">
+        <div className="hdr-band hidden text-white md:block">
           <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
@@ -145,7 +126,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 1 — offer / info */}
-        <div className="md:hidden">
+        <div className="hdr-band md:hidden">
           <div className="relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
@@ -172,7 +153,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 2 — quote / phone split */}
-        <div className="md:hidden">
+        <div className="hdr-band hdr-band-2 md:hidden">
           <div className="flex h-14 items-stretch">
             <Link
               href="/contact"
@@ -191,10 +172,13 @@ export default function Header() {
             </a>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main nav bar — transparent, sitting directly on the hero */}
-      <div>
+      {/* Main bar — sticky on desktop, scrolls away on mobile.
+          Dark so it runs straight into the pine-900 hero every page opens with;
+          a white bar here reads as a separate block sitting on top of the page. */}
+      <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-40">
+        {/* h-24 at every breakpoint — the band offsets in globals.css assume it */}
         <div className="flex h-24 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
             <Logo priority className="h-16 w-auto sm:h-20" />
@@ -325,6 +309,6 @@ export default function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
