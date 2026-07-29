@@ -7,12 +7,6 @@
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-display: 'Sora', system-ui, sans-serif;
 
-    /* Section transition shape: a shallow arc, rising in the middle.
-       --paint-edge fills below the curve, --paint-edge-line strokes along it.
-       Both use the same path and preserveAspectRatio='none', so they scale
-       together and the accent line sits exactly on the colour boundary. */
-    --paint-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0 40H1440V22Q720-6 0 22Z'/%3E%3C/svg%3E");
-    --paint-edge-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23000' stroke-width='4' d='M0 22Q720-6 1440 22'/%3E%3C/svg%3E");
   }
 
   html {
@@ -72,11 +66,8 @@
     @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.14em] text-pine;
   }
 
-  /* Extra bottom padding is not decoration: the torn edge is drawn inside the
-     bottom of each section, so content needs to clear it or the tear cuts
-     straight through the last line of text. */
   .section {
-    @apply pb-20 pt-14 sm:pb-24 sm:pt-16;
+    @apply py-14 sm:py-16;
   }
 
   .prose-body p {
@@ -216,90 +207,6 @@
   .spectrum-bar::after {
     animation: none;
   }
-}
-
-/* ---------- Curved edge between sections ----------
-   Every section ends on a shallow arc filled in the NEXT section's colour, with
-   a brass line stroked along the boundary.
-
-   The colour rules match on [class~="..."] rather than .bg-pine. Tailwind
-   clones any rule that names a utility some @apply also uses, so `.bg-pine`
-   produced a duplicate `:has(+ section.btn-primary)` — harmless but dead
-   weight. Attribute selectors are left alone.
-
-   Drawn as masked pseudo-elements INSIDE each section rather than elements
-   overhanging the next one, because several sections are `overflow-hidden`
-   for their hero images and would clip anything sticking out.
-
-   The stroke is centred on the path, so half of it lands over the fill and half
-   over the section above. That is what makes it read as a drawn edge rather
-   than a border stuck underneath.
-
-   `:has(+ ...)` is how a section learns which colour follows it. Where that is
-   unsupported both custom properties stay unset, the fills resolve to
-   transparent, and the boundary is simply straight. */
-main > section {
-  position: relative;
-}
-
-main > section::after,
-main > section::before {
-  content: '';
-  position: absolute;
-  inset: auto 0 -1px 0;
-  height: 22px;
-  pointer-events: none;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
-/* the arc, in the next section's colour */
-main > section::after {
-  background-color: var(--edge-next, transparent);
-  z-index: 2;
-  -webkit-mask-image: var(--paint-edge);
-  mask-image: var(--paint-edge);
-}
-
-/* the accent line along it */
-main > section::before {
-  background-color: var(--edge-line, transparent);
-  z-index: 3;
-  -webkit-mask-image: var(--paint-edge-line);
-  mask-image: var(--paint-edge-line);
-}
-
-@media (min-width: 768px) {
-  main > section::after,
-  main > section::before {
-    height: 34px;
-  }
-}
-
-/* The line is drawn only between sections — never above the footer, which
-   already opens on its own swatch strip. */
-main > section:has(+ section) {
-  --edge-line: #c08a2e;
-}
-
-/* Which colour comes next */
-main > section:has(+ section[class~='bg-white']) {
-  --edge-next: #ffffff;
-}
-main > section:has(+ section[class~='bg-cream']) {
-  --edge-next: #fbf8f3;
-}
-main > section:has(+ section[class~='bg-pine-900']) {
-  --edge-next: #0b261e;
-}
-main > section:has(+ section[class~='bg-pine']) {
-  --edge-next: #1b5e4b;
-}
-/* The footer closes every page on pine-900 */
-main > section:last-child {
-  --edge-next: #0b261e;
 }
 
 /* ---------- Scroll reveal ----------

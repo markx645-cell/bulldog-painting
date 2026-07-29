@@ -38,7 +38,7 @@ function Tick() {
 
 export default function RatingStrip() {
   return (
-    <section className="bg-pine-900 pb-16 pt-9">
+    <section className="bg-pine-900 py-9">
       <div className="container-x">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto_1fr]">
           {/* Claims */}
