@@ -20,26 +20,28 @@ export default function Breadcrumbs({ trail }: { trail: Crumb[] }) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-slate-200 bg-white">
+    // Dark to match the header and the hero it sits between — a light strip
+    // here would reintroduce the seam the dark header exists to remove.
+    <nav aria-label="Breadcrumb" className="bg-pine-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <ol className="container-x flex flex-wrap items-center gap-x-2 gap-y-1 py-3 text-xs text-slate">
+      <ol className="container-x flex flex-wrap items-center gap-x-2 gap-y-1 pt-4 text-xs text-slate-400">
         {items.map((c, i) => {
           const last = i === items.length - 1;
           return (
             <li key={c.href} className="flex items-center gap-2">
               {last ? (
-                <span className="font-semibold text-graphite" aria-current="page">
+                <span className="font-semibold text-white" aria-current="page">
                   {c.label}
                 </span>
               ) : (
                 <>
-                  <Link href={c.href} className="hover:text-pine">
+                  <Link href={c.href} className="hover:text-brass">
                     {c.label}
                   </Link>
-                  <span aria-hidden="true" className="text-slate-400">
+                  <span aria-hidden="true" className="text-slate-400/60">
                     /
                   </span>
                 </>

@@ -49,11 +49,11 @@ export default function Header() {
   }) => {
     const isOpen = openGroup === group.label;
     return (
-      <div key={group.label} className="border-b border-slate-200">
+      <div key={group.label} className="border-b border-white/10">
         <button
           type="button"
           onClick={() => setOpenGroup(isOpen ? null : group.label)}
-          className="flex w-full items-center justify-between py-3.5 font-display text-sm font-bold uppercase tracking-wide text-graphite"
+          className="flex w-full items-center justify-between py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white"
           aria-expanded={isOpen}
         >
           {group.label}
@@ -62,7 +62,7 @@ export default function Header() {
             height="18"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#1B5E4B"
+            stroke="#C08A2E"
             strokeWidth="2.5"
             className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             aria-hidden="true"
@@ -77,7 +77,7 @@ export default function Header() {
                 key={child.href}
                 href={child.href}
                 onClick={close}
-                className="block py-2 text-sm text-graphite hover:text-pine"
+                className="block py-2 text-sm text-slate-300 hover:text-brass"
               >
                 {child.label}
               </Link>
@@ -126,7 +126,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 1 — offer / info */}
-        <div className="bg-cream md:hidden">
+        <div className="bg-pine-900 md:hidden">
           <div className="relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
@@ -142,7 +142,7 @@ export default function Header() {
               </Link>
             </div>
             <div
-              className={`absolute inset-0 flex items-center justify-between gap-2 px-3 text-graphite transition-all duration-500 ease-in-out ${
+              className={`absolute inset-0 flex items-center justify-between gap-2 px-3 text-slate-300 transition-all duration-500 ease-in-out ${
                 showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
             >
@@ -174,8 +174,10 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Main bar — sticky on desktop, scrolls away on mobile */}
-      <div className="border-b border-slate-200 bg-white/95 backdrop-blur md:sticky md:top-9 md:z-40">
+      {/* Main bar — sticky on desktop, scrolls away on mobile.
+          Dark so it runs straight into the pine-900 hero every page opens with;
+          a white bar here reads as a separate block sitting on top of the page. */}
+      <div className="bg-pine-900 md:sticky md:top-9 md:z-40">
         <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:h-24 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
             <Logo priority className="h-16 w-auto sm:h-20" />
@@ -192,7 +194,7 @@ export default function Header() {
               >
                 <Link
                   href={group.href}
-                  className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-graphite hover:text-pine"
+                  className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
                 >
                   {group.label}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -218,7 +220,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-graphite hover:text-pine"
+                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
               >
                 {item.label}
               </Link>
@@ -231,7 +233,7 @@ export default function Header() {
             >
               <Link
                 href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-graphite hover:text-pine"
+                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-white hover:text-brass"
               >
                 {nav.about.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -256,14 +258,14 @@ export default function Header() {
 
           <div className="flex items-center gap-3 sm:gap-4">
             <a href={site.phoneHref} className="hidden text-right leading-none lg:block">
-              <span className="mb-0.5 block font-display text-[10px] font-bold uppercase tracking-[0.25em] text-slate">
+              <span className="mb-0.5 block font-display text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
                 Call Us
               </span>
-              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-graphite transition-colors hover:text-pine">
+              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-white transition-colors hover:text-brass">
                 {site.phone}
               </span>
             </a>
-            <Link href="/contact" className="btn-primary hidden !px-5 !py-2 text-center !leading-tight lg:inline-flex">
+            <Link href="/contact" className="btn-brass hidden !px-5 !py-2 text-center !leading-tight lg:inline-flex">
               Get Your
               <br />
               Free Estimate
@@ -288,7 +290,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-slate-200 bg-white lg:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto bg-pine-900 lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.interior)}
             {renderMobileGroup(nav.exterior)}
@@ -297,7 +299,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-slate-200 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-graphite hover:text-pine"
+                className="border-b border-white/10 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white hover:text-brass"
               >
                 {item.label}
               </Link>
