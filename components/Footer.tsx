@@ -14,7 +14,6 @@ export default function Footer() {
           <Link href="/" className="inline-flex items-center" aria-label={site.name}>
             <Logo className="h-28 w-auto" />
           </Link>
-          <p className="mt-4 font-display text-sm uppercase tracking-widest text-crimson">{site.tagline}</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
             Family-owned painting contractor serving Cincinnati and the surrounding areas since{' '}
             {site.founded}. W-2 crews, written pricing, and a five-year workmanship warranty.

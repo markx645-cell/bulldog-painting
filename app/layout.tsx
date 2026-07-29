@@ -50,14 +50,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — Painters in Cincinnati & Surrounding Areas`,
     description:
       'Interior and exterior painting across Cincinnati and the surrounding areas since 2001. Free color consultation, written pricing, 5-year workmanship warranty.',
     images: [{ url: '/og/home.jpg', width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — Painters in Cincinnati & Surrounding Areas`,
     description: 'Interior and exterior painting across Cincinnati and the surrounding areas.',
     images: ['/og/home.jpg'],
   },
@@ -82,7 +82,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     telephone: site.phone,
     email: site.email,
     priceRange: '$$',
-    slogan: site.tagline,
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,

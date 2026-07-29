@@ -30,8 +30,8 @@ export const media = {
   // source if the logo is ever revised.
   logo: {
     src: '/logo.png',
-    alt: 'Bulldog Painting — Built Tough, Sealed Right',
-    note: 'Supplied brand lockup. Wordmark and strapline are inside the artwork.',
+    alt: 'Bulldog Painting',
+    note: 'Supplied brand lockup with the strapline removed. Source is logo-no-tagline.png at the repo root, generated from "bulldog painting.png".',
   },
 
   // Header band texture. Referenced from globals.css (.hdr-band), not through

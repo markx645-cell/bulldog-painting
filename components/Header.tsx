@@ -114,12 +114,11 @@ export default function Header() {
                 showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
             >
-              <div className="grid w-full grid-cols-3 items-center">
-                <span className="justify-self-start whitespace-nowrap">{site.tagline}</span>
-                <span className="justify-self-center whitespace-nowrap text-center">
-                  Serving {site.serviceArea}
-                </span>
-                <span className="justify-self-end whitespace-nowrap text-right">{site.hours}</span>
+              {/* Two items, not three: the tagline slot was removed with the
+                  tagline itself, so this is a straight left/right split. */}
+              <div className="flex w-full items-center justify-between">
+                <span className="whitespace-nowrap">Serving {site.serviceArea}</span>
+                <span className="whitespace-nowrap text-right">{site.hours}</span>
               </div>
             </div>
           </div>

@@ -9,9 +9,8 @@
 export const site = {
   name: 'Bulldog Painting',
   shortName: 'Bulldog Painting',
-  // Matches the strapline inside the logo artwork. The header shows this line
-  // directly beside the mark, so anything else reads as two competing taglines.
-  tagline: 'Built Tough. Sealed Right.',
+  // No tagline. The logo artwork carries none either — the strapline was
+  // removed from it deliberately. Do not reintroduce one in only one place.
   founded: 2001,
   yearsInBusiness: '25+',
   url: 'https://bulldogpainting.com',

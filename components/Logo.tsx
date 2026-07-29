@@ -20,7 +20,7 @@ export default function Logo({
   return (
     <Image
       src="/logo.png"
-      alt={`${site.name} — ${site.tagline}`}
+      alt={site.name}
       width={720}
       height={650}
       priority={priority}
