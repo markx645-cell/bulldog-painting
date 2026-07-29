@@ -7,12 +7,12 @@
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-display: 'Sora', system-ui, sans-serif;
 
-    /* Torn paint edge used to mask every section transition. Its alpha channel
-       is the mask: transparent above the tear, solid below.
-       Source artwork is transition.png at the repo root; public/paint-edge.png
-       is that file cropped to the tear itself (the original is mostly dead
-       solid area, which would squash the detail when scaled to a thin strip). */
-    --paint-edge: url('/paint-edge.png');
+    /* Section transition shape: a shallow arc, rising in the middle.
+       --paint-edge fills below the curve, --paint-edge-line strokes along it.
+       Both use the same path and preserveAspectRatio='none', so they scale
+       together and the accent line sits exactly on the colour boundary. */
+    --paint-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0 40H1440V22Q720-6 0 22Z'/%3E%3C/svg%3E");
+    --paint-edge-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23000' stroke-width='4' d='M0 22Q720-6 1440 22'/%3E%3C/svg%3E");
   }
 
   html {
@@ -218,52 +218,70 @@
   }
 }
 
-/* ---------- Torn paint edge between sections ----------
-   Every section ends with a ragged edge painted in the NEXT section's colour,
-   so the boundary reads as paint torn over the section below rather than a
-   ruled line.
+/* ---------- Curved edge between sections ----------
+   Every section ends on a shallow arc filled in the NEXT section's colour, with
+   a brass line stroked along the boundary.
 
    The colour rules match on [class~="..."] rather than .bg-pine. Tailwind
    clones any rule that names a utility some @apply also uses, so `.bg-pine`
    produced a duplicate `:has(+ section.btn-primary)` — harmless but dead
    weight. Attribute selectors are left alone.
 
-   Drawn as a masked ::after INSIDE each section rather than an element
+   Drawn as masked pseudo-elements INSIDE each section rather than elements
    overhanging the next one, because several sections are `overflow-hidden`
    for their hero images and would clip anything sticking out.
 
-   mask-mode is set explicitly: the source is a PNG whose alpha carries the
-   shape, and match-source is not reliable across engines for raster masks.
+   The stroke is centred on the path, so half of it lands over the fill and half
+   over the section above. That is what makes it read as a drawn edge rather
+   than a border stuck underneath.
 
    `:has(+ ...)` is how a section learns which colour follows it. Where that is
-   unsupported --edge-next stays unset, background-color resolves to
-   transparent, and the boundary is simply straight as before. */
+   unsupported both custom properties stay unset, the fills resolve to
+   transparent, and the boundary is simply straight. */
 main > section {
   position: relative;
 }
 
-main > section::after {
+main > section::after,
+main > section::before {
   content: '';
   position: absolute;
   inset: auto 0 -1px 0;
   height: 22px;
-  background-color: var(--edge-next, transparent);
   pointer-events: none;
-  z-index: 2;
-  -webkit-mask-image: var(--paint-edge);
-  mask-image: var(--paint-edge);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
+}
+
+/* the arc, in the next section's colour */
+main > section::after {
+  background-color: var(--edge-next, transparent);
+  z-index: 2;
+  -webkit-mask-image: var(--paint-edge);
+  mask-image: var(--paint-edge);
+}
+
+/* the accent line along it */
+main > section::before {
+  background-color: var(--edge-line, transparent);
+  z-index: 3;
+  -webkit-mask-image: var(--paint-edge-line);
+  mask-image: var(--paint-edge-line);
 }
 
 @media (min-width: 768px) {
-  main > section::after {
+  main > section::after,
+  main > section::before {
     height: 34px;
   }
+}
+
+/* The line is drawn only between sections — never above the footer, which
+   already opens on its own swatch strip. */
+main > section:has(+ section) {
+  --edge-line: #c08a2e;
 }
 
 /* Which colour comes next */
