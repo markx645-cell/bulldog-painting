@@ -10,8 +10,8 @@ export const site = {
   name: 'Bulldog Painting',
   shortName: 'Bulldog Painting',
   tagline: 'Prepped Right. Painted Once.',
-  founded: 2004,
-  yearsInBusiness: '20+',
+  founded: 2001,
+  yearsInBusiness: '25+',
   url: 'https://bulldogpainting.com',
   phone: '(513) 555-0142', // TODO: real number
   phoneHref: 'tel:+15135550142', // TODO: real number
@@ -49,7 +49,7 @@ export const offer = {
 
 export const trustPoints = [
   { icon: 'star', stat: '4.9★', label: 'Across 400+ homeowner reviews' },
-  { icon: 'brush', stat: '3,200+', label: 'Homes painted since 2004' },
+  { icon: 'brush', stat: '3,200+', label: `Homes painted since ${site.founded}` },
   { icon: 'shield', stat: '5-Year', label: 'Written workmanship warranty' },
   { icon: 'crew', stat: 'W-2 Crews', label: 'Employees, never day labor' },
 ] as const;
@@ -79,7 +79,7 @@ export const certifications = [
   'Licensed & Insured',
   'Low-VOC & Zero-VOC Options',
   '5-Year Workmanship Warranty',
-  'Family-Owned Since 2004',
+  `Family-Owned Since ${site.founded}`,
 ] as const;
 
 // "What happens at your free estimate."
@@ -154,7 +154,7 @@ export const pillars = [
   {
     icon: 'star',
     title: '4.9 Stars, 400+ Reviews',
-    body: 'Two decades of work across Greater Cincinnati and Northern Kentucky, and the review history to look through before you call.',
+    body: 'Twenty-five years of work across Greater Cincinnati and Northern Kentucky, and the review history to look through before you call.',
   },
   {
     icon: 'pricing',
@@ -195,13 +195,13 @@ export const process = [
 // Homepage "about" block.
 export const aboutHome = {
   eyebrow: 'Who you are hiring',
-  headline: 'Cincinnati painters since 2004',
+  headline: `Cincinnati painters since ${site.founded}`,
   body: [
-    'Bulldog Painting is a family-owned crew working out of Cincinnati, covering both sides of the river and seven counties around it. Two decades, 3,200 homes, and eleven painters who are on our payroll rather than picked up for the week.',
+    'Bulldog Painting is a family-owned crew working out of Cincinnati, covering both sides of the river and seven counties around it. Twenty-five years, 3,200 homes, and eleven painters who are on our payroll rather than picked up for the week.',
     'We are not the cheapest quote you will get, and we will tell you plainly when the cheapest quote is the right one — a rental between tenants, or a house going on the market in sixty days. What we are good at is the work that has to last: exteriors that take Ohio Valley freeze-thaw, plaster walls in century-old houses, and kitchens where the finish gets touched every day.',
   ],
   points: [
-    'Family-owned and operated since 2004',
+    `Family-owned and operated since ${site.founded}`,
     'W-2 painters, background-checked — never day labor',
     'EPA Lead-Safe certified for pre-1978 homes',
     'Written, itemized estimates with prep broken out',

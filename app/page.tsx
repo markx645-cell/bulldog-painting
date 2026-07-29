@@ -25,7 +25,7 @@ import { sharedFaqs } from '@/content/faqs';
 export const metadata: Metadata = {
   title: 'Painters in Cincinnati & Surrounding Areas',
   description:
-    'Bulldog Painting — interior and exterior painting across Cincinnati and the surrounding areas since 2004. W-2 crews, free color consultation, written itemized pricing, 5-year workmanship warranty. Free estimate.',
+    'Bulldog Painting — interior and exterior painting across Cincinnati and the surrounding areas since 2001. W-2 crews, free color consultation, written itemized pricing, 5-year workmanship warranty. Free estimate.',
   alternates: { canonical: '/' },
 };
 

@@ -1,4 +1,4 @@
-import { pillars, stats } from '@/content/site';
+import { pillars, stats, site } from '@/content/site';
 
 function PillarIcon({ name }: { name: string }) {
   const common = {
@@ -76,7 +76,7 @@ export default function WhyUs() {
             Six reasons the finish lasts
           </h2>
           <p className="mt-4 text-slate">
-            {stats.homesPainted} homes since 2004, {stats.crewCount} full-time painters on payroll, and a
+            {stats.homesPainted} homes since {site.founded}, {stats.crewCount} full-time painters on payroll, and a
             written warranty behind every one of them.
           </p>
         </div>
