@@ -128,7 +128,8 @@ export default function ServicePage({ service }: { service: Service }) {
             </div>
           </div>
 
-          <aside className="lg:sticky lg:top-32 lg:self-start">
+          {/* top offset clears the sticky header: 36px utility bar + 96px main bar */}
+          <aside className="lg:sticky lg:top-36 lg:self-start">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lift">
               <h3 className="font-display text-lg font-bold text-graphite">
                 Free estimate, written and itemized

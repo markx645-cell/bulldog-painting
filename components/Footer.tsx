@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { site, nav, certifications } from '@/content/site';
 import { serviceCounties, featuredPlaces, communityCount } from '@/content/areas';
-import { Mark, Wordmark } from '@/components/Logo';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   const year = 2026;
@@ -11,9 +11,8 @@ export default function Footer() {
 
       <div className="container-x grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link href="/" className="flex items-center gap-3" aria-label={site.name}>
-            <Mark className="h-14 w-14" />
-            <Wordmark tone="light" size="lg" />
+          <Link href="/" className="inline-flex items-center" aria-label={site.name}>
+            <Logo className="h-28 w-auto" />
           </Link>
           <p className="mt-4 font-display text-sm uppercase tracking-widest text-brass">{site.tagline}</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">

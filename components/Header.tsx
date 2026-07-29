@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { site, nav, offer } from '@/content/site';
-import { Mark, Wordmark } from '@/components/Logo';
+import Logo from '@/components/Logo';
 
 function PhoneIcon({ className }: { className?: string }) {
   return (
@@ -176,10 +176,9 @@ export default function Header() {
 
       {/* Main bar — sticky on desktop, scrolls away on mobile */}
       <div className="border-b border-slate-200 bg-white/95 backdrop-blur md:sticky md:top-9 md:z-40">
-        <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3" aria-label={site.name} onClick={close}>
-            <Mark className="h-11 w-11 shrink-0 sm:h-14 sm:w-14" />
-            <Wordmark />
+        <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:h-24 sm:px-8">
+          <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
+            <Logo priority className="h-16 w-auto sm:h-20" />
           </Link>
 
           {/* Desktop nav */}

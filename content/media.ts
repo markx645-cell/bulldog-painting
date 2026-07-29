@@ -25,10 +25,13 @@ const P = (name: string) => `/photos/${name}.jpg`;
 
 export const media = {
   // ---- Brand ----
+  // Real logo. Source artwork is LOGO.png at the repo root; this is the
+  // trimmed, web-sized copy. Regenerate both this and the icons from the
+  // source if the logo is ever revised.
   logo: {
-    src: '/logo.svg',
-    alt: 'Bulldog Painting',
-    note: 'Company logo, transparent background, at least 512px tall.',
+    src: '/logo.png',
+    alt: 'Bulldog Painting — Interior & Exterior',
+    note: 'Supplied brand lockup. Wordmark and strapline are inside the artwork.',
   },
 
   // ---- Home ----

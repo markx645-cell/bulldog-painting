@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.tagline}`,
     description:
       'Interior and exterior painting across Cincinnati and the surrounding areas since 2004. Free color consultation, written pricing, 5-year workmanship warranty.',
+    images: [{ url: '/og/home.jpg', width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${site.name} — ${site.tagline}`,
     description: 'Interior and exterior painting across Cincinnati and the surrounding areas.',
+    images: ['/og/home.jpg'],
   },
   robots: { index: true, follow: true },
 };
@@ -75,6 +77,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: site.name,
     '@id': site.url,
     url: site.url,
+    logo: `${site.url}/logo.png`,
+    image: `${site.url}/og/home.jpg`,
     telephone: site.phone,
     email: site.email,
     priceRange: '$$',
