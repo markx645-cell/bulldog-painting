@@ -31,7 +31,6 @@ images of other people's work are a placeholder, not a portfolio.
 | ceilings | ceiling-painting.jpg | Bidvine | https://www.pexels.com/photo/paint-bucket-and-paint-rollers-2293819/ |
 | colorConsult | color-consult.jpg | Viktorya  Sergeeva 🫂 | https://www.pexels.com/photo/palette-color-swatch-fan-10275089/ |
 | commercial | commercial-painting.jpg | Max Vakhtbovych | https://www.pexels.com/photo/long-corridor-in-modern-office-7534167/ |
-| cost | painting-cost.jpg | Kindel Media | https://www.pexels.com/photo/close-up-shot-of-a-person-using-calculator-7688524/ |
 | crew | crew.jpg | noah schroeder | https://www.pexels.com/photo/group-of-workers-in-uniforms-5773087/ |
 | deck | deck-staining.jpg | Pixabay | https://www.pexels.com/photo/brown-sunhat-near-swimming-pool-261106/ |
 | drywall | drywall-repair.jpg | David Antonio Cruz Naira | https://www.pexels.com/photo/plastering-work-with-trowel-and-cement-38561968/ |

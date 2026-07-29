@@ -159,11 +159,6 @@ export const media = {
     alt: 'Siding being pressure washed before painting',
     note: 'Action shot, clean stripe visible against dirty siding.',
   },
-  cost: {
-    src: P('painting-cost'),
-    alt: 'An itemized painting estimate on a clipboard',
-    note: 'Overhead 4:3 of a written estimate, paint deck beside it.',
-  },
 } as const satisfies Record<string, MediaEntry>;
 
 export type MediaKey = keyof typeof media;

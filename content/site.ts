@@ -322,7 +322,6 @@ export const nav = {
   },
   simple: [
     { label: 'Commercial', href: '/commercial-painting' },
-    { label: 'Pricing', href: '/painting-cost' },
     { label: 'Financing', href: '/financing' },
   ],
   about: {

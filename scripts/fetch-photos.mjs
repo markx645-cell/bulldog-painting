@@ -148,10 +148,6 @@ const SLOTS = {
     orientation: 'portrait',
     queries: ['senior woman smiling home', 'older man portrait home'],
   },
-  cost: {
-    file: 'painting-cost',
-    queries: ['calculator invoice paperwork desk', 'estimate document clipboard', 'budget planning documents'],
-  },
 };
 
 /** Before/after gallery — 9 pairs. Both halves come from the same query family

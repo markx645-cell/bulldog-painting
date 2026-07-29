@@ -22,7 +22,6 @@ export type Service = {
   /** Longer-form sections below the fold */
   detail: { heading: string; body: string[] }[];
   /** Honest price banding. `note` must say what moves the number. */
-  pricing: { label: string; range: string; note: string };
   faqs: Faq[];
   /** Slugs of related services shown at the foot of the page */
   related: string[];
@@ -87,11 +86,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical interior repaint',
-      range: '$3.50 – $6.50 per sq ft of wall area',
-      note: 'Ceiling height, the amount of trim, how much patching the walls need, and whether you are going dark-over-light all move this. A standard 12×14 bedroom with walls and ceiling generally lands between $650 and $1,100.',
-    },
     faqs: [
       {
         q: 'Can we stay in the house while you paint?',
@@ -169,11 +163,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical kitchen',
-      range: '$3,200 – $7,500',
-      note: 'Driven mostly by door count. A 25-door kitchen with no color change on the boxes sits at the low end; 45 doors, a color change, and an island in a second color sits at the high end.',
-    },
     faqs: [
       {
         q: 'How long am I without a kitchen?',
@@ -225,11 +214,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$3 – $6 per linear foot · $110 – $190 per door',
-      note: 'Profile complexity, how much filling the trim needs, and whether a bonding primer is required over old oil-based enamel all move the number.',
-    },
     faqs: [
       {
         q: 'Should trim be brighter white than the ceiling?',
@@ -277,11 +261,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$1.50 – $3.25 per sq ft',
-      note: 'Height, texture, and stain blocking are the variables. A vaulted two-story great room ceiling costs more than the same square footage at eight feet, because most of the price is access.',
-    },
     faqs: [
       {
         q: 'My ceiling stain came back after the last painter covered it. Why?',
@@ -329,11 +308,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$2.75 – $5.00 per sq ft',
-      note: 'Includes scrape, skim, prime, and two coats. Ceiling height and how badly the drywall was finished underneath the texture are the main variables.',
-    },
     faqs: [
       {
         q: 'How much dust is there really?',
@@ -381,11 +355,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$175 – $450 per repair visit',
-      note: 'Small patch counts are priced by the visit rather than the hole, because mobilization is most of the cost. Larger repairs and full-wall skim coats are quoted by area.',
-    },
     faqs: [
       {
         q: 'Will the patch be invisible?',
@@ -433,11 +402,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$1.75 – $4.50 per sq ft of wall',
-      note: 'Depends almost entirely on what is under the paper: primed drywall at the low end, multiple layers over unprimed board at the high end. Skim coating is quoted separately once we see the wall.',
-    },
     faqs: [
       {
         q: 'Can you just paint over the wallpaper?',
@@ -486,11 +450,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$2.25 – $4.75 per sq ft of wall · $3 – $7 per sq ft of floor',
-      note: 'Block costs more than poured concrete because filling the pores takes a heavy-bodied primer and a lot of it. Flake floor systems sit at the top of the floor range.',
-    },
     faqs: [
       {
         q: 'Will painting the walls stop my basement being damp?',
@@ -566,11 +525,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical whole-house exterior',
-      range: '$4,500 – $14,000',
-      note: 'Square footage, number of stories, how much scraping and carpentry the siding needs, and the amount of trim detail drive this. A 1,900 sq ft two-story in sound condition typically lands between $6,500 and $9,500.',
-    },
     faqs: [
       {
         q: 'What time of year can you paint outside in Cincinnati?',
@@ -622,11 +576,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$2.25 – $4.75 per sq ft of siding',
-      note: 'Substrate and condition drive it. Sound fiber cement is the cheapest to repaint; heavily weathered cedar needing scrape and full prime is the most expensive.',
-    },
     faqs: [
       {
         q: 'Is painting fiber cement different from wood?',
@@ -674,11 +623,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$2.75 – $5.50 per sq ft · limewash from $2.25',
-      note: 'Tuckpointing is quoted separately by linear foot once we see the joints. Textured and heavily pitted brick uses considerably more material than smooth face brick.',
-    },
     faqs: [
       {
         q: 'Will painting my brick cause damage?',
@@ -726,11 +670,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$3.25 – $7.00 per sq ft',
-      note: 'Stripping a failed solid stain roughly doubles the prep cost versus refreshing a bare or semi-transparent deck. Railings, spindles, and stairs are priced separately because they are all hand work.',
-    },
     faqs: [
       {
         q: 'How often does a deck need redoing?',
@@ -778,11 +717,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$3 – $9 per linear foot',
-      note: 'Height, whether both sides are accessible, spindle count on picket styles, and how much stripping the old finish needs. Six-foot privacy fence sits at the top of the range.',
-    },
     faqs: [
       {
         q: 'How long does a hundred feet of fence take?',
@@ -830,11 +764,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$325 – $650 per door · $45 – $95 per shutter',
-      note: 'Sprayed finishes and doors needing a color change from dark to light cost more. Doors with sidelights and transoms are priced as a unit.',
-    },
     faqs: [
       {
         q: 'Can I use my door the same day?',
@@ -882,11 +811,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical two-car garage',
-      range: '$2,900 – $5,200',
-      note: 'Slab condition is the variable. A sound floor is at the low end; heavy spalling, oil contamination, or an old failed coating that has to come off first pushes it up.',
-    },
     faqs: [
       {
         q: 'How long before I can park on it?',
@@ -934,11 +858,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Typical pricing',
-      range: '$285 – $650 house wash · $0.20 – $0.45 per sq ft concrete',
-      note: 'Size, number of stories, and access. Washing is discounted when it is bundled as prep for a painting job with us.',
-    },
     faqs: [
       {
         q: 'Will it kill my plants?',
@@ -996,11 +915,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    pricing: {
-      label: 'Commercial rates',
-      range: 'Quoted per project · unit turns from $340',
-      note: 'Occupied-space work, after-hours labor, and lift requirements all factor in. Multi-property and repeat-volume work moves onto a negotiated rate schedule.',
-    },
     faqs: [
       {
         q: 'Can you work overnight?',

@@ -5,7 +5,6 @@ import { services } from '@/content/services';
 const STATIC_ROUTES = [
   { path: '', priority: 1.0 },
   { path: 'contact', priority: 0.9 },
-  { path: 'painting-cost', priority: 0.8 },
   { path: 'our-process', priority: 0.7 },
   { path: 'projects', priority: 0.7 },
   { path: 'reviews', priority: 0.7 },

@@ -139,16 +139,6 @@ export default function ServicePage({ service }: { service: Service }) {
               </p>
               <QuoteForm compact />
             </div>
-
-            <div className="mt-6 rounded-2xl border border-brass/40 bg-brass-200/40 p-6">
-              <p className="font-display text-[11px] font-bold uppercase tracking-widest text-graphite">
-                {service.pricing.label}
-              </p>
-              <p className="mt-1.5 font-display text-2xl font-extrabold text-graphite">
-                {service.pricing.range}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-graphite/80">{service.pricing.note}</p>
-            </div>
           </aside>
         </div>
       </section>
