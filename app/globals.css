@@ -157,8 +157,11 @@
    other Bulldog company's colour.
 
    Panned with transform on a 200%-wide element rather than background-position:
-   it stays on the compositor, and the gradient lists the palette twice so
-   translating exactly -50% loops with no jump. */
+   it stays on the compositor, and the gradient lists the palette twice so a
+   50% translation loops with no jump.
+
+   Runs -50% -> 0 so the colours travel LEFT TO RIGHT. Going 0 -> -50% would
+   move the element left, which reads as the colours sliding the wrong way. */
 :root {
   --spectrum: linear-gradient(
     90deg,
@@ -177,7 +180,8 @@
   width: 200%;
   background-image: var(--spectrum);
   pointer-events: none;
-  animation: spectrum-pan 22s linear infinite;
+  animation: spectrum-pan 60s linear infinite;
+  will-change: transform;
 }
 
 /* wash behind the text. Plain alpha rather than a screen blend: screen over a
@@ -196,8 +200,11 @@
 }
 
 @keyframes spectrum-pan {
-  to {
+  from {
     transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
