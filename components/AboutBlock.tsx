@@ -52,7 +52,7 @@ export default function AboutBlock() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/contact" className="btn-primary">
-              Get a Free Estimate
+              Get an Estimate
             </Link>
             <Link href="/our-process" className="btn-ghost">
               How We Work

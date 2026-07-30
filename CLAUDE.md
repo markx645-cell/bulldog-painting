@@ -44,6 +44,10 @@ Fonts: Sora (display), Inter (body), Fraunces (serif accent).
 - **Tell people when NOT to hire us.** Every service page has a passage that
   does this — it is the single biggest credibility signal on the site and it
   must survive any edit
+- **Small scopes live on hub pages, not their own routes.** A service too thin
+  to justify a page becomes a `scopes` card on its category hub. The card is
+  then the ONLY place that scope is explained, so it must carry the mechanism —
+  never collapse one into a bare list item
 - Explain the mechanism, not just the claim ("shellac seals tannins, latex does
   not"), because that is what separates this from every other painter's site
 
@@ -56,7 +60,7 @@ All copy lives in flat TypeScript under `/content`. No database, no CMS.
 | File | Holds |
 |------|-------|
 | `content/site.ts` | Business facts, stats, offers, warranty, process, nav |
-| `content/services.ts` | All 17 services — copy, includes, FAQs. **No pricing: the site publishes no prices** |
+| `content/services.ts` | All 13 service pages — copy, includes, `scopes`, FAQs. **No pricing: the site publishes no prices** |
 | `content/areas.ts` | Coverage — 8 counties, 170+ communities grouped under each |
 | `content/media.ts` | **Every image path on the site**, in one registry. Currently Pexels stock in `public/photos/` — see `ATTRIBUTION.md` |
 | `content/reviews.ts` | Customer reviews (currently placeholder) |
@@ -89,7 +93,7 @@ and cities on `/service-areas` and in the footer.
 | Route | Source |
 |-------|--------|
 | `/` | `app/page.tsx` |
-| `/{service}` | `app/[service]/page.tsx` — 17 pages from `services` |
+| `/{service}` | `app/[service]/page.tsx` — 13 pages from `services` |
 | Static pages | `/contact`, `/reviews`, `/projects`, `/our-process`, `/financing`, `/service-areas` |
 
 Static route folders take precedence over the `[service]` dynamic segment, so
@@ -148,6 +152,9 @@ npm run build    # out/ is the deployable
 
 # Re-pull stock photography (key from env — never commit it, repo is public)
 PEXELS_KEY=xxxxx node scripts/fetch-photos.mjs [slot...]
+
+# Rebuild the mascot cutout from mascot.png after the art is redrawn
+node scripts/cutout-mascot.mjs
 ```
 
 **Do not run `npm run build` while `npm run dev` is running** — both write to

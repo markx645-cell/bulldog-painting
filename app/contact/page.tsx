@@ -7,9 +7,9 @@ import { site, estimateSteps, offer } from '@/content/site';
 import { sharedFaqs } from '@/content/faqs';
 
 export const metadata: Metadata = {
-  title: 'Contact & Free Estimate',
+  title: 'Contact & Estimates',
   description:
-    'Book a free painting estimate in Greater Cincinnati or Northern Kentucky. Written, itemized pricing and a free color consultation with every visit. No obligation.',
+    'Book a painting estimate in Greater Cincinnati or Northern Kentucky. Written, itemized pricing and a color consultation with every visit. No obligation.',
   alternates: { canonical: '/contact/' },
 };
 
@@ -22,9 +22,9 @@ export default function ContactPage() {
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
         <div className="container-x relative grid gap-10 py-12 lg:grid-cols-2 lg:py-16">
           <div>
-            <p className="eyebrow">Free, no obligation</p>
+            <p className="eyebrow">No obligation</p>
             <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl">
-              Book your free estimate
+              Book your estimate
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">
               We walk the job with you, measure it, flag the repairs that have to happen first, and leave

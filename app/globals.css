@@ -76,10 +76,14 @@
     @apply mt-4 leading-relaxed text-steel;
   }
 
-  /* Brushed-on colour wash used behind dark sections */
+  /* Depth wash used behind dark sections.
+     The top-left pool DEEPENS to black rather than lifting to red. Every
+     section using this puts its headline and crimson eyebrow in exactly that
+     corner, and crimson text on a red wash has almost no contrast. Keep this
+     darker than bg-ink — never a hue that competes with the text on top. */
   .paint-wash {
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(208, 29, 33, 0.20), transparent 45%),
+      radial-gradient(circle at 15% 20%, rgba(6, 4, 3, 0.75), transparent 55%),
       radial-gradient(circle at 85% 70%, rgba(43, 34, 27, 0.65), transparent 50%);
   }
 
@@ -94,9 +98,13 @@
 
      Width is 100% on every band, so all bands scale the image identically and
      the joins line up exactly. Heights below must match the Tailwind classes
-     in Header.tsx — mobile 36+56+58, desktop 36+58. */
+     in Header.tsx — mobile 36+44+58 = 138, desktop 36+58 = 94.
+
+     The texture itself is stored desaturated (see the headerBg slot in
+     scripts/fetch-photos.mjs). The source photo is green, and at 0.18 alpha
+     through the scrim that green was clearly visible behind the nav. */
   .hdr-band {
-    --hdr-h: 150px;
+    --hdr-h: 138px;
     --hdr-y: 0px;
     --hdr-scrim: linear-gradient(rgba(17, 12, 9, 0.82), rgba(17, 12, 9, 0.82));
     background-image: var(--hdr-scrim), url('/photos/header-bg.jpg');
@@ -113,7 +121,7 @@
      bottom edge so it meets the hero on exactly the same colour — without this
      the header reads a shade lighter and you get a visible line. */
   .hdr-band-main {
-    --hdr-y: -92px;
+    --hdr-y: -80px; /* 36 + 44, the two bands above it on mobile */
     --hdr-scrim: linear-gradient(rgba(17, 12, 9, 0.74), rgba(17, 12, 9, 0.99));
   }
 
@@ -176,7 +184,7 @@
   width: 200%;
   background-image: var(--spectrum);
   pointer-events: none;
-  animation: spectrum-pan 28.5s linear infinite;
+  animation: spectrum-pan 16.8s linear infinite;
   will-change: transform;
 }
 

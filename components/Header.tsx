@@ -137,7 +137,7 @@ export default function Header() {
                 onClick={close}
                 className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-3 py-1 leading-none text-ink"
               >
-                Free color consultation with every estimate
+                Color consultation with every estimate
               </Link>
             </div>
             <div
@@ -152,19 +152,25 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 2 — quote / phone split */}
+        {/* 44px, down from 56. If this height changes, --hdr-h and the
+            hdr-band-main --hdr-y offset in globals.css must change with it or the
+            shared background image stops lining up across the three bands.
+            Mobile total is 36 + 44 + 58 = 138px.
+            44px is also the floor here — below that this stops being a reliable
+            tap target on a phone. */}
         <div className="hdr-band hdr-band-2 md:hidden">
-          <div className="flex h-14 items-stretch">
+          <div className="flex h-11 items-stretch">
             <Link
               href="/contact"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
+              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-display text-[0.7875rem] font-extrabold uppercase tracking-wide text-white"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
             >
-              Free Estimate
+              Get an Estimate
             </Link>
             <a
               href={site.phoneHref}
-              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-base font-extrabold tabular-nums text-white"
+              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-[0.9rem] font-extrabold tabular-nums text-white"
             >
               <PhoneIcon className="text-crimson" />
               {site.phone}
@@ -277,7 +283,7 @@ export default function Header() {
               href="/contact"
               className="btn-secondary hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
             >
-              Free Estimate
+              Get an Estimate
             </Link>
             <button
               className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson lg:hidden"
@@ -297,9 +303,11 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu. The 138px max-height is the mobile header height, so the
+          panel scrolls inside what is actually left of the viewport. Was 9rem,
+          sized to the old 150px bar. */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-9rem)] overflow-y-auto bg-ink lg:hidden">
+        <div className="max-h-[calc(100vh-138px)] overflow-y-auto bg-ink lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.interior)}
             {renderMobileGroup(nav.exterior)}

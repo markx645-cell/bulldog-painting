@@ -56,7 +56,7 @@ export default function ProcessPage() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(to right, #110c09 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
+                'linear-gradient(to right, #110c09 0%, rgba(17,12,9,0.92) 12%, rgba(17,12,9,0.35) 38%, rgba(17,12,9,0) 60%)',
             }}
           />
         </div>

@@ -42,31 +42,64 @@ export const stats = {
 } as const;
 
 export const offer = {
-  headline: 'Free Color Consultation',
+  headline: 'Color Consultation',
   sub: 'With every interior or exterior estimate.',
   fineprint:
     'One hour with a certified color consultant, plus sampled swatches on your own walls before you commit.',
 } as const;
 
+// Homepage brand statement, shown beside the mascot.
+//
+// The reference this was modelled on led with "Voted Best Painting Company in
+// <city>". We have no such award, so this leads on the experience of the job
+// instead — which is also the one angle `aboutHome` (credentials, durability)
+// and `mission` (practices) do not already cover. Do not turn this into an
+// award or ranking claim unless there is a real one to point at.
+export const brandStatement = {
+  headline: 'The paint is the easy part',
+  sub: 'Twenty-five years painting Cincinnati without taking over your house',
+  body: [
+    'Most of what makes a repaint stressful has nothing to do with paint. It is not knowing which day the crew turns up, finding your furniture somewhere you did not leave it, or getting a number that moves once the work has started.',
+    `We have been painting Cincinnati homes since ${site.founded}, and the way we run a job is built around you still living in it. Crews work room by room instead of opening up the whole house, floors are papered and furniture wrapped before a lid comes off, and everything goes back and gets swept every evening rather than on the last day.`,
+    'You get one crew lead from the first walkthrough to the punch list, an itemized estimate that separates prep from product from labor, and a phone call before any extra work happens — never an invoice that explains it afterwards. Twenty-five years in, that is the part that decides whether you call us again.',
+  ],
+} as const;
+
+// Homepage services statement, shown beside the before/after wipe slider.
+//
+// The service list here must stay in step with content/services.ts — it is a
+// plain-English version of the same 13 pages, not a superset. The reference this
+// was modelled on listed "heritage home restoration"; we do not offer that, so
+// it is not here.
+export const servicesStatement = {
+  headline: 'Professional painting services in Cincinnati, OH',
+  sub: 'For houses, century homes & commercial properties',
+  body: [
+    'Looking for a painter usually means something specific is already happening — a house going on the market, a kitchen you have finally decided to stop hating, or an exterior that has been on the list for three summers running.',
+    'We cover the whole range: interior and exterior painting, kitchen cabinet refinishing, deck and fence staining, brick and masonry coating, siding, drywall repair, popcorn ceiling removal, garage floor epoxy, pressure washing, and commercial work scheduled around your trading hours rather than ours.',
+    'The photo alongside is one wall of the same house. Olive-stained board siding taken to charcoal, and the bare wood surround on the patio door brought up in white enamel. Drag the handle to move between them.',
+  ],
+} as const;
+
 export const trustPoints = [
   { icon: 'star', stat: '4.9★', label: 'Across 400+ homeowner reviews' },
   { icon: 'brush', stat: '3,200+', label: `Homes painted since ${site.founded}` },
-  { icon: 'shield', stat: '5-Year', label: 'Written workmanship warranty' },
+  { icon: 'shield', stat: '5-Year', label: 'Workmanship warranty' },
   { icon: 'crew', stat: 'W-2 Crews', label: 'Employees, never subcontracted out' },
 ] as const;
 
 // Current offers. Keep this honest — these are the only two we run.
 export const offers = [
   {
-    tag: 'No charge',
-    headline: 'Free Color Consultation',
+    tag: 'Included',
+    headline: 'Color Consultation',
     body: 'An hour with a certified color consultant, plus large sampled swatches brushed on your own walls so you can live with the color before you commit to it.',
     cta: 'Book a Consultation',
     href: '/contact',
   },
   {
     tag: 'Financing',
-    headline: 'Pay Over 12 Months, Interest-Free',
+    headline: 'Pay Over 12 Months at 0% Interest',
     body: 'Whole-home interior and exterior projects can be split across a year with no interest on approved credit. Soft-pull application, answer in minutes.',
     cta: 'See Financing',
     href: '/financing',
@@ -83,7 +116,7 @@ export const certifications = [
   `Family-Owned Since ${site.founded}`,
 ] as const;
 
-// "What happens at your free estimate."
+// "What happens at your estimate."
 export const estimateSteps = [
   {
     step: '01',
@@ -109,7 +142,7 @@ export const warranty = {
   points: [
     {
       title: '5 years on workmanship',
-      body: 'Peeling, blistering, or flaking traced to our prep or application gets fixed at our cost. In writing, handed to you on the last day.',
+      body: 'Peeling, blistering, or flaking traced to our prep or application gets fixed at our cost, for five years from the day we finish.',
     },
     {
       title: 'Prep is the warranty',
@@ -149,7 +182,7 @@ export const pillars = [
   },
   {
     icon: 'color',
-    title: 'Free Color Consultation',
+    title: 'Color Consultation',
     body: 'A certified consultant, real swatches on your real walls, and an honest opinion about the color you are leaning toward.',
   },
   {
@@ -169,27 +202,72 @@ export const pillars = [
   },
 ] as const;
 
-// "The Bulldog Way" — 4-step process.
+// Copy for the tabbed process section on the homepage (components/ProcessTabs).
+//
+// The reference this was modelled on names its five steps after a trademarked
+// house term ("the High Five Finish"). That belongs to someone else, and an
+// invented equivalent would be marketing with nothing behind it — so this leads
+// on the sequence itself, which is the actual claim.
+// One heading only — no eyebrow above it and no second line under it. The
+// section used to stack three heading-weight lines before any body copy.
+export const processIntro = {
+  headline: 'Bulldog 5 step process',
+  body: 'A premium finish does not happen by accident. It is the result of standards you can count on. The Bulldog Finish is our five-step standard for how every project runs and how the whole job should feel to live with — built to protect your home, keep the stress down, and leave a finish that is worth what you paid for it.',
+} as const;
+
+// "The Bulldog Way" — the 5-step process. Read by BOTH ProcessSteps (grid, on
+// service pages and /our-process) and ProcessTabs (tabbed, on the homepage), so
+// there is one source of truth. Adding or removing a step changes both, and
+// ProcessSteps' grid column count needs to keep up.
+// Step titles are taken from the reference the client supplied. Step 5 carries
+// Bulldog's own term where the reference used its house brand: theirs is "Final
+// Walkthrough & High Five Finish", ours is "the Bulldog Finish". Never restore
+// the reference's name — it belongs to another painting company.
+//
+// "The Bulldog Finish" is the ONLY name for this five-step standard. It is also
+// the heading ProcessSteps uses, which previously said "The Bulldog Way"; two
+// coined names for one process just dilutes both.
+//
+// The bodies follow the reference point for point and in the same order, but are
+// not a verbatim copy of another painter's live marketing text. The warranty
+// wording is Bulldog's own: the reference hedges with "for most services", where
+// this is five years on every job. Spelling is US, not the reference's Canadian
+// ("colours").
+//
+// The warranty is never described as "written", "in writing", or as a document
+// handed over — not here and not anywhere else on the site. Estimates and
+// pricing still are, and should stay that way; it is only the warranty claim
+// that was pulled.
 export const process = [
   {
     step: '01',
-    title: 'Free Estimate & Color Help',
-    body: 'We walk the job with you, measure, flag the repairs, and sample colors on your own walls. You leave with a written, itemized number.',
+    icon: 'doc',
+    title: 'Project Alignment',
+    body: 'Before we ever open a paint can we confirm the scope, the surfaces, the colors, the sheen levels, the timeline, and what you are expecting. This is the step that prevents surprises. You should never be unsure what is included, what is excluded, or what the next steps look like — it is all itemized on the estimate before anyone starts.',
   },
   {
     step: '02',
-    title: 'Protect & Prep',
-    body: 'Furniture wrapped, floors papered, landscaping covered. Then the real work: wash, scrape, sand, fill, caulk, and prime every bare spot.',
+    icon: 'prep',
+    title: 'Professional Preparation',
+    body: 'Preparation is where quality is built. We protect floors and furnishings, repair and patch surfaces, sand and smooth as needed, address the problem areas, and prime appropriately. We do not treat prep like a quick checkbox, because nine out of ten paint failures are prep failures — it is the foundation for durability and for a clean, polished look.',
   },
   {
     step: '03',
-    title: 'Two Coats, Cut Clean',
-    body: 'Premium product, two full coats unless we tell you otherwise in writing, and hand-cut lines at every ceiling, trim, and transition.',
+    icon: 'brush',
+    title: 'Premium Application',
+    body: 'We use quality products and apply them with precision. This is where craftsmanship shows up: consistent coverage, clean edges, smooth finishes, and details that hold up at close range. Two full coats unless we tell you otherwise up front, hand-cut lines at every ceiling and transition, and the work backed by a five-year workmanship warranty so you can feel confident long after the project wraps up.',
   },
   {
     step: '04',
-    title: 'Walkthrough & Warranty',
-    body: 'We walk the whole job with you, punch-list anything you spot, and hand over the written five-year workmanship warranty.',
+    icon: 'chat',
+    title: 'Daily Care & Communication',
+    body: 'A job site should feel respected every day, not just at the end. We keep things tidy, communicate clearly, and make sure you know what is happening and what is next. You should not have to chase a contractor for updates or wonder when the crew will arrive — it is the same crew lead from day one, and you get a call before anything changes.',
+  },
+  {
+    step: '05',
+    icon: 'shield',
+    title: 'Final Walkthrough & Bulldog Finish',
+    body: 'We end with a detailed final inspection and close-out. We confirm everything meets the standard, address the details, and make sure the space is clean and ready to enjoy. The goal is simple: no loose ends, no surprises, and a finish we are willing to put our name on. From there the five-year workmanship warranty takes over, covering our prep and application rather than just the paint.',
   },
 ] as const;
 
@@ -249,7 +327,7 @@ export const values = [
   {
     icon: 'shield',
     title: 'We Come Back',
-    body: 'Five years, in writing, on our workmanship. If something we did fails, we return and fix it — no invoice and no argument about whose fault it was.',
+    body: 'Five years on our workmanship. If something we did fails, we return and fix it — no invoice and no argument about whose fault it was.',
   },
 ] as const;
 
@@ -270,7 +348,7 @@ export const qualityStandards = [
   },
   {
     title: 'You sign off, not us',
-    body: 'We walk the job with you at the end, punch-list anything you spot, and fix it before we invoice. The five-year written warranty is handed over on that walkthrough.',
+    body: 'We walk the job with you at the end, punch-list anything you spot, and fix it before we invoice. The five-year workmanship warranty runs from that walkthrough.',
   },
 ] as const;
 
@@ -296,15 +374,14 @@ export const nav = {
   interior: {
     label: 'Interior',
     href: '/interior-painting',
+    // Four items, not eight. Trim & doors, ceilings, wallpaper removal and
+    // basements are now scope cards on /interior-painting rather than routes of
+    // their own — adding them back here would link to pages that do not exist.
     children: [
       { label: 'Interior Painting', href: '/interior-painting' },
       { label: 'Kitchen Cabinet Painting', href: '/cabinet-painting' },
-      { label: 'Trim, Doors & Baseboards', href: '/trim-and-door-painting' },
-      { label: 'Ceiling Painting', href: '/ceiling-painting' },
       { label: 'Popcorn Ceiling Removal', href: '/popcorn-ceiling-removal' },
       { label: 'Drywall Repair', href: '/drywall-repair' },
-      { label: 'Wallpaper Removal', href: '/wallpaper-removal' },
-      { label: 'Basement Painting', href: '/basement-painting' },
     ],
   },
   exterior: {

@@ -4,8 +4,8 @@ import type { Faq } from './services';
  *  service-specific and location-specific ones. */
 export const sharedFaqs: Faq[] = [
   {
-    q: 'Is the estimate really free?',
-    a: 'Yes, and there is no obligation attached to it. We walk the job, measure, and leave you with a written, itemized number. If you want a second opinion on someone else\'s quote, we will give you an honest read on it.',
+    q: 'What do I get at the estimate?',
+    a: 'A written, itemized number and no obligation attached to it. We walk the job, measure, and leave you with a written, itemized number. If you want a second opinion on someone else\'s quote, we will give you an honest read on it.',
   },
   {
     q: 'Are you licensed and insured?',
@@ -17,7 +17,7 @@ export const sharedFaqs: Faq[] = [
   },
   {
     q: 'What does the warranty cover?',
-    a: 'Five years on workmanship — peeling, blistering, or flaking traced to our prep or application. It is written, and you get a copy at the final walkthrough. Product defects are covered separately by the manufacturer and we will handle that claim for you.',
+    a: 'Five years on workmanship — peeling, blistering, or flaking traced to our prep or application. You get the terms at the final walkthrough. Product defects are covered separately by the manufacturer and we will handle that claim for you.',
   },
   {
     q: 'How do payments work?',

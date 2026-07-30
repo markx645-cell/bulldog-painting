@@ -1,8 +1,13 @@
 import { process } from '@/content/site';
 
 export default function ProcessSteps({
-  heading = 'The Bulldog Way',
-  lead = 'Four steps, one crew, no surprises. Most of it happens before any paint is opened.',
+  // "The Bulldog Finish" — the same name ProcessTabs uses on the homepage. This
+  // said "The Bulldog Way" until the process was named; keep the two in step so
+  // the site has one term for the five steps, not two.
+  heading = 'The Bulldog Finish',
+  // Step count is stated in prose, so it has to track `process` in
+  // content/site.ts — as does the grid column count below.
+  lead = 'Five steps, one crew, no surprises. Most of it happens before any paint is opened.',
   tone = 'light',
 }: {
   heading?: string;
@@ -24,7 +29,7 @@ export default function ProcessSteps({
           </h2>
           <p className={`mt-4 ${dark ? 'text-steel-300' : 'text-steel'}`}>{lead}</p>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" data-reveal-stagger>
           {process.map((s) => (
             <div
               key={s.step}

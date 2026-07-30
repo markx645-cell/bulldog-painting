@@ -19,6 +19,13 @@ export type Service = {
   intro: string[];
   /** "What's included" — 5 or 6 items */
   includes: { title: string; body: string }[];
+  /**
+   * Sub-scopes covered BY this page rather than on their own route.
+   * A hub page absorbs the small services that do not justify a page each —
+   * they render as a card grid, and each card has to carry the mechanism, not
+   * just the name, because this is now the only place that scope is explained.
+   */
+  scopes?: { title: string; body: string }[];
   /** Longer-form sections below the fold */
   detail: { heading: string; body: string[] }[];
   /** Honest price banding. `note` must say what moves the number. */
@@ -35,10 +42,13 @@ export const services: Service[] = [
     name: 'Interior Painting',
     h1: 'Interior Painting in Greater Cincinnati',
     metaTitle: 'Interior Painting in Cincinnati & Northern Kentucky',
+    // This page absorbed trim and doors, ceilings, wallpaper removal, and
+    // basements, so the description names them — those terms no longer have a
+    // page of their own to rank with.
     metaDescription:
-      'Interior house painting across Greater Cincinnati and Northern Kentucky. W-2 crews, two full coats, free color consultation, and a written 5-year workmanship warranty. Free estimate.',
-    eyebrow: 'Walls · Ceilings · Trim',
-    lead: 'Two full coats, hand-cut lines, and a house you can live in while we work. Free color consultation with every interior estimate.',
+      'Interior house painting across Greater Cincinnati and Northern Kentucky — walls, ceilings, trim and doors, staircases, wallpaper removal, and basement walls and floors. Two full coats, color consultation, 5-year workmanship warranty.',
+    eyebrow: 'Walls · Ceilings · Trim · Stairs',
+    lead: 'Two full coats, hand-cut lines, and a house you can live in while we work. Color consultation with every interior estimate.',
     hero: 'interior',
     intro: [
       'An interior repaint is mostly protection and preparation. Before a brush comes out we wrap the furniture, paper the floors, mask the fixtures, and fill and sand every nail hole, seam, and stress crack we find. The painting itself is the fast part — it is the day and a half in front of it that decides how the finish looks in year five.',
@@ -62,7 +72,7 @@ export const services: Service[] = [
         body: 'Premium Sherwin-Williams or Benjamin Moore product, two coats standard. If a color genuinely covers in one, we tell you and adjust the price down.',
       },
       {
-        title: 'Free color consultation',
+        title: 'Color consultation',
         body: 'An hour with a certified consultant and large samples brushed on your own walls, so you see the color in your light before you commit.',
       },
       {
@@ -70,12 +80,60 @@ export const services: Service[] = [
         body: 'Tools out, floors swept, furniture back if the room is finished. Not a single-pass cleanup on the last day.',
       },
     ],
+    // Absorbed from what used to be four separate routes — trim and doors,
+    // ceilings, wallpaper removal, and basements — plus staircases and color
+    // guidance, which were never written up anywhere. Each card is the only
+    // place on the site that scope is explained, so it carries the mechanism.
+    scopes: [
+      {
+        title: 'Walls',
+        body: 'Two full coats of premium Sherwin-Williams or Benjamin Moore, cut by hand at every ceiling, corner, and trim line. Plaster walls in a 1920s Hyde Park or Norwood house are rarely dead flat, so we usually put a flat or matte on the field and let the trim carry the sheen — a satin on wavy plaster reads every wave back at you across a sunlit wall.',
+      },
+      {
+        title: 'Ceilings',
+        body: 'Every fixture in a room rakes light across the ceiling, so lap marks and flashed patches show from the sofa in a way they never would on a wall. We use a true flat ceiling product to kill the lap marks, and anything that has ever been wet gets a shellac-based blocker first. A latex primer over an old water stain looks right for a month and then lets the tannin bleed back — shellac seals it, latex does not.',
+      },
+      {
+        title: 'Trim & baseboards',
+        body: 'Washed, scuff-sanded, and de-glossed so the enamel bonds instead of sitting on top; dings filled flush; every casing and crown seam re-caulked so the lines read straight. On pre-1980 houses we test for original oil enamel with denatured alcohol on a cotton ball — waterborne paint straight over cured oil peels off in sheets inside a year, so a bonding primer goes on the estimate as its own line item.',
+      },
+      {
+        title: 'Doors & frames',
+        body: 'Both faces and all four edges, hardware removed rather than taped around. Most doors stay on the hinge; ones going much darker, or needing all four edges, come off and lay flat so the enamel levels instead of running. Stained wood needs a stain-blocking primer first or oak and pine tannins yellow the finish within weeks — and it is a one-way door, because going back to bare wood means stripping.',
+      },
+      {
+        title: 'Staircases & hallways',
+        body: 'The hardest-working surfaces in the house and the hardest to reach — tall walls, tricky angles, and nowhere to hide a shortcut. We stage them properly instead of working off the top step, run a scrubbable eggshell or satin on the walls, and hand-finish handrails, stringers, and spindles in enamel. We work one side at a time so nobody is shut upstairs for a day.',
+      },
+      {
+        title: 'Color & sheen guidance',
+        body: 'Sheen causes more regret than color does, and it is the part nobody asks about. Flat hides an uneven wall but burnishes when you scrub it. Eggshell and satin clean up, and belong in hallways, kids’ rooms, and kitchens. Semi-gloss goes on trim because it takes a hit. Every interior estimate includes an hour with a certified consultant and large samples brushed onto your own walls — a chip under showroom light tells you almost nothing about a north-facing room in February.',
+      },
+      {
+        title: 'Wallpaper removal',
+        body: 'Steamed and scraped rather than dry-pulled, which keeps the drywall face intact wherever it can be saved, then washed down repeatedly until the walls squeak. Residual paste is the single biggest cause of paint failure over stripped paper — it stays water-soluble for decades and will bubble a finish coat months later. We pull a test corner at the estimate, because paper hung on unprimed drywall takes the paper face of the board with it and nobody can price that blind.',
+      },
+      {
+        title: 'Basement walls & floors',
+        body: 'Basement painting is a moisture problem wearing a paint problem’s clothes. A plastic-sheet test taped to the slab and walls tells us in 24 hours whether vapor is moving through, and we test before we quote. Where it comes back dry: efflorescence scrubbed and neutralized, an alkali-resistant block filler into the pores of the CMU, a breathable coating that lets residual vapor out instead of trapping it behind a film, and joists sprayed flat black or white.',
+      },
+    ],
+    // Sheen used to have a long section here. It moved into the "Color & sheen
+    // guidance" scope card above — repeating it in both places was the site
+    // saying the same thing twice.
     detail: [
       {
-        heading: 'Sheen matters more than people expect',
+        heading: 'Oil-based trim is the trap in older houses',
         body: [
-          'The single most common regret we hear is sheen, not color. Flat hides wall imperfections beautifully and is the right call for ceilings and low-traffic rooms, but it burnishes when you scrub it. Eggshell and satin clean up well and belong in hallways, kids\' rooms, and kitchens. Semi-gloss goes on trim and doors because it takes a hit and wipes clean.',
-          'Older Cincinnati houses complicate this. Plaster walls in a 1920s Hyde Park or Norwood home are rarely dead flat, and a satin sheen will read every wave in that plaster back at you across a sunlit wall. In those rooms we usually push toward flat or matte on the walls and put the sheen on the trim instead.',
+          'Plenty of pre-1980 Cincinnati homes still have original oil-based enamel on the trim. Putting a waterborne product straight over cured oil without a bonding primer is the single most common cause of trim paint peeling off in sheets a year later.',
+          'We test for it on the estimate visit — a cotton ball and denatured alcohol tells you in thirty seconds — and if the trim is oil, a bonding primer goes on the estimate as its own line item. If a quote you are comparing does not mention it, that is worth asking about.',
+        ],
+      },
+      {
+        heading: 'The two-layer wallpaper surprise',
+        body: [
+          'In houses that have changed hands a few times we routinely find a second layer of paper underneath the first, sometimes a third. Each layer roughly doubles the removal time, and there is no way to know from the outside.',
+          'We handle this by quoting removal as a range with a clearly stated assumption, then confirming the number once the first wall is down. You will never get a surprise invoice from us — you get a call before extra work happens.',
         ],
       },
       {
@@ -83,6 +141,7 @@ export const services: Service[] = [
         body: [
           'If you are selling in the next sixty days and just need neutral walls fast, a full prep-and-two-coat job is more than you need. Say so and we will quote a lighter scope — or tell you honestly that a handyman painter is the better economic call.',
           'Same if the walls have active moisture. Painting over a wall that is still wetting from a roof or foundation leak is money set on fire; the coating will fail no matter whose paint it is. We will tell you to fix the water first, and we would rather lose the job than come back to a peeling wall in a year.',
+          'That goes double in basements. If the plastic-sheet test comes back wet, or we see seepage at the cove joint, or the block still smells musty after rain, then interior drainage, grading, or a downspout that dumps against the foundation is what you actually need to buy first — not a coating. We send a handful of basements a year to a waterproofing contractor instead of quoting them, and it has never once cost us a customer.',
         ],
       },
     ],
@@ -103,8 +162,43 @@ export const services: Service[] = [
         q: 'Do you supply the paint?',
         a: 'Yes, and it is itemized separately on your estimate so you can see exactly what you are paying for. If you want to step up or down a product line, we will re-price it for you rather than swap it quietly.',
       },
+      // Carried over from the trim, ceiling, wallpaper, and basement pages when
+      // those scopes moved onto this one. Real questions people ask — do not
+      // trim this list back just because it is long.
+      {
+        q: 'My ceiling stain came back after the last painter covered it. Why?',
+        a: 'Because it was primed with a latex primer instead of a shellac-based stain blocker. Water-soluble tannins pass straight through latex. Shellac seals them. It is the difference between a stain being gone and being temporarily hidden.',
+      },
+      {
+        q: 'Do I have to paint the ceiling if I am painting the walls?',
+        a: 'No, and we will say so if yours does not need it. But a fresh wall color next to a ten-year-old ceiling tends to make the ceiling look grey, and people who skip it often call us back within the year.',
+      },
+      {
+        q: 'Can you paint over stained wood trim?',
+        a: 'Yes, with a stain-blocking primer first — otherwise tannins from oak and pine bleed through and yellow the finish within weeks. Be aware it is a one-way door: going back to stained wood afterward means stripping, which costs more than the paint job did.',
+      },
+      {
+        q: 'Should trim be brighter white than the ceiling?',
+        a: 'Usually, yes. A crisp white trim against a softer ceiling white reads deliberate; the same white on both reads flat. In older homes with warm-toned plaster, an off-white trim often looks better than a cool bright white.',
+      },
+      {
+        q: 'Can you just paint over the wallpaper?',
+        a: 'Sometimes, and it is a legitimate option if the paper is well adhered, the seams are tight, and the texture is subtle. We prime it with an oil or shellac primer first so we do not reactivate the glue. If seams are lifting anywhere, painting over it just locks in the problem.',
+      },
+      {
+        q: 'How bad is the wall going to be under the wallpaper?',
+        a: 'Honest answer: we do not know until it is off, and neither does anyone else. That is why we pull a test corner during the estimate and why the skim coat is quoted separately rather than buried in the price.',
+      },
+      {
+        q: 'Will painting the walls stop my basement being damp?',
+        a: 'No. Paint is not waterproofing, and any product marketed as both is overpromising. Coatings make a dry basement look finished; they do not fix a wet one. We test first so you know which basement you have.',
+      },
+      {
+        q: 'How long before I can put things back on a coated basement floor?',
+        a: 'Foot traffic in 24 hours, furniture in 72, and heavy shelving or a car in a week. Floor coatings cure slower than they dry, and loading them early leaves permanent marks.',
+      },
     ],
-    related: ['cabinet-painting', 'trim-and-door-painting', 'ceiling-painting', 'drywall-repair'],
+    related: ['cabinet-painting', 'popcorn-ceiling-removal', 'drywall-repair', 'exterior-painting'],
   },
   {
     slug: 'cabinet-painting',
@@ -113,7 +207,7 @@ export const services: Service[] = [
     h1: 'Kitchen Cabinet Painting & Refinishing',
     metaTitle: 'Kitchen Cabinet Painting & Refinishing in Cincinnati',
     metaDescription:
-      'Spray-finished kitchen cabinet painting in Cincinnati and Northern Kentucky. Doors sprayed off-site, factory-smooth finish, a fraction of replacement cost. Free estimate.',
+      'Spray-finished kitchen cabinet painting in Cincinnati and Northern Kentucky. Doors sprayed off-site, factory-smooth finish, a fraction of replacement cost.',
     eyebrow: 'The highest-return room in the house',
     lead: 'A sprayed, factory-smooth finish on the cabinets you already have — usually a third of what replacing them costs.',
     hero: 'cabinets',
@@ -181,101 +275,7 @@ export const services: Service[] = [
         a: 'No. Doors and drawer fronts go to our shop where they are sprayed flat and horizontal, which is the only way to get a truly level finish. The boxes and face frames are sprayed in place inside full containment.',
       },
     ],
-    related: ['interior-painting', 'trim-and-door-painting', 'drywall-repair'],
-  },
-  {
-    slug: 'trim-and-door-painting',
-    category: 'interior',
-    name: 'Trim & Door Painting',
-    h1: 'Trim, Door & Baseboard Painting',
-    metaTitle: 'Trim, Door & Baseboard Painting in Cincinnati',
-    metaDescription:
-      'Interior trim, door, and baseboard painting in Cincinnati and Northern Kentucky. Hand-brushed finish, caulked seams, hard enamel that cleans up. Free estimate.',
-    eyebrow: 'The detail people actually notice',
-    lead: 'Crisp, hard enamel on baseboards, casing, crown, and doors — with every seam caulked and every line cut by hand.',
-    hero: 'trimDoors',
-    intro: [
-      'Trim is the first thing a guest\'s eye lands on and the last thing most painters take seriously. It takes a hard enamel, a genuinely clean substrate, and a steady hand at the wall line, because there is no tape trick that beats a good brush.',
-      'Most of the trim work we do in older Cincinnati homes is stripping decades of built-up paint out of the profile so the detail reads again, filling the dings, and putting down a finish that survives a vacuum cleaner and a dog.',
-    ],
-    includes: [
-      { title: 'Clean and de-gloss', body: 'Trim washed, scuff-sanded, and de-glossed so the new enamel bonds instead of sitting on top.' },
-      { title: 'Fill and caulk', body: 'Dents and nail holes filled and sanded flush, every seam and casing joint re-caulked so the lines read straight.' },
-      { title: 'Hard enamel finish', body: 'Waterborne alkyd enamel that levels out brush marks and cleans up without burnishing. Semi-gloss standard, satin on request.' },
-      { title: 'Doors done properly', body: 'Doors painted on both faces and all four edges, hardware removed rather than taped around, hinges cleaned or replaced.' },
-      { title: 'Hand-cut wall line', body: 'Cut by hand at every wall and ceiling junction. Straight lines come from a brush, not from tape.' },
-    ],
-    detail: [
-      {
-        heading: 'Oil-based trim in older houses',
-        body: [
-          'Plenty of pre-1980 Cincinnati homes still have original oil-based enamel on the trim. Putting a waterborne product straight over cured oil without a bonding primer is the single most common cause of trim paint peeling off in sheets a year later.',
-          'We test for it on the estimate visit — a cotton ball and denatured alcohol tells you in thirty seconds — and if the trim is oil, a bonding primer goes on the estimate as its own line item. If a quote you are comparing does not mention it, that is worth asking about.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'Should trim be brighter white than the ceiling?',
-        a: 'Usually, yes. A crisp white trim against a softer ceiling white reads deliberate; the same white on both reads flat. In older homes with warm-toned plaster, an off-white trim often looks better than a cool bright white.',
-      },
-      {
-        q: 'Can you paint over stained wood trim?',
-        a: 'Yes, with a stain-blocking primer first — otherwise tannins from oak and pine bleed through and yellow the finish within weeks. Be aware it is a one-way door: going back to stained wood afterward means stripping, which costs more than the paint job did.',
-      },
-      {
-        q: 'Do you take the doors off?',
-        a: 'We paint most doors in place, on the hinge, with the hardware removed. Doors that need all four edges done or that are being changed to a much darker color come off and get laid flat.',
-      },
-    ],
-    related: ['interior-painting', 'cabinet-painting', 'front-door-painting'],
-  },
-  {
-    slug: 'ceiling-painting',
-    category: 'interior',
-    name: 'Ceiling Painting',
-    h1: 'Ceiling Painting & Refinishing',
-    metaTitle: 'Ceiling Painting in Cincinnati & Northern Kentucky',
-    metaDescription:
-      'Ceiling painting in Cincinnati and Northern Kentucky. Stain-blocked water marks, flat ceiling white, sprayed or rolled with full floor protection. Free estimate.',
-    eyebrow: 'The fifth wall',
-    lead: 'Flat, even ceilings with water stains sealed properly — not just covered and left to bleed back through.',
-    hero: 'ceilings',
-    intro: [
-      'A ceiling is the least forgiving surface in the house because every light fixture in the room rakes across it. Roller lap marks, flash from a patched spot, and stains bleeding back through are all visible from the sofa in a way they never would be on a wall.',
-      'The two things that fix that are a genuine flat ceiling paint and a shellac-based stain blocker on anything that has ever been wet. Regular primer over an old water stain will look fine for a month and then let the tannin come back through.',
-    ],
-    includes: [
-      { title: 'Full floor and furniture cover', body: 'Everything below the ceiling papered, wrapped, and taped — ceiling work makes the biggest mess in painting.' },
-      { title: 'Stain blocking', body: 'Water stains, smoke damage, and tannin marks sealed with a shellac-based blocker so they do not return.' },
-      { title: 'Patch and feather', body: 'Cracks, nail pops, and old fixture holes patched and feathered wide so the repair does not flash under light.' },
-      { title: 'Flat ceiling paint', body: 'A true flat ceiling product — it hides unevenness and kills the lap marks a wall paint would leave.' },
-      { title: 'Clean wall junction', body: 'The ceiling-to-wall line cut by hand, so the change of plane is a straight line rather than a wobble.' },
-    ],
-    detail: [
-      {
-        heading: 'Spray or roll',
-        body: [
-          'Spraying is faster and leaves the smoothest result, and it is what we do in empty rooms and whole-house jobs. It also requires masking everything in the room, which in a furnished house can cost more in labor than the spraying saves.',
-          'In a single occupied room we usually roll with a heavy nap and back-roll consistently in one direction. Done properly the difference is invisible from the floor. We will tell you which we are proposing and why.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'My ceiling stain came back after the last painter covered it. Why?',
-        a: 'Because it was primed with a latex primer instead of a shellac-based stain blocker. Water-soluble tannins pass straight through latex. Shellac seals them. It is the difference between a stain being gone and being temporarily hidden.',
-      },
-      {
-        q: 'Do I have to paint the ceiling if I am painting the walls?',
-        a: 'No, and we will say so if yours does not need it. But a fresh wall color next to a ten-year-old ceiling tends to make the ceiling look grey, and people who skip it often call us back within the year.',
-      },
-      {
-        q: 'Can you match my existing ceiling white?',
-        a: 'We can get very close with a scan, but a ceiling that has aged ten years is not the color it was mixed as. On a partial repaint we recommend doing the full ceiling plane rather than trying to blend into the middle of it.',
-      },
-    ],
-    related: ['interior-painting', 'popcorn-ceiling-removal', 'drywall-repair'],
+    related: ['interior-painting', 'drywall-repair', 'front-door-painting'],
   },
   {
     slug: 'popcorn-ceiling-removal',
@@ -284,7 +284,7 @@ export const services: Service[] = [
     h1: 'Popcorn Ceiling Removal',
     metaTitle: 'Popcorn Ceiling Removal in Cincinnati & N. Kentucky',
     metaDescription:
-      'Popcorn ceiling removal in Cincinnati and Northern Kentucky. Full containment, skim-coated smooth, primed and painted. Pre-1980 asbestos testing advised. Free estimate.',
+      'Popcorn ceiling removal in Cincinnati and Northern Kentucky. Full containment, skim-coated smooth, primed and painted. Pre-1980 asbestos testing advised.',
     eyebrow: 'Scrape, skim, smooth',
     lead: 'Textured ceilings scraped, skim-coated flat, primed, and painted — behind full containment so the dust stays in one room.',
     hero: 'popcorn',
@@ -322,7 +322,7 @@ export const services: Service[] = [
         a: 'Three to four working days for a typical room, most of which is drying time between skim coats. It is not a job that can be compressed without the ceiling showing it.',
       },
     ],
-    related: ['ceiling-painting', 'drywall-repair', 'interior-painting'],
+    related: ['interior-painting', 'drywall-repair', 'cabinet-painting'],
   },
   {
     slug: 'drywall-repair',
@@ -331,7 +331,7 @@ export const services: Service[] = [
     h1: 'Drywall Repair & Patching',
     metaTitle: 'Drywall Repair & Patching in Cincinnati',
     metaDescription:
-      'Drywall repair, patching, and plaster crack repair in Cincinnati and Northern Kentucky. Feathered, textured to match, primed and painted. Free estimate.',
+      'Drywall repair, patching, and plaster crack repair in Cincinnati and Northern Kentucky. Feathered, textured to match, primed and painted.',
     eyebrow: 'Before the paint goes on',
     lead: 'Holes, cracks, nail pops, and water damage patched and feathered so the repair disappears under paint instead of flashing at you.',
     hero: 'drywall',
@@ -369,102 +369,7 @@ export const services: Service[] = [
         a: 'Usually not — it is the framing drying and moving, which is normal in older houses and in newer builds within the first two years. We reset with screws either side, pop the nail back, and patch. If we see a pattern that suggests a real structural issue, we will tell you to get it looked at first.',
       },
     ],
-    related: ['interior-painting', 'ceiling-painting', 'popcorn-ceiling-removal'],
-  },
-  {
-    slug: 'wallpaper-removal',
-    category: 'interior',
-    name: 'Wallpaper Removal',
-    h1: 'Wallpaper Removal & Wall Prep',
-    metaTitle: 'Wallpaper Removal in Cincinnati & Northern Kentucky',
-    metaDescription:
-      'Wallpaper removal in Cincinnati and Northern Kentucky. Steamed, stripped, glue washed off, walls skim-coated and primed for paint. Free estimate.',
-    eyebrow: 'Strip it properly or pay twice',
-    lead: 'Paper steamed off, adhesive washed out, and the wall skim-coated back to smooth before any paint goes near it.',
-    hero: 'wallpaper',
-    intro: [
-      'Wallpaper removal is the one interior job that is genuinely unpredictable, and any painter who quotes it firm without testing a corner first is guessing. Paper hung over primed drywall comes off in sheets. Paper hung directly on unprimed drywall takes the paper face of the board with it.',
-      'The part people skip is the adhesive. Old wallpaper paste stays water-soluble for decades, and paint over residual glue will bubble and lift months later. Every wall gets washed down and tested before we prime.',
-    ],
-    includes: [
-      { title: 'Test patch first', body: 'We pull a corner on the estimate visit to see what is underneath, and price from what we actually find.' },
-      { title: 'Steam and strip', body: 'Steamed and scraped rather than dry-pulled, which keeps the drywall face intact wherever it can be saved.' },
-      { title: 'Glue washed out', body: 'Walls washed down repeatedly until they squeak. Residual adhesive is the single biggest cause of paint failure over stripped paper.' },
-      { title: 'Skim and sand', body: 'Torn drywall face and gouges skim-coated and sanded flat so the wall reads as one plane again.' },
-      { title: 'Full primer coat', body: 'A dedicated primer over the whole wall — not just the patches — before the finish coats go on.' },
-    ],
-    detail: [
-      {
-        heading: 'The two-layer surprise',
-        body: [
-          'In houses that have changed hands a few times we routinely find a second layer of paper underneath the first, sometimes a third. Each layer roughly doubles the removal time, and there is no way to know from the outside.',
-          'We handle this by quoting removal as a range with a clearly stated assumption, then confirming the number once the first wall is down. You will never get a surprise invoice from us — you get a call before extra work happens.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'Can you just paint over the wallpaper?',
-        a: 'Sometimes, and it is a legitimate option if the paper is well adhered, the seams are tight, and the texture is subtle. We prime it with an oil or shellac primer first so we do not reactivate the glue. If seams are lifting anywhere, painting over it just locks in the problem.',
-      },
-      {
-        q: 'How bad is the wall going to be underneath?',
-        a: 'Honest answer: we do not know until it is off, and neither does anyone else. That is why we pull a test corner during the estimate and why the skim coat is quoted separately rather than buried in the price.',
-      },
-      {
-        q: 'Do you do the painting too?',
-        a: 'Yes, and it is usually cheaper to have one crew do both — the prep for painting and the repair after stripping are the same work done once instead of twice.',
-      },
-    ],
-    related: ['interior-painting', 'drywall-repair', 'ceiling-painting'],
-  },
-  {
-    slug: 'basement-painting',
-    category: 'interior',
-    name: 'Basement Painting',
-    h1: 'Basement Wall & Floor Painting',
-    metaTitle: 'Basement Painting & Masonry Coating in Cincinnati',
-    metaDescription:
-      'Basement painting in Cincinnati and Northern Kentucky — block and poured walls, floors, and joists. Masonry primers, breathable coatings. Free estimate.',
-    eyebrow: 'Block, poured wall & floor',
-    lead: 'Block, poured concrete, and exposed joists coated with products made for below-grade masonry — after the moisture question gets answered honestly.',
-    hero: 'basement',
-    intro: [
-      'Basement painting is a moisture problem wearing a paint problem\'s clothes. A concrete or block wall that is passing water vapor will push any coating off it eventually, and no product on the shelf changes that. So the first thing we do is test.',
-      'Where the walls are dry, the results are excellent and cheap relative to the space you get back: bright block walls, a sealed floor, and sprayed joists overhead turn a storage basement into a usable room for a fraction of finishing it out.',
-    ],
-    includes: [
-      { title: 'Moisture test', body: 'A plastic-sheet test taped to the slab and walls tells us in 24 hours whether vapor is moving through. We test before we quote.' },
-      { title: 'Efflorescence removal', body: 'The white mineral bloom on block gets scrubbed and neutralized. Painting over it guarantees the coating lifts.' },
-      { title: 'Masonry primer', body: 'An alkali-resistant block filler that fills the pores in CMU and gives the finish coat something continuous to sit on.' },
-      { title: 'Breathable wall coating', body: 'Coatings that let residual vapor pass rather than trapping it behind a film. Trapped vapor is what blows paint off a foundation wall.' },
-      { title: 'Sprayed joists and deck', body: 'Overhead framing and the underside of the floor sprayed flat black or white — the fastest way to make an unfinished basement feel finished.' },
-      { title: 'Floor coating', body: 'Concrete floors etched and coated in a single-part epoxy or urethane, or the full flake system if you want the garage-floor look.' },
-    ],
-    detail: [
-      {
-        heading: 'When we will tell you to stop',
-        body: [
-          'If the plastic-sheet test comes back wet, or we see active seepage at the cove joint, or the block has that damp musty smell after rain, painting is the wrong next purchase. Interior drainage, grading, or a downspout that dumps against the foundation is what you actually need first.',
-          'We would rather send you to a waterproofing contractor and come back next year than take money for a coating we already know is going to fail. It happens on a handful of basements a year and it has never once cost us a customer.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'Will painting the walls stop my basement being damp?',
-        a: 'No. Paint is not waterproofing, and any product marketed as both is overpromising. Coatings make a dry basement look finished; they do not fix a wet one. We test first so you know which basement you have.',
-      },
-      {
-        q: 'What color should I paint the joists?',
-        a: 'Flat black is the current default and it works — it makes the ceiling visually disappear and hides ductwork and wiring. White brightens a dark basement considerably but shows every cobweb. Both spray in a day.',
-      },
-      {
-        q: 'How long before I can put things back on the floor?',
-        a: 'Foot traffic in 24 hours, furniture in 72, and heavy shelving or a car in a week. Floor coatings cure slower than they dry and loading them early leaves permanent marks.',
-      },
-    ],
-    related: ['garage-floor-epoxy', 'interior-painting', 'drywall-repair'],
+    related: ['interior-painting', 'popcorn-ceiling-removal', 'cabinet-painting'],
   },
 
   // ═══════════════════════════════════════════════════════════ EXTERIOR ═══
@@ -475,8 +380,8 @@ export const services: Service[] = [
     h1: 'Exterior House Painting in Greater Cincinnati',
     metaTitle: 'Exterior House Painting in Cincinnati & N. Kentucky',
     metaDescription:
-      'Exterior house painting across Greater Cincinnati and Northern Kentucky. Washed, scraped, primed, and two-coated. 5-year written workmanship warranty. Free estimate.',
-    eyebrow: 'Siding · Trim · Soffits · Shutters',
+      'Exterior house painting across Greater Cincinnati and Northern Kentucky — siding, trim, soffit and fascia, gutters, and stucco. Washed, scraped, primed, and two-coated. 5-year workmanship warranty.',
+    eyebrow: 'Siding · Trim · Soffit & Fascia · Stucco',
     lead: 'Washed, scraped, primed, and two-coated — the four steps that decide whether an exterior lasts six years or sixteen.',
     hero: 'exterior',
     intro: [
@@ -509,6 +414,35 @@ export const services: Service[] = [
         body: 'Beds, shrubs, walks, and driveways covered before we start, and a full site cleanup with a magnet sweep at the end.',
       },
     ],
+    // Scopes that get quoted with a full exterior repaint but have no route of
+    // their own. Siding, brick, decks, fences, front doors and pressure washing
+    // each still have a page — those are in `related`, not here.
+    //
+    // Bulldog paints and does not do carpentry, so there is no rot-repair or
+    // board-replacement scope here on purpose — the rule is that a service is
+    // either offered in full or not listed at all. Do not add one.
+    scopes: [
+      {
+        title: 'Soffit, fascia & gutters',
+        body: 'The parts of a house nobody photographs and everybody notices once they are wrong. Fascia takes the worst of the water because the gutter hangs off it, so bare sections get primed and anything soft is flagged before we go any further. We paint gutters and downspouts on request — factory-finished aluminum needs washing and a bonding primer, because acrylic straight onto chalked aluminum releases in sheets. Vents and soffit perforations stay open rather than getting bridged closed with paint, since blocking them traps moisture in the attic.',
+      },
+      {
+        title: 'Windows, sills & sashes',
+        body: 'Sills and the lower sash take more standing water than anything else on a house, which is why they are usually the first thing to fail. We scrape and sand back to sound paint, spot-prime every bare spot, and re-caulk the joint where the frame meets the siding — that joint is the water path, not the glass. Sashes get cut by hand rather than taped, because lifting tape off old glazing putty takes the putty with it.',
+      },
+      {
+        title: 'Garage doors',
+        body: 'Steel and aluminum doors leave the factory with a baked-on finish that ordinary exterior acrylic will not grip, so they are washed, scuff-sanded, and given a bonding primer first — skip that and the new coat sheets off within a season or two. We paint them with the door down and the hinge joints kept clean so the sections do not bond to each other. We will also talk you out of a very dark color on a south-facing steel door: the panel heat can soften the coating and voids the warranty on some doors.',
+      },
+      {
+        title: 'Porches, columns & railings',
+        body: 'These take three different products, which is why they are quoted as their own line rather than folded into the wall rate. A porch floor needs a floor-rated enamel that survives foot traffic, the ceiling above it takes an ordinary exterior flat, and metal railings need the loose scale wire-brushed off and a rust-inhibitive primer underneath. Painting a rail without dealing with the rust first just puts a skin over it, and it bleeds back through inside a year.',
+      },
+      {
+        title: 'Stucco & EIFS',
+        body: 'Stucco has to breathe. A standard acrylic seals the face, traps the water already in the wall, and pops the coating off in sheets — so we use a breathable elastomeric or a mineral coating that lets vapor out. Cracks get raked, filled with an elastomeric patch, and bridged rather than skimmed, because a rigid filler just cracks again on the same line next winter. On EIFS we check for soft spots around windows first: a spongy panel means water is already behind the board, and paint is the wrong purchase until that is fixed.',
+      },
+    ],
     detail: [
       {
         heading: 'Why exteriors fail on the south and west sides first',
@@ -534,10 +468,11 @@ export const services: Service[] = [
         q: 'How long will an exterior repaint last here?',
         a: 'Eight to twelve years on properly prepped wood or fiber cement, and longer on the north and east elevations than the south and west. Bare-wood repaints on badly weathered siding are at the low end. A job that fails inside five years failed in prep.',
       },
-      {
-        q: 'Do you replace rotten wood?',
-        a: 'We replace rotted trim, fascia, and siding boards as a line item on the estimate, and we flag anything we find once the scraping starts. What we will not do is caulk over rot and paint it, which is what makes a cheap quote cheap.',
-      },
+      // A "Do you replace rotten wood?" FAQ used to sit here answering "we
+      // replace rotted trim, fascia, and siding boards as a line item". That is
+      // carpentry, which Bulldog does not do — it was also going out in this
+      // page's FAQPage structured data. Removed rather than reworded: a service
+      // is either offered in full or not mentioned.
       {
         q: 'Do you spray or brush?',
         a: 'Both. Spraying lays the material down fast and evenly; back-brushing works it into the grain and the laps so it bonds. On rough cedar and older wood siding, spray-only is the mark of a job being rushed.',
@@ -599,12 +534,12 @@ export const services: Service[] = [
     h1: 'Brick & Masonry Painting',
     metaTitle: 'Brick Painting & Limewashing in Cincinnati',
     metaDescription:
-      'Brick painting, limewashing, and masonry coating in Cincinnati and Northern Kentucky. Breathable mineral coatings, tuckpointing first. Free estimate.',
+      'Brick painting, limewashing, and masonry coating in Cincinnati and Northern Kentucky. Breathable mineral coatings, tuckpointing first.',
     eyebrow: 'Painted · Limewashed · German schmear',
     lead: 'Breathable mineral coatings on brick and block — and a straight conversation about the fact that painting brick is permanent.',
     hero: 'brick',
     intro: [
-      'Brick is porous by design. It absorbs water and releases it again, and a coating that stops it releasing traps moisture inside the masonry where freeze-thaw cycling will spall the face off the brick. That is why we use breathable mineral and elastomeric-free coatings rather than standard exterior acrylic.',
+      'Brick is porous by design. It absorbs water and releases it again, and a coating that stops it releasing traps moisture inside the masonry where freeze-thaw cycling will spall the face off the brick. That is why we use breathable mineral and non-elastomeric coatings rather than standard exterior acrylic.',
       'It is also why we insist on tuckpointing failing mortar joints first. Coating over crumbling mortar seals a problem in rather than fixing it, and the coating will telegraph every soft joint within two winters.',
     ],
     includes: [
@@ -646,7 +581,7 @@ export const services: Service[] = [
     h1: 'Deck Staining, Sealing & Refinishing',
     metaTitle: 'Deck Staining & Sealing in Cincinnati & N. Kentucky',
     metaDescription:
-      'Deck staining, stripping, and sealing in Cincinnati and Northern Kentucky. Sanded, brightened, and stained with penetrating oil or hybrid product. Free estimate.',
+      'Deck staining, stripping, and sealing in Cincinnati and Northern Kentucky. Sanded, brightened, and stained with penetrating oil or hybrid product.',
     eyebrow: 'Strip · Sand · Brighten · Stain',
     lead: 'Stripped, sanded, and brightened before a drop of stain — because stain that cannot penetrate is just a film waiting to peel.',
     hero: 'deck',
@@ -693,7 +628,7 @@ export const services: Service[] = [
     h1: 'Fence Painting & Staining',
     metaTitle: 'Fence Painting & Staining in Cincinnati',
     metaDescription:
-      'Fence painting and staining in Cincinnati and Northern Kentucky. Sprayed and back-brushed, both sides, posts and caps included. Free estimate.',
+      'Fence painting and staining in Cincinnati and Northern Kentucky. Sprayed and back-brushed, both sides, posts and caps included.',
     eyebrow: 'Privacy · Picket · Split rail',
     lead: 'Both sides, all the posts, and the tops of the caps — sprayed and back-brushed so it soaks in rather than sitting on the surface.',
     hero: 'fence',
@@ -778,7 +713,7 @@ export const services: Service[] = [
         a: 'We can match any color you bring us — a chip, a can lid, or a scan off the existing trim. Matching aged trim exactly is tricky; usually it looks better to repaint the surround with the door.',
       },
     ],
-    related: ['exterior-painting', 'trim-and-door-painting', 'siding-painting'],
+    related: ['exterior-painting', 'siding-painting', 'interior-painting'],
   },
   {
     slug: 'garage-floor-epoxy',
@@ -787,7 +722,7 @@ export const services: Service[] = [
     h1: 'Garage Floor Epoxy Coating',
     metaTitle: 'Garage Floor Epoxy Coating in Cincinnati',
     metaDescription:
-      'Garage floor epoxy and polyaspartic coatings in Cincinnati and Northern Kentucky. Diamond-ground prep, flake systems, hot-tire resistant. Free estimate.',
+      'Garage floor epoxy and polyaspartic coatings in Cincinnati and Northern Kentucky. Diamond-ground prep, flake systems, hot-tire resistant.',
     eyebrow: 'Ground, not etched',
     lead: 'Diamond-ground concrete, a flake broadcast, and a clear topcoat that survives hot tires and road salt.',
     hero: 'epoxy',
@@ -825,7 +760,7 @@ export const services: Service[] = [
         a: 'Yes — same system, same prep. Basement slabs need the moisture test taken seriously because below-grade concrete moves more vapor than a garage slab does.',
       },
     ],
-    related: ['basement-painting', 'pressure-washing', 'exterior-painting'],
+    related: ['interior-painting', 'pressure-washing', 'exterior-painting'],
   },
   {
     slug: 'pressure-washing',

@@ -61,7 +61,7 @@ export default function ServiceShowcase({
                   className="absolute inset-x-0 bottom-0 h-1/2"
                   style={{
                     backgroundImage:
-                      'linear-gradient(to top, rgba(11,38,30,0.55) 0%, rgba(11,38,30,0) 100%)',
+                      'linear-gradient(to top, rgba(17,12,9,0.65) 0%, rgba(17,12,9,0) 100%)',
                   }}
                   aria-hidden="true"
                 />

@@ -66,7 +66,7 @@ export default function ServicePage({ service }: { service: Service }) {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(to right, #110c09 0%, rgba(11,38,30,0.88) 12%, rgba(11,38,30,0.25) 38%, rgba(11,38,30,0) 60%)',
+                'linear-gradient(to right, #110c09 0%, rgba(17,12,9,0.92) 12%, rgba(17,12,9,0.35) 38%, rgba(17,12,9,0) 60%)',
             }}
           />
         </div>
@@ -87,7 +87,7 @@ export default function ServicePage({ service }: { service: Service }) {
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/contact" className="btn-secondary">
-                Get a Free Estimate
+                Get an Estimate
               </Link>
               <a href={site.phoneHref} className="btn-outline-light">
                 Call {site.phone}
@@ -128,6 +128,35 @@ export default function ServicePage({ service }: { service: Service }) {
           </div>
         </div>
       </section>
+
+      {/* ---------- SCOPES ----------
+          Only hub pages carry these. When a small service stops having its own
+          route, its card here becomes the only explanation of that scope on the
+          site — so these read long on purpose. */}
+      {service.scopes && service.scopes.length > 0 && (
+        <section className="section relative overflow-hidden bg-ink">
+          <div className="paint-wash absolute inset-0" aria-hidden="true" />
+          <div className="container-x relative">
+            <p className="eyebrow">Everything this covers</p>
+            <h2 className="mt-3 max-w-2xl font-display text-2xl font-bold text-white sm:text-3xl">
+              One crew, one estimate, every surface in the room
+            </h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
+              {service.scopes.map((s) => (
+                <div
+                  key={s.title}
+                  className="rounded-xl border border-white/10 bg-ink-700/60 p-6 transition-colors hover:border-crimson"
+                >
+                  <h3 className="font-display text-base font-bold uppercase tracking-wide text-white">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-steel-300">{s.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ---------- DETAIL SECTIONS ---------- */}
       <section className="section bg-cream">

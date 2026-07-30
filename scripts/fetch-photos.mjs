@@ -32,11 +32,16 @@ const SLOTS = {
   // Pinned by photo ID: search results drift, and this one was chosen because
   // it is evenly toned enough to keep white nav text legible across the whole
   // width. Do not swap it for a search without checking that again.
+  // Desaturated on purpose. The source photo is a deep GREEN wall, picked when
+  // the palette was green; the palette is now black/red/white, and the green
+  // read straight through the header scrim as a colour cast behind the nav.
+  // Greyscale keeps the brushed texture and drops the hue.
   headerBg: {
     file: 'header-bg',
-    id: 8337525, // deep brushed green, Adam Balcombe
+    id: 8337525, // brushed wall texture, Adam Balcombe — green in the original
     size: { width: 2400, height: 340 },
     queries: ['dark green painted wall texture'],
+    desaturate: true,
   },
   // homeHero is intentionally absent: the homepage hero uses real branded
   // photography (human/exterior.png -> public/photos/hero-exterior.jpg) and
@@ -184,25 +189,34 @@ async function search(query, orientation = 'landscape', perPage = 12) {
   return data.photos ?? [];
 }
 
-async function download(photo, outPath, { width, height }) {
+async function download(photo, outPath, { width, height, desaturate = false }) {
   const imgUrl = photo.src.large2x || photo.src.original || photo.src.large;
   const imgRes = await fetch(imgUrl);
   if (!imgRes.ok) throw new Error(`download failed ${imgRes.status}`);
   const buf = Buffer.from(await imgRes.arrayBuffer());
 
-  const out = await sharp(buf)
+  let pipeline = sharp(buf)
     .rotate()
-    .resize({ width, height, fit: 'cover', position: 'attention', withoutEnlargement: true })
-    .jpeg({ quality: 80, mozjpeg: true })
-    .toBuffer();
+    .resize({ width, height, fit: 'cover', position: 'attention', withoutEnlargement: true });
+
+  // Slots flagged `desaturate` are backgrounds, not photography — a hue in them
+  // fights the palette instead of supporting it.
+  if (desaturate) pipeline = pipeline.greyscale();
+
+  const out = await pipeline.jpeg({ quality: 80, mozjpeg: true }).toBuffer();
 
   fs.writeFileSync(outPath, out);
   const meta = await sharp(out).metadata();
   return { bytes: out.length, w: meta.width, h: meta.height };
 }
 
-async function grab(name, { queries, pick = 0, orientation = 'landscape', file, id }, size) {
+async function grab(
+  name,
+  { queries, pick = 0, orientation = 'landscape', file, id, desaturate = false },
+  size,
+) {
   const outPath = path.join(OUT_DIR, `${file ?? name}.jpg`);
+  const opts = { ...size, desaturate };
 
   // An explicit photo ID wins over search — used where a specific image was
   // chosen deliberately and must not drift when results change.
@@ -212,7 +226,7 @@ async function grab(name, { queries, pick = 0, orientation = 'landscape', file, 
     });
     if (res.ok) {
       const photo = await res.json();
-      const info = await download(photo, outPath, size);
+      const info = await download(photo, outPath, opts);
       attribution.push({
         slot: name,
         file: `${file ?? name}.jpg`,
@@ -231,7 +245,7 @@ async function grab(name, { queries, pick = 0, orientation = 'landscape', file, 
     const photo = photos[pick] ?? photos[0];
     if (!photo) continue;
     try {
-      const info = await download(photo, outPath, size);
+      const info = await download(photo, outPath, opts);
       attribution.push({
         slot: name,
         file: `${file ?? name}.jpg`,

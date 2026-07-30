@@ -77,7 +77,7 @@ export default function WhyUs() {
           </h2>
           <p className="mt-4 text-steel">
             {stats.homesPainted} homes since {site.founded}, {stats.crewCount} full-time painters on payroll, and a
-            written warranty behind every one of them.
+            warranty behind every one of them.
           </p>
         </div>
 

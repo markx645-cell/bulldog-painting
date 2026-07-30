@@ -84,7 +84,7 @@ export default function QuoteForm({ compact = false }: { compact?: boolean }) {
       </label>
 
       <button type="submit" className="btn-primary w-full">
-        {sent ? 'Opening your email…' : 'Request My Free Estimate'}
+        {sent ? 'Opening your email…' : 'Request My Estimate'}
       </button>
 
       <p className="text-center text-xs leading-relaxed text-steel">

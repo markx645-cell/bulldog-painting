@@ -24,7 +24,7 @@ const financingFaqs = [
   },
   {
     q: 'Is there a prepayment penalty?',
-    a: 'No. Every plan we work with allows early payoff without penalty, which is what makes the 12-month interest-free option genuinely worth taking if you can clear it inside the term.',
+    a: 'No. Every plan we work with allows early payoff without penalty, which is what makes the 12-month 0% interest option genuinely worth taking if you can clear it inside the term.',
   },
   {
     q: 'What happens if I do not pay it off inside the promotional period?',
