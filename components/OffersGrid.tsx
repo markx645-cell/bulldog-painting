@@ -8,10 +8,10 @@ export default function OffersGrid() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">What we are running</p>
           <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-            Two offers. Both real.
+            The one offer we run
           </h2>
           <p className="mt-4 text-steel">
-            No countdown timers and no &ldquo;today only&rdquo; pricing. These two stand year-round.
+            No countdown timers and no &ldquo;today only&rdquo; pricing. It stands year-round.
           </p>
         </div>
 

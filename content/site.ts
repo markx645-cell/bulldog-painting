@@ -41,13 +41,6 @@ export const stats = {
   ],
 } as const;
 
-export const offer = {
-  headline: 'Color Consultation',
-  sub: 'With every interior or exterior estimate.',
-  fineprint:
-    'One hour with a certified color consultant, plus sampled swatches on your own walls before you commit.',
-} as const;
-
 // Homepage brand statement, shown beside the mascot.
 //
 // The reference this was modelled on led with "Voted Best Painting Company in
@@ -88,15 +81,8 @@ export const trustPoints = [
   { icon: 'crew', stat: 'W-2 Crews', label: 'Employees, never subcontracted out' },
 ] as const;
 
-// Current offers. Keep this honest — these are the only two we run.
+// Current offers. Keep this honest — this is the only one we run.
 export const offers = [
-  {
-    tag: 'Included',
-    headline: 'Color Consultation',
-    body: 'An hour with a certified color consultant, plus large sampled swatches brushed on your own walls so you can live with the color before you commit to it.',
-    cta: 'Book a Consultation',
-    href: '/contact',
-  },
   {
     tag: 'Financing',
     headline: 'Pay Over 12 Months at 0% Interest',
@@ -125,8 +111,8 @@ export const estimateSteps = [
   },
   {
     step: '02',
-    title: 'You see the color first',
-    body: 'Our color consultant brings decks and brushes large samples on your actual walls. North light and south light do different things to the same color — you get to see which.',
+    title: 'You get a real start window',
+    body: 'We tell you when we can start and how many working days it takes before you sign anything. If weather or a lead-safe setup moves that date, you hear it from us rather than finding out on the morning.',
   },
   {
     step: '03',
@@ -179,11 +165,6 @@ export const pillars = [
     icon: 'crew',
     title: 'W-2 Crews, Never Subcontracted Out',
     body: 'Eleven full-time painters on payroll. Background-checked, uniformed, and the same faces on your job from day one to walkthrough.',
-  },
-  {
-    icon: 'color',
-    title: 'Color Consultation',
-    body: 'A certified consultant, real swatches on your real walls, and an honest opinion about the color you are leaning toward.',
   },
   {
     icon: 'star',

@@ -3,13 +3,13 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import QuoteForm from '@/components/QuoteForm';
 import TrustBar from '@/components/TrustBar';
 import FaqAccordion from '@/components/FaqAccordion';
-import { site, estimateSteps, offer } from '@/content/site';
+import { site, estimateSteps } from '@/content/site';
 import { sharedFaqs } from '@/content/faqs';
 
 export const metadata: Metadata = {
   title: 'Contact & Estimates',
   description:
-    'Book a painting estimate in Greater Cincinnati or Northern Kentucky. Written, itemized pricing and a color consultation with every visit. No obligation.',
+    'Book a painting estimate in Greater Cincinnati or Northern Kentucky. Written, itemized pricing on every visit. No obligation.',
   alternates: { canonical: '/contact/' },
 };
 
@@ -28,7 +28,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">
               We walk the job with you, measure it, flag the repairs that have to happen first, and leave
-              you with a written itemized number. {offer.headline} is included.
+              you with a written itemized number.
             </p>
 
             <dl className="mt-8 space-y-5">

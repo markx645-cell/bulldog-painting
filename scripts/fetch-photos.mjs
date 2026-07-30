@@ -50,10 +50,6 @@ const SLOTS = {
     file: 'crew',
     queries: ['construction workers team portrait', 'painters team working house', 'contractor crew van'],
   },
-  colorConsult: {
-    file: 'color-consult',
-    queries: ['paint color swatches fan deck', 'color palette samples wall', 'paint samples choosing color'],
-  },
   serviceAreaMap: {
     file: 'service-area-map',
     queries: ['cincinnati ohio skyline river', 'cincinnati city aerial', 'ohio river bridge city'],

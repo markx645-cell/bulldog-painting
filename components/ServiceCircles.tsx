@@ -24,7 +24,6 @@ const circles: Circle[] = [
   { label: 'Cabinet Refinishing', href: '/cabinet-painting', color: '#d01d21', icon: 'cabinets' },
   { label: 'Commercial Painting', href: '/commercial-painting', color: '#110c09', icon: 'commercial' },
   { label: 'Floor Coatings', href: '/garage-floor-epoxy', color: '#2b221b', icon: 'floors' },
-  { label: 'Color Consultation', href: '/contact', color: '#b01216', icon: 'color' },
 ];
 
 function Icon({ name }: { name: Circle['icon'] }) {
@@ -102,7 +101,7 @@ export default function ServiceCircles() {
     <section className="bg-white py-12 sm:py-14">
       <div className="container-x">
         <ul
-          className="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-6"
+          className="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-5"
           data-reveal-stagger
         >
           {circles.map((c) => (

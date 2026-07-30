@@ -5,7 +5,7 @@ import QuoteForm from '@/components/QuoteForm';
 export default function CTASection({
   withForm = false,
   heading = 'Get a written estimate, not a guess',
-  body = 'We walk the job, measure it, and leave you with an itemized number and a color consultation. No obligation and no follow-up pressure.',
+  body = 'We walk the job, measure it, and leave you with an itemized number. No obligation and no follow-up pressure.',
 }: {
   withForm?: boolean;
   heading?: string;

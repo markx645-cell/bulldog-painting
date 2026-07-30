@@ -93,11 +93,6 @@ export const media = {
     alt: 'The Bulldog Painting crew in front of a company van',
     note: 'Landscape 16:9. Full crew, uniformed, in front of a branded van. Shoot on an overcast day.',
   },
-  colorConsult: {
-    src: P('color-consult'),
-    alt: 'A color consultant fanning a paint deck against a homeowner’s wall',
-    note: 'Landscape 4:3. Hands holding a fan deck against a wall with two brushed-out samples beside it.',
-  },
   serviceAreaMap: {
     src: P('service-area-map'),
     alt: 'Bulldog Painting service area across Cincinnati and the surrounding areas',

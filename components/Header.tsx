@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { site, nav, offer } from '@/content/site';
+import { site, nav } from '@/content/site';
 import Logo from '@/components/Logo';
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -28,13 +28,6 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
-  // Top bar alternates: offer for 10s, business info for 5s (offer first).
-  const [showOffer, setShowOffer] = useState(true);
-  useEffect(() => {
-    const id = setTimeout(() => setShowOffer((v) => !v), showOffer ? 10000 : 5000);
-    return () => clearTimeout(id);
-  }, [showOffer]);
-
   const close = () => {
     setMobileOpen(false);
     setOpenGroup(null);
@@ -91,29 +84,14 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Top utility bar — desktop */}
+        {/* Top utility bar — desktop.
+            This used to cross-fade between an offer panel and the business info
+            on a timer. The offer was the color consultation, which the company
+            does not run, so there is nothing to alternate with — the info is
+            simply shown. Do not reintroduce the rotation for a single panel. */}
         <div className="hdr-band hidden text-white md:block">
           <div className="spectrum-bar relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
-            <div
-              className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
-                showOffer ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <span className="whitespace-nowrap text-[13px] font-semibold">Included:</span>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-4 py-1 text-[13px] font-bold leading-none text-ink transition hover:bg-crimson-600 hover:text-white"
-                >
-                  {offer.headline} with every estimate
-                </Link>
-              </div>
-            </div>
-            <div
-              className={`absolute inset-0 flex items-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
-                showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
-              }`}
-            >
+            <div className="absolute inset-0 flex items-center px-5 sm:px-8">
               {/* Two items, not three: the tagline slot was removed with the
                   tagline itself, so this is a straight left/right split. */}
               <div className="flex w-full items-center justify-between">
@@ -124,27 +102,10 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile bar 1 — offer / info */}
+        {/* Mobile bar 1 — business info */}
         <div className="hdr-band md:hidden">
           <div className="spectrum-bar relative h-9 w-full overflow-hidden font-display text-[11px] font-bold uppercase">
-            <div
-              className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
-                showOffer ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'
-              }`}
-            >
-              <Link
-                href="/contact"
-                onClick={close}
-                className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-3 py-1 leading-none text-ink"
-              >
-                Color consultation with every estimate
-              </Link>
-            </div>
-            <div
-              className={`absolute inset-0 flex items-center justify-between gap-2 px-3 text-steel-300 transition-all duration-500 ease-in-out ${
-                showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
-              }`}
-            >
+            <div className="absolute inset-0 flex items-center justify-between gap-2 px-3 text-steel-300">
               <span className="whitespace-nowrap">{site.serviceArea}</span>
               <span className="whitespace-nowrap">Mon–Fri 7–6</span>
             </div>

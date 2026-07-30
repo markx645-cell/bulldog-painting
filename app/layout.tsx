@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    'Family-owned painting contractor serving Cincinnati and the surrounding areas since 2001. W-2 crews, color consultation, written itemized pricing, and a 5-year workmanship warranty.',
+    'Family-owned painting contractor serving Cincinnati and the surrounding areas since 2001. W-2 crews, written itemized pricing, and a 5-year workmanship warranty.',
   keywords: [
     'painters Cincinnati',
     'interior painting Cincinnati',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — Painters in Cincinnati & Surrounding Areas`,
     description:
-      'Interior and exterior painting across Cincinnati and the surrounding areas since 2001. Color consultation, written pricing, 5-year workmanship warranty.',
+      'Interior and exterior painting across Cincinnati and the surrounding areas since 2001. Written pricing and a 5-year workmanship warranty.',
     images: [{ url: '/og/home.jpg', width: 1200, height: 630, alt: site.name }],
   },
   twitter: {

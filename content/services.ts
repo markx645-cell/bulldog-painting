@@ -46,9 +46,9 @@ export const services: Service[] = [
     // basements, so the description names them — those terms no longer have a
     // page of their own to rank with.
     metaDescription:
-      'Interior house painting across Greater Cincinnati and Northern Kentucky — walls, ceilings, trim and doors, staircases, wallpaper removal, and basement walls and floors. Two full coats, color consultation, 5-year workmanship warranty.',
+      'Interior house painting across Greater Cincinnati and Northern Kentucky — walls, ceilings, trim and doors, staircases, wallpaper removal, and basement walls and floors. Two full coats and a 5-year workmanship warranty.',
     eyebrow: 'Walls · Ceilings · Trim · Stairs',
-    lead: 'Two full coats, hand-cut lines, and a house you can live in while we work. Color consultation with every interior estimate.',
+    lead: 'Two full coats, hand-cut lines, and a house you can live in while we work.',
     hero: 'interior',
     intro: [
       'An interior repaint is mostly protection and preparation. Before a brush comes out we wrap the furniture, paper the floors, mask the fixtures, and fill and sand every nail hole, seam, and stress crack we find. The painting itself is the fast part — it is the day and a half in front of it that decides how the finish looks in year five.',
@@ -70,10 +70,6 @@ export const services: Service[] = [
       {
         title: 'Two full coats',
         body: 'Premium Sherwin-Williams or Benjamin Moore product, two coats standard. If a color genuinely covers in one, we tell you and adjust the price down.',
-      },
-      {
-        title: 'Color consultation',
-        body: 'An hour with a certified consultant and large samples brushed on your own walls, so you see the color in your light before you commit.',
       },
       {
         title: 'Nightly cleanup',
@@ -106,8 +102,8 @@ export const services: Service[] = [
         body: 'The hardest-working surfaces in the house and the hardest to reach — tall walls, tricky angles, and nowhere to hide a shortcut. We stage them properly instead of working off the top step, run a scrubbable eggshell or satin on the walls, and hand-finish handrails, stringers, and spindles in enamel. We work one side at a time so nobody is shut upstairs for a day.',
       },
       {
-        title: 'Color & sheen guidance',
-        body: 'Sheen causes more regret than color does, and it is the part nobody asks about. Flat hides an uneven wall but burnishes when you scrub it. Eggshell and satin clean up, and belong in hallways, kids’ rooms, and kitchens. Semi-gloss goes on trim because it takes a hit. Every interior estimate includes an hour with a certified consultant and large samples brushed onto your own walls — a chip under showroom light tells you almost nothing about a north-facing room in February.',
+        title: 'Sheen selection',
+        body: 'Sheen causes more regret than color does, and it is the part nobody asks about. Flat hides an uneven wall but burnishes when you scrub it. Eggshell and satin clean up, and belong in hallways, kids’ rooms, and kitchens. Semi-gloss goes on trim because it takes a hit. We will tell you which way we would go room by room and why, and the sheen for every surface is named on the estimate so there is no confusion on day one.',
       },
       {
         title: 'Wallpaper removal',

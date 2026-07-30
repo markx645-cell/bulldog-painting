@@ -10,7 +10,6 @@ import ProcessTabs from '@/components/ProcessTabs';
 import AboutBlock from '@/components/AboutBlock';
 import QualityControl from '@/components/QualityControl';
 import VideoTestimonials from '@/components/VideoTestimonials';
-import ColorConsult from '@/components/ColorConsult';
 import MissionValues from '@/components/MissionValues';
 import BeforeAfterGallery from '@/components/BeforeAfterGallery';
 import WarrantyHighlight from '@/components/WarrantyHighlight';
@@ -26,7 +25,7 @@ import { sharedFaqs } from '@/content/faqs';
 export const metadata: Metadata = {
   title: 'Painters in Cincinnati & Surrounding Areas',
   description:
-    'Bulldog Painting — interior and exterior painting across Cincinnati and the surrounding areas since 2001. W-2 crews, color consultation, written itemized pricing, 5-year workmanship warranty.',
+    'Bulldog Painting — interior and exterior painting across Cincinnati and the surrounding areas since 2001. W-2 crews, written itemized pricing, 5-year workmanship warranty.',
   alternates: { canonical: '/' },
 };
 
@@ -49,12 +48,6 @@ const residentialCards = [
     body: 'Doors sprayed flat in our shop for a factory-smooth finish, boxes sprayed in place behind containment. Roughly a third of replacement cost.',
     href: '/cabinet-painting',
     image: 'cabinets' as const,
-  },
-  {
-    title: 'Color Consultation',
-    body: 'A certified consultant and large samples brushed on your own walls, so you see the colour in your own light before anything is ordered.',
-    href: '/contact',
-    image: 'colorConsult' as const,
   },
 ];
 
@@ -87,13 +80,19 @@ export default function HomePage() {
                 so a column flex here lays out exactly as the block flow did. */}
             <div className="flex max-w-xl flex-col animate-fade-up lg:max-w-none">
               {/* No eyebrow above the H1 — the headline and the serving line both
-                  name Cincinnati already, and a third mention read as filler. */}
-              <h1 className="font-display text-4xl font-bold uppercase leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  name Cincinnati already, and a third mention read as filler.
+
+                  Sizes are 25% down from the Tailwind steps they replace:
+                  text-4xl 36px -> 27px, text-5xl 48px -> 36px, text-6xl 60px ->
+                  45px. Written as explicit rem so the ratio stays visible — the
+                  named steps do not have 25%-smaller siblings to drop to.
+                  leading is a ratio, so it scales on its own. */}
+              <h1 className="font-display text-[1.6875rem] font-bold uppercase leading-[1.02] tracking-tight text-white sm:text-[2.25rem] lg:text-[2.8125rem]">
                 Painters in Cincinnati, OH
               </h1>
               {/* Same size as the H1 — the two lines read as one headline, split
                   only by colour. Type classes here must stay in step with the h1. */}
-              <p className="mt-2 font-display text-4xl font-bold uppercase leading-[1.02] tracking-tight text-crimson sm:text-5xl lg:text-6xl">
+              <p className="mt-2 font-display text-[1.6875rem] font-bold uppercase leading-[1.02] tracking-tight text-crimson sm:text-[2.25rem] lg:text-[2.8125rem]">
                 For top-rated interior &amp; exterior finishes
               </p>
               <p className="mt-4 max-w-lg text-lg leading-relaxed text-white">
@@ -186,8 +185,6 @@ export default function HomePage() {
       <MissionValues />
 
       <QualityControl />
-
-      <ColorConsult />
 
       <BeforeAfterGallery limit={4} moreHref="/projects" />
 
