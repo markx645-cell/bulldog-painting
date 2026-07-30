@@ -31,7 +31,7 @@ export const media = {
   logo: {
     src: '/logo.png',
     alt: 'Bulldog Painting',
-    note: 'Supplied brand lockup with the strapline removed. Source is logo-no-tagline.png at the repo root, generated from "bulldog painting.png".',
+    note: 'Supplied brand lockup, no strapline. Source is "FINAL LOGO PAINTING.png" at the repo root.',
   },
 
   // Header band texture. Referenced from globals.css (.hdr-band), not through
