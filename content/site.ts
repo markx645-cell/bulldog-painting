@@ -1,10 +1,11 @@
 // Canonical business facts for Bulldog Painting.
 // Single source of truth — every page pulls from here.
 //
-// ⚠ PLACEHOLDER CONTACT DETAILS — replace before launch.
-// The phone number below is in the 555-01xx range reserved for fiction, so it
-// is obviously fake rather than someone else's line. Swap `phone`, `phoneHref`,
-// `email`, `url`, and `address` for the real ones and every page updates.
+// ⚠ SOME CONTACT DETAILS ARE STILL PLACEHOLDERS — replace before launch.
+// `phone` is REAL: read off the shirt in the hero photograph
+// (public/photos/hero-exterior.jpg) and verified digit by digit. Do not revert
+// it to the old 555-01xx fiction number.
+// Still fake and still to do: `email`, `url`, and `address`.
 
 export const site = {
   name: 'Bulldog Painting',
@@ -14,8 +15,8 @@ export const site = {
   founded: 2001,
   yearsInBusiness: '25+',
   url: 'https://bulldogpainting.com',
-  phone: '(513) 555-0142', // TODO: real number
-  phoneHref: 'tel:+15135550142', // TODO: real number
+  phone: '(513) 657-3750',
+  phoneHref: 'tel:+15136573750',
   email: 'hello@bulldogpainting.com', // TODO: real inbox
   address: {
     street: '1820 Madison Road', // TODO: real address
