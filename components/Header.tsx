@@ -91,13 +91,17 @@ export default function Header() {
             simply shown. Do not reintroduce the rotation for a single panel. */}
         <div className="hdr-band hidden text-white md:block">
           <div className="spectrum-bar relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest">
-            <div className="absolute inset-0 flex items-center px-5 sm:px-8">
-              {/* Two items, not three: the tagline slot was removed with the
-                  tagline itself, so this is a straight left/right split. */}
-              <div className="flex w-full items-center justify-between">
-                <span className="whitespace-nowrap">Serving {site.serviceArea}</span>
-                <span className="whitespace-nowrap text-right">{site.hours}</span>
-              </div>
+            {/* Centred, not a left/right split. This started as a fix for the
+                logo overhanging into this bar; the logo no longer does that, but
+                centred is the better balance for two short items either way. */}
+            <div className="absolute inset-0 flex items-center justify-center gap-3 px-5 sm:px-8">
+              <span className="whitespace-nowrap">Serving {site.serviceArea}</span>
+              {/* Hours only from lg. At md the pair is wide enough that centring
+                  still puts its left edge under the logo. */}
+              <span aria-hidden="true" className="hidden text-white/40 lg:inline">
+                ·
+              </span>
+              <span className="hidden whitespace-nowrap lg:inline">{site.hours}</span>
             </div>
           </div>
         </div>
@@ -140,21 +144,31 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Main bar — sticky on desktop, scrolls away on mobile.
-          Dark so it runs straight into the dark hero every page opens with;
-          a white bar here reads as a separate block sitting on top of the page. */}
-      {/* z-50, above the utility bar, so the overhanging logo sits on top of it
-          rather than being covered by it */}
-      <div className="hdr-band hdr-band-main md:sticky md:top-9 md:z-50">
+      {/* Main bar — plain white, sticky on desktop, scrolls away on mobile.
+          It used to be a dark textured band (hdr-band hdr-band-main) that ran
+          into the dark hero. White means it no longer participates in the shared
+          background image, so hdr-band-main is gone from here — the two bars
+          above still carry it, and their --hdr-y offsets are unaffected because
+          this bar was last in the stack.
+          Everything inside had to invert from white text to ink. */}
+      <div className="border-b border-steel-200 bg-white md:sticky md:top-9 md:z-50">
         {/* 58px at every breakpoint — the band offsets in globals.css assume it */}
         <div className="flex h-[58px] w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label={site.name} onClick={close}>
-            {/* From md up the logo is taller than the bar and the negative margin
-                lifts it, so it overlaps the utility bar above instead of
+            {/* Full badge, at size, overhanging upward into the utility bar.
+                From md up the logo is taller than this 58px bar and the negative
+                margin lifts it, so it overlaps the bar above instead of
                 stretching the row. -mt-10 on an h-20 logo puts its top exactly
                 at the top of the 36px utility bar. Below md the utility area is
-                two bars of live content, so the logo stays inside its own row. */}
-            <Logo priority className="h-11 w-auto md:-mt-10 md:h-20" />
+                two bars of live content, so the logo stays inside its own row.
+                The margin is on the image only — the name beside it stays
+                centred in the bar. */}
+            <Logo
+              priority
+              showName
+              className="h-11 w-auto md:-mt-10 md:h-20"
+              nameClassName="text-ink"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -168,7 +182,7 @@ export default function Header() {
               >
                 <Link
                   href={group.href}
-                  className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
+                  className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-ink hover:text-crimson"
                 >
                   {group.label}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -194,7 +208,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
+                className="px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-ink hover:text-crimson"
               >
                 {item.label}
               </Link>
@@ -207,7 +221,7 @@ export default function Header() {
             >
               <Link
                 href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-white hover:text-crimson"
+                className="flex items-center gap-1 px-3 py-2 font-display text-[10px] font-semibold uppercase tracking-wide text-ink hover:text-crimson"
               >
                 {nav.about.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -235,14 +249,16 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4">
             <a
               href={site.phoneHref}
-              className="hidden items-center gap-2 whitespace-nowrap font-display text-sm font-extrabold tabular-nums leading-none text-white transition-colors hover:text-crimson lg:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap font-display text-sm font-extrabold tabular-nums leading-none text-ink transition-colors hover:text-crimson lg:inline-flex"
             >
               <PhoneIcon className="text-crimson" />
               {site.phone}
             </a>
+            {/* btn-primary, not btn-secondary. btn-secondary is a white button
+                — invisible now that the bar behind it is white. */}
             <Link
               href="/contact"
-              className="btn-secondary hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
+              className="btn-primary hidden whitespace-nowrap !px-4 !py-2 !text-[10px] lg:inline-flex"
             >
               Get an Estimate
             </Link>

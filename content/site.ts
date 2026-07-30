@@ -372,8 +372,8 @@ export const nav = {
       { label: 'Exterior Painting', href: '/exterior-painting' },
       { label: 'Siding Painting', href: '/siding-painting' },
       { label: 'Brick & Masonry Painting', href: '/brick-painting' },
-      { label: 'Deck Staining & Sealing', href: '/deck-staining' },
-      { label: 'Fence Painting & Staining', href: '/fence-painting' },
+      // One entry, not two: /fence-painting was merged into /deck-staining.
+      { label: 'Deck & Fence Staining', href: '/deck-staining' },
       { label: 'Front Door & Shutter Painting', href: '/front-door-painting' },
       { label: 'Garage Floor Epoxy', href: '/garage-floor-epoxy' },
       { label: 'Pressure Washing', href: '/pressure-washing' },

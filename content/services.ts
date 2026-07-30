@@ -571,26 +571,46 @@ export const services: Service[] = [
     related: ['exterior-painting', 'pressure-washing', 'siding-painting'],
   },
   {
+    // Deck and fence were separate routes. They are one page now: the prep is
+    // the same job on both (strip, sand, brighten, penetrating stain) and the
+    // advice is identical (stain, do not paint). The deck-staining slug is kept
+    // so that URL survives — only /fence-painting was retired. Fence-specific
+    // work lives in `scopes`, and both mechanism passages are preserved below.
     slug: 'deck-staining',
     category: 'exterior',
-    name: 'Deck Staining',
-    h1: 'Deck Staining, Sealing & Refinishing',
-    metaTitle: 'Deck Staining & Sealing in Cincinnati & N. Kentucky',
+    name: 'Deck & Fence Staining',
+    h1: 'Deck & Fence Staining in Greater Cincinnati',
+    metaTitle: 'Deck & Fence Staining in Cincinnati & N. Kentucky',
     metaDescription:
-      'Deck staining, stripping, and sealing in Cincinnati and Northern Kentucky. Sanded, brightened, and stained with penetrating oil or hybrid product.',
-    eyebrow: 'Strip · Sand · Brighten · Stain',
+      'Deck and fence staining across Cincinnati and Northern Kentucky. Stripped, sanded, brightened, and finished in penetrating stain. Both sides of the fence, posts and caps included.',
+    eyebrow: 'Decks · Fences · Strip · Sand · Stain',
     lead: 'Stripped, sanded, and brightened before a drop of stain — because stain that cannot penetrate is just a film waiting to peel.',
     hero: 'deck',
     intro: [
-      'Deck work is horizontal, which means it takes standing water, direct sun, and every footstep in the house. Nothing on a deck lasts as long as the same product would on a wall, and any contractor promising otherwise is selling you something.',
-      'What extends it is preparation: getting the old failed coating fully off, sanding the boards open so the new stain can penetrate, and neutralizing the wood with a brightener so the pH is right when the stain goes down.',
+      'Decks and fences are the two things on a property that fail fastest, and for the same reason: they are wood that never gets a break. A deck takes standing water, direct sun, and every footstep in the house. A fence moves constantly, holds water at every joint, and has more edges per square foot than anything else you own. Nothing on either lasts as long as the same product would on a wall, and any contractor promising otherwise is selling you something.',
+      'What extends both is preparation: getting the old failed coating fully off, sanding the wood open so new stain can penetrate, and neutralizing it with a brightener so the pH is right when the stain goes down. The finish is the fast part.',
     ],
     includes: [
       { title: 'Strip the old coating', body: 'Failed film-forming stain chemically stripped rather than painted over. A new coat over a peeling one peels on the same schedule.' },
-      { title: 'Sand the boards', body: 'Boards sanded to open the grain, plus rails and caps hand-sanded. Stain that cannot get into the wood sits on top and fails.' },
-      { title: 'Brighten and neutralize', body: 'A wood brightener resets the pH after stripping and pulls the grey out of weathered boards.' },
-      { title: 'Set popped fasteners', body: 'Raised screws and nails reset, and split or badly cupped boards flagged for replacement before staining.' },
+      { title: 'Wash, brighten, neutralize', body: 'A full wash takes off mildew, algae, and grey weathering. A wood brightener then resets the pH after stripping and pulls the grey out of weathered boards.' },
+      { title: 'Sanded open', body: 'Boards sanded to open the grain, plus rails and caps hand-sanded. Stain that cannot get into the wood sits on top and fails.' },
+      { title: 'Set popped fasteners', body: 'Raised screws and nails reset, and split or badly cupped boards flagged before staining.' },
       { title: 'Penetrating stain', body: 'Semi-transparent penetrating oil or hybrid stain, applied to refusal and back-wiped so nothing puddles and gets tacky.' },
+      { title: 'Landscaping protected', body: 'Beds, lawn, and anything on the neighbor\'s side masked and covered before the sprayer comes out.' },
+    ],
+    scopes: [
+      {
+        title: 'Fences',
+        body: 'Every panel done on both faces unless a neighbor situation makes that impossible, in which case we say so at the estimate rather than after. Sprayed for coverage and then back-brushed into the grain so it penetrates instead of filming. Post tops and cut ends are end grain and drink water faster than anything else on a fence — that is where rot starts, and sealing them properly costs about four extra minutes a post. It is the corner most often cut.',
+      },
+      {
+        title: 'Deck rails & vertical faces',
+        body: 'These are not the deck floor and should not be treated like it. Nothing walks on them, so a solid-color stain holds up fine here and gives a cleaner line against the house. Rails, caps, and spindles get hand-sanded rather than run over with a machine, because a belt sander rounds off the edges you actually put your hand on.',
+      },
+      {
+        title: 'Vinyl & aluminum fencing',
+        body: 'A different job from wood: there is no grain to penetrate, so this is paint rather than stain. Both are chalked by the time anyone wants them recoated, and acrylic straight over chalk releases in sheets — so it is washed and bonding-primed first. Going darker on vinyl needs a vinyl-safe formulation, or the panels absorb enough summer heat to warp.',
+      },
     ],
     detail: [
       {
@@ -598,6 +618,13 @@ export const services: Service[] = [
         body: [
           'Solid-color stain looks fantastic for one season and then shows every scuff, because it forms a film on a surface that gets walked on. Once that film starts lifting, the only fix is stripping the whole deck again.',
           'Semi-transparent penetrating stain wears by fading rather than peeling, which means the maintenance coat in two or three years is a wash and a recoat instead of a full strip. We will do solid color on a deck floor if you insist, but we will tell you what you are signing up for. Rails and vertical surfaces are a different story — solid holds up fine there.',
+        ],
+      },
+      {
+        heading: 'Stain, do not paint, a wood fence',
+        body: [
+          'Paint on a fence looks crisp for two years and then becomes a maintenance sentence, because a fence moves constantly, holds water at every joint, and has more edges per square foot than anything else on a property. Once film-forming paint starts lifting on a hundred-foot fence, you own that problem forever.',
+          'Semi-transparent stain on a fence fades instead of peeling, so the refresh is a wash and a recoat. Vinyl and aluminum fencing is a separate conversation — those we can paint, with a bonding primer.',
         ],
       },
     ],
@@ -611,44 +638,9 @@ export const services: Service[] = [
         a: 'Wait until it accepts water rather than beading it — usually three to six months for kiln-dried-after-treatment lumber, and up to a year for wet-treated. Staining too early traps mill glaze and moisture and the finish will not hold.',
       },
       {
-        q: 'Can you stain composite decking?',
-        a: 'Generally no, and you should be sceptical of anyone who says yes. Most composite boards are designed not to accept coatings. We can clean and brighten faded composite, which handles the majority of what people are unhappy about.',
+        q: 'My new fence is bare. Should I wait?',
+        a: 'A few months, yes — the same as a new deck. Bare pressure-treated needs to dry to the point where it accepts water instead of beading it. Cedar can usually be done sooner.',
       },
-    ],
-    related: ['fence-painting', 'pressure-washing', 'exterior-painting'],
-  },
-  {
-    slug: 'fence-painting',
-    category: 'exterior',
-    name: 'Fence Painting',
-    h1: 'Fence Painting & Staining',
-    metaTitle: 'Fence Painting & Staining in Cincinnati',
-    metaDescription:
-      'Fence painting and staining in Cincinnati and Northern Kentucky. Sprayed and back-brushed, both sides, posts and caps included.',
-    eyebrow: 'Privacy · Picket · Split rail',
-    lead: 'Both sides, all the posts, and the tops of the caps — sprayed and back-brushed so it soaks in rather than sitting on the surface.',
-    hero: 'fence',
-    intro: [
-      'Fences are simple work done at scale, and the corners that get cut are always the same ones: only doing the side facing the house, skipping the post caps, and spraying without back-brushing so the stain never actually penetrates.',
-      'The tops of posts and caps are end grain, which drinks water faster than any other part of the fence. That is where rot starts, and it takes about four extra minutes per post to seal properly.',
-    ],
-    includes: [
-      { title: 'Wash and dry', body: 'Full wash to strip mildew, algae, and grey weathering, then a dry-out window before anything goes on.' },
-      { title: 'Both sides', body: 'Every panel done on both faces unless a neighbor situation makes it impossible, in which case we say so up front.' },
-      { title: 'Posts, caps, and end grain', body: 'Post tops and cut ends sealed properly — the places rot starts and the ones most often skipped.' },
-      { title: 'Sprayed and back-brushed', body: 'Sprayed for coverage, then back-brushed into the grain so it penetrates rather than films.' },
-      { title: 'Landscaping protected', body: 'Beds, lawn, and anything on the neighbor\'s side masked and covered before the sprayer comes out.' },
-    ],
-    detail: [
-      {
-        heading: 'Stain, do not paint, a wood fence',
-        body: [
-          'Paint on a fence looks crisp for two years and then becomes a maintenance sentence, because a fence moves constantly, holds water at every joint, and has more edges per square foot than anything else on a property. Once film-forming paint starts lifting on a hundred-foot fence, you own that problem forever.',
-          'Semi-transparent stain on a fence fades instead of peeling, so the refresh is a wash and a recoat. Vinyl and aluminum fencing is a separate conversation — those we can paint, with a bonding primer.',
-        ],
-      },
-    ],
-    faqs: [
       {
         q: 'How long does a hundred feet of fence take?',
         a: 'One to two days including the wash and dry time, assuming both sides are accessible and the weather cooperates. Stripping a failed old coating adds a day.',
@@ -658,11 +650,11 @@ export const services: Service[] = [
         a: 'Yes, if they are agreeable and we can get access. Sort that out with them before the estimate — a fence stained on one side only weathers unevenly and looks it from the street.',
       },
       {
-        q: 'My new fence is bare. Should I wait?',
-        a: 'A few months, yes — the same as a new deck. Bare pressure-treated needs to dry to the point where it accepts water instead of beading it. Cedar can usually be done sooner.',
+        q: 'Can you stain composite decking?',
+        a: 'Generally no, and you should be sceptical of anyone who says yes. Most composite boards are designed not to accept coatings. We can clean and brighten faded composite, which handles the majority of what people are unhappy about.',
       },
     ],
-    related: ['deck-staining', 'pressure-washing', 'exterior-painting'],
+    related: ['pressure-washing', 'exterior-painting', 'siding-painting'],
   },
   {
     slug: 'front-door-painting',

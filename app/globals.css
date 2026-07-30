@@ -97,8 +97,16 @@
      --hdr-y  this band's offset within that height
 
      Width is 100% on every band, so all bands scale the image identically and
-     the joins line up exactly. Heights below must match the Tailwind classes
-     in Header.tsx — mobile 36+44+58 = 138, desktop 36+58 = 94.
+     the joins line up exactly.
+
+     --hdr-h is the height the image is SCALED to, which used to equal the height
+     of the band stack. The main nav bar is white now and no longer carries a
+     band, so the stack is shorter than these numbers: mobile is 36+44 = 80 of a
+     138 scale, desktop is 36 of a 94 scale. The values are deliberately left at
+     the old totals — the lower part of the image is simply never shown, and
+     shrinking them to match would squash the texture into 36px on desktop.
+     What still matters is that the two remaining bands share one scale and that
+     hdr-band-2's offset equals the height of the bar above it.
 
      The texture itself is stored desaturated (see the headerBg slot in
      scripts/fetch-photos.mjs). The source photo is green, and at 0.18 alpha
