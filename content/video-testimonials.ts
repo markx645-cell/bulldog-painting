@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------
 // These are NOT real customers. The names, quotes, and posters are stand-ins so
 // the section can be built and reviewed; the posters are stock photographs of
-// people who have no connection to Bulldog Painting.
+// people who have no connection to Bulldog Painters.
 //
 // A video testimonial is a named, identifiable person vouching for the company.
 // Publishing invented ones — or putting a stock photo next to a made-up quote —

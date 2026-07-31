@@ -8,8 +8,8 @@ import { brandStatement } from '@/content/site';
  * No CTAs here on purpose — the hero's two buttons are a few hundred pixels up
  * the page, and repeating them that soon gives the eye nothing new.
  *
- * TrustBar and ServiceCircles below are both bg-white too, so this carries
- * TrustBar's bottom border or the three run together as one white slab.
+ * TrustBar below is bg-white too, so this carries TrustBar's bottom border or
+ * the two run together as one white slab.
  *
  * The mascot PNG is a cutout on transparency, so it needs `object-contain` in a
  * fixed-ratio box rather than the `object-cover` every photographic image on the

@@ -1,4 +1,4 @@
-# Bulldog Painting
+# Bulldog Painters
 
 Static Next.js 15 site — 26 pre-rendered master pages covering interior,
 exterior, cabinet, and commercial painting across Greater Cincinnati and
@@ -47,7 +47,7 @@ obviously fake rather than someone else's line. Replace:
 
 - `phone` and `phoneHref`
 - `email`
-- `url` (currently `https://bulldogpainting.com`)
+- `url` (currently `https://bulldogpainters.com`)
 - `address` — street, city, state, zip
 - `founded`, `yearsInBusiness`, and everything in `stats` if the real numbers differ
 

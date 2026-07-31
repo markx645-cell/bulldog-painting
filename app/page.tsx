@@ -2,13 +2,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Photo from '@/components/Photo';
 import TrustBar from '@/components/TrustBar';
-import ServiceCircles from '@/components/ServiceCircles';
 import ServiceShowcase from '@/components/ServiceShowcase';
 import BrandStatement from '@/components/BrandStatement';
 import BeforeAfterFeature from '@/components/BeforeAfterFeature';
 import ProcessTabs from '@/components/ProcessTabs';
 import AboutBlock from '@/components/AboutBlock';
-import QualityControl from '@/components/QualityControl';
 import VideoTestimonials from '@/components/VideoTestimonials';
 import MissionValues from '@/components/MissionValues';
 import BeforeAfterGallery from '@/components/BeforeAfterGallery';
@@ -18,44 +16,31 @@ import ServiceAreaSection from '@/components/ServiceAreaSection';
 import ReviewsList from '@/components/ReviewsList';
 import FaqAccordion from '@/components/FaqAccordion';
 import CTASection from '@/components/CTASection';
-import { site, stats, commercialSegments } from '@/content/site';
+import { site, stats } from '@/content/site';
+import { services } from '@/content/services';
 import { reviews } from '@/content/reviews';
 import { sharedFaqs } from '@/content/faqs';
 
 export const metadata: Metadata = {
   title: 'Painters in Cincinnati & Surrounding Areas',
   description:
-    'Bulldog Painting — interior and exterior painting across Cincinnati and the surrounding areas since 2001. W-2 crews, written itemized pricing, 5-year workmanship warranty.',
+    'Bulldog Painters — interior and exterior painting across Cincinnati and the surrounding areas since 2001. W-2 crews, written itemized pricing, 5-year workmanship warranty.',
   alternates: { canonical: '/' },
 };
 
 
-const residentialCards = [
-  {
-    title: 'Interior Painting',
-    body: 'Walls, ceilings, and trim in an occupied house — room by room, everything back in place each evening, two full coats in low-VOC product.',
-    href: '/interior-painting',
-    image: 'interior' as const,
-  },
-  {
-    title: 'Exterior Painting',
-    body: 'Washed, scraped, primed, and two-coated to survive Ohio Valley freeze-thaw. Lead-safe containment on anything built before 1978.',
-    href: '/exterior-painting',
-    image: 'exterior' as const,
-  },
-  {
-    title: 'Cabinet Refinishing',
-    body: 'Doors sprayed flat in our shop for a factory-smooth finish, boxes sprayed in place behind containment. Roughly a third of replacement cost.',
-    href: '/cabinet-painting',
-    image: 'cabinets' as const,
-  },
-];
-
-const commercialCards = commercialSegments.map((s, i) => ({
-  title: s.title,
-  body: s.body,
-  href: '/commercial-painting',
-  image: (['commercial', 'basement', 'epoxy'] as const)[i],
+// Every service, in one grid — including the two category hubs, which are
+// services in their own right and the two most searched of the lot.
+//
+// Derived from the service data rather than hand-written, so adding, renaming
+// or merging a service updates the homepage on its own. The order is the order
+// in content/services.ts, which already groups interior, then exterior, then
+// commercial.
+const allServiceCards = services.map((s) => ({
+  title: s.name,
+  body: s.lead,
+  href: `/${s.slug}`,
+  image: s.hero,
 }));
 
 export default function HomePage() {
@@ -65,15 +50,14 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-ink">
         <div className="paint-wash absolute inset-0" aria-hidden="true" />
 
-        {/* The photo used to be a full-bleed panel pinned to the right edge with
-            two ink gradients feathering it into the background. It is now a real
-            grid column instead, because "show the whole photo" and "bleed it to
-            the viewport edge" cannot both be true: the source is portrait
-            (1122x1402, 0.80) and any landscape panel has to crop it to fill.
-            The column below carries that exact aspect ratio, so object-cover
-            crops nothing, and there are no gradients over it. */}
+        {/* The photo is a real grid column, not a full-bleed panel with gradients
+            feathering it into the background — that older treatment had to crop
+            to fill, and the brief is to show the whole frame.
+            The boxes below carry the photo's own 1400:932 ratio so object-cover
+            crops nothing. The column is wider than it used to be because the
+            photo is now landscape; when it was portrait, 22rem was right. */}
         <div className="container-x relative py-12 lg:py-16">
-          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1fr)_27rem]">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1fr)_32rem]">
             {/* flex-col so the mobile photo can be lifted above the headline with
                 `order` instead of being moved up the markup — this is the page's
                 h1 and it stays first in the DOM. Every text child keeps order 0,
@@ -95,48 +79,36 @@ export default function HomePage() {
               <p className="mt-2 font-display text-[1.6875rem] font-bold uppercase leading-[1.02] tracking-tight text-crimson sm:text-[2.25rem] lg:text-[2.8125rem]">
                 For top-rated interior &amp; exterior finishes
               </p>
-              <p className="mt-4 max-w-lg text-lg leading-relaxed text-white">
+              {/* One paragraph, and no CTA buttons — the header carries both a
+                  Get an Estimate button and the phone number, and they stay on
+                  screen while this scrolls. */}
+              <p className="mt-4 max-w-lg text-lg leading-relaxed text-steel-200">
                 Serving {site.serviceArea} with a premium standard, clear communication, and
-                warranty-backed workmanship.
+                warranty-backed workmanship. Family-owned since {site.founded}, with{' '}
+                {stats.crewCount} full-time painters on payroll — never subcontracted out —{' '}
+                {stats.homesPainted} homes finished, and a five-year warranty on the work itself,
+                not just the paint.
               </p>
-              <p className="mt-3 max-w-lg leading-relaxed text-steel-300">
-                Family-owned since {site.founded}. {stats.crewCount} full-time painters on payroll — never
-                subcontracted out — {stats.homesPainted} homes finished, and a five-year warranty
-                on the work itself, not just the paint.
-              </p>
-
-              {/* Two buttons and nothing else. The rating strip and the four
-                  category tiles that used to sit here were pushing the CTAs below
-                  the fold — and ServiceCircles right under the hero already links
-                  the same four categories. */}
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-secondary">
-                  Get an Estimate
-                </Link>
-                <a href={site.phoneHref} className="btn-outline-light">
-                  Call {site.phone}
-                </a>
-              </div>
 
               {/* Mobile hero image. Hidden at lg, where the photo has its own
                   grid column. `order-first` puts it above the headline on a
                   phone; margin is mb rather than mt because it now leads.
-                  This one still crops to 16/11 on purpose — the source is
-                  portrait, so at full width and native ratio it would stand
-                  taller than the phone screen and bury the headline. */}
-              <div className="relative order-first mb-7 aspect-[16/11] w-full overflow-hidden rounded-xl shadow-lift lg:hidden">
-                <Photo name="homeHero" priority sizes="100vw" className="object-cover object-[center_20%]" />
+                  Native ratio here too — a landscape frame at full phone width
+                  is only about 260px tall, so unlike the old portrait shot it
+                  does not need cropping to keep the headline in view. */}
+              <div className="relative order-first mb-7 aspect-[1400/932] w-full overflow-hidden rounded-xl shadow-lift lg:hidden">
+                <Photo name="homeHero" priority sizes="100vw" className="object-cover" />
               </div>
             </div>
 
-            {/* Desktop photo. The box carries the source's own 1122:1402 ratio,
+            {/* Desktop photo. The box carries the source's own 1400:932 ratio,
                 so object-cover has nothing left to crop — the whole frame shows,
-                head to boots, with no gradient over it. */}
-            <div className="relative hidden aspect-[1122/1402] w-full overflow-hidden rounded-2xl shadow-lift lg:block">
+                with no gradient over it. */}
+            <div className="relative hidden aspect-[1400/932] w-full overflow-hidden rounded-2xl shadow-lift lg:block">
               <Photo
                 name="homeHero"
                 priority
-                sizes="(min-width: 1280px) 27rem, 22rem"
+                sizes="(min-width: 1280px) 32rem, 26rem"
                 className="object-cover"
               />
             </div>
@@ -160,31 +132,20 @@ export default function HomePage() {
 
       <TrustBar />
 
-      <ServiceCircles />
+      <AboutBlock />
 
+      {/* white, not cream. Tones alternate through this run — TrustBar white,
+          AboutBlock cream, this white, MissionValues cream — so no two adjacent
+          sections share a background and run together. */}
       <ServiceShowcase
-        eyebrow="For your home"
-        heading="Residential painting"
-        lead="Inside and out, on houses from 1880s Covington brick to last year's build in Union."
-        cards={residentialCards}
-        cta={{ label: 'See All Services', href: '/interior-painting' }}
-        tone="cream"
-      />
-
-      <ServiceShowcase
-        eyebrow="For your property"
-        heading="Commercial painting"
-        lead="Scheduled around your hours, not ours — nights, weekends, and phased so nobody loses a trading day."
-        cards={commercialCards}
-        cta={{ label: 'Commercial Painting', href: '/commercial-painting' }}
+        eyebrow="What we do"
+        heading="Every service we offer"
+        lead="Inside and out, on houses from 1880s Covington brick to last year's build in Union. Each one links to what the work actually involves — including the parts most quotes leave out."
+        cards={allServiceCards}
         tone="white"
       />
 
-      <AboutBlock />
-
       <MissionValues />
-
-      <QualityControl />
 
       <BeforeAfterGallery limit={4} moreHref="/projects" />
 
@@ -212,7 +173,7 @@ export default function HomePage() {
 
       <FinancingBand />
 
-      <ServiceAreaSection variant="cards" />
+      <ServiceAreaSection />
 
       <FaqAccordion faqs={sharedFaqs} heading="Before you call" tone="cream" />
 

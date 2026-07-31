@@ -12,7 +12,7 @@ import { sharedFaqs } from '@/content/faqs';
 export const metadata: Metadata = {
   title: 'Our Process',
   description:
-    'How Bulldog Painting preps and paints — protection, surface repair, priming, two full coats, and a documented walkthrough. Why prep decides how long a finish lasts.',
+    'How Bulldog Painters preps and paints — protection, surface repair, priming, two full coats, and a documented walkthrough. Why prep decides how long a finish lasts.',
   alternates: { canonical: '/our-process/' },
 };
 

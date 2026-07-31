@@ -53,7 +53,7 @@ export default function BeforeAfterGallery({
 }) {
   const shown = limit ? projects.slice(0, limit) : projects;
   return (
-    <section className="section bg-cream">
+    <section className="section bg-white">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow-dark">Our work</p>

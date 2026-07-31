@@ -113,9 +113,23 @@ export default function ServiceAreasPage() {
             ))}
           </div>
 
-          <div className="relative mx-auto mt-12 aspect-[16/9] w-full max-w-3xl overflow-hidden rounded-2xl shadow-lift ring-1 ring-black/5">
-            <Photo name="serviceAreaMap" className="object-cover" sizes="(max-width: 768px) 100vw, 768px" />
-          </div>
+          {/* A real map of the region, not a city photo. It is square, so it
+              gets a square box — the old 16/9 frame would crop a third of the
+              coverage area away. OpenStreetMap data requires the attribution. */}
+          <figure className="mx-auto mt-12 w-full max-w-md">
+            {/* aspect-square, and it must stay a sized box: Photo renders with
+                `fill`, so a height-less wrapper collapses the image to nothing. */}
+            <div className="relative aspect-square overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-lift">
+              <Photo
+                name="serviceAreaMap"
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 28rem"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-xs text-steel">
+              Map data © OpenStreetMap contributors
+            </figcaption>
+          </figure>
         </div>
       </section>
 

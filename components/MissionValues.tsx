@@ -1,6 +1,6 @@
 import { mission, values } from '@/content/site';
 
-/** Circle-badge icons, matching the treatment used by ServiceCircles. */
+/** Circle-badge icons: 24px viewBox, 1.7 stroke, currentColor, rounded caps. */
 function ValueIcon({ name }: { name: string }) {
   const common = {
     viewBox: '0 0 24 24',

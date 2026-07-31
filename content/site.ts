@@ -1,23 +1,24 @@
-// Canonical business facts for Bulldog Painting.
+// Canonical business facts for Bulldog Painters.
 // Single source of truth — every page pulls from here.
 //
 // ⚠ SOME CONTACT DETAILS ARE STILL PLACEHOLDERS — replace before launch.
-// `phone` is REAL: read off the shirt in the hero photograph
-// (public/photos/hero-exterior.jpg) and verified digit by digit. Do not revert
-// it to the old 555-01xx fiction number.
+// `phone` is REAL: read off the shirt in the brand photography and verified
+// digit by digit. It is printed on the shirt in the current hero image
+// (public/photos/hero-client.jpg) too. Do not revert it to the old 555-01xx
+// fiction number.
 // Still fake and still to do: `email`, `url`, and `address`.
 
 export const site = {
-  name: 'Bulldog Painting',
-  shortName: 'Bulldog Painting',
+  name: 'Bulldog Painters',
+  shortName: 'Bulldog Painters',
   // No tagline. The logo artwork carries none either — the strapline was
   // removed from it deliberately. Do not reintroduce one in only one place.
   founded: 2001,
   yearsInBusiness: '25+',
-  url: 'https://bulldogpainting.com',
+  url: 'https://bulldogpainters.com',
   phone: '(513) 657-3750',
   phoneHref: 'tel:+15136573750',
-  email: 'hello@bulldogpainting.com', // TODO: real inbox
+  email: 'hello@bulldogpainters.com', // TODO: real inbox
   address: {
     street: '1820 Madison Road', // TODO: real address
     city: 'Cincinnati',
@@ -62,7 +63,8 @@ export const brandStatement = {
 // Homepage services statement, shown beside the before/after wipe slider.
 //
 // The service list here must stay in step with content/services.ts — it is a
-// plain-English version of the same 13 pages, not a superset. The reference this
+// plain-English version of the same 10 pages, not a superset — some of these
+// are scope cards on a hub rather than routes of their own. The reference this
 // was modelled on listed "heritage home restoration"; we do not offer that, so
 // it is not here.
 export const servicesStatement = {
@@ -257,9 +259,13 @@ export const process = [
 export const aboutHome = {
   eyebrow: 'Who you are hiring',
   headline: `Cincinnati painters since ${site.founded}`,
+  // Kept short on purpose: this sits beside a 4:3 crew photo in a two-column
+  // grid, and the column runs past the bottom of the photo if it grows. Roughly
+  // 2 + 4 lines at desktop is the budget. The "not the cheapest" admission is
+  // the part that earns the section — trim around it, never it.
   body: [
-    'Bulldog Painting is a family-owned crew working out of Cincinnati, covering both sides of the river and seven counties around it. Twenty-five years, 3,200 homes, and eleven painters who are on our payroll rather than picked up for the week.',
-    'We are not the cheapest quote you will get, and we will tell you plainly when the cheapest quote is the right one — a rental between tenants, or a house going on the market in sixty days. What we are good at is the work that has to last: exteriors that take Ohio Valley freeze-thaw, plaster walls in century-old houses, and kitchens where the finish gets touched every day.',
+    `A family-owned crew out of Cincinnati, covering both sides of the river and seven counties around it. ${stats.homesPainted} homes painted, and ${stats.crewCount} painters on our payroll rather than picked up for the week.`,
+    'We are not the cheapest quote you will get, and we will say so when the cheapest one is right — a rental between tenants, or a house listing in sixty days. What we are good at is work that has to last: Ohio Valley freeze-thaw, plaster in century-old houses, kitchens touched every day.',
   ],
   points: [
     `Family-owned and operated since ${site.founded}`,
@@ -371,11 +377,10 @@ export const nav = {
     href: '/exterior-painting',
     children: [
       { label: 'Exterior Painting', href: '/exterior-painting' },
-      { label: 'Siding Painting', href: '/siding-painting' },
       { label: 'Brick & Masonry Painting', href: '/brick-painting' },
-      // One entry, not two: /fence-painting was merged into /deck-staining.
+      // Siding and front doors/shutters are scope cards on /exterior-painting,
+      // and /fence-painting was merged into /deck-staining.
       { label: 'Deck & Fence Staining', href: '/deck-staining' },
-      { label: 'Front Door & Shutter Painting', href: '/front-door-painting' },
       { label: 'Garage Floor Epoxy', href: '/garage-floor-epoxy' },
       { label: 'Pressure Washing', href: '/pressure-washing' },
     ],

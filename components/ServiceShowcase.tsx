@@ -40,8 +40,11 @@ export default function ServiceShowcase({
         </div>
 
         <div
+          // Four across once there are four or more. At three columns a
+          // ten-card set leaves a single orphan on the last row; four leaves a
+          // pair, which reads as a grid rather than a mistake.
           className={`mt-12 grid gap-6 ${
-            cards.length === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3'
+            cards.length >= 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3'
           }`}
           data-reveal-stagger
         >

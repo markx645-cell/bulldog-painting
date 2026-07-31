@@ -3,7 +3,7 @@ import { warranty } from '@/content/site';
 
 export default function WarrantyHighlight() {
   return (
-    <section className="section bg-white">
+    <section className="section border-t border-steel-200 bg-white">
       <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
         <div>
           <p className="eyebrow-dark">Five-year cover</p>

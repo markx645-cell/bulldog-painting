@@ -3,12 +3,16 @@ import { site } from '@/content/site';
 
 /**
  * The brand lockup, always the complete badge — bulldog, house, and the
- * BULLDOG PAINTING wordmark are all inside the artwork. Never crop it: a
+ * BULLDOG PAINTERS wordmark are all inside the artwork. Never crop it: a
  * cropped mark was tried and rejected.
  *
- * public/logo.png is the trimmed, web-sized copy of "FINAL LOGO PAINTING.png"
- * at the repo root (same aspect ratio, nothing cut). app/icon.png and
+ * public/logo.png is the web-sized copy of "painters logo final.png" at the
+ * repo root (same aspect ratio, nothing cut). app/icon.png and
  * app/apple-icon.png are separate head-only crops, for the browser tab only.
+ *
+ * The artwork reads BULLDOG PAINTERS and `site.name` matches it. They are shown
+ * side by side in the header, so if the logo art is ever changed the name has
+ * to change with it — or the header contradicts itself.
  *
  * `showName` renders the company name beside it as HTML. Note this means the
  * wordmark appears twice — once inside the artwork and once as text. That is a

@@ -271,7 +271,7 @@ export const services: Service[] = [
         a: 'No. Doors and drawer fronts go to our shop where they are sprayed flat and horizontal, which is the only way to get a truly level finish. The boxes and face frames are sprayed in place inside full containment.',
       },
     ],
-    related: ['interior-painting', 'drywall-repair', 'front-door-painting'],
+    related: ['interior-painting', 'drywall-repair'],
   },
   {
     slug: 'popcorn-ceiling-removal',
@@ -376,7 +376,7 @@ export const services: Service[] = [
     h1: 'Exterior House Painting in Greater Cincinnati',
     metaTitle: 'Exterior House Painting in Cincinnati & N. Kentucky',
     metaDescription:
-      'Exterior house painting across Greater Cincinnati and Northern Kentucky — siding, trim, soffit and fascia, gutters, and stucco. Washed, scraped, primed, and two-coated. 5-year workmanship warranty.',
+      'Exterior house painting across Greater Cincinnati and Northern Kentucky — siding, trim, soffit and fascia, gutters, front doors and shutters, garage doors, and stucco. Washed, scraped, primed, and two-coated. 5-year workmanship warranty.',
     eyebrow: 'Siding · Trim · Soffit & Fascia · Stucco',
     lead: 'Washed, scraped, primed, and two-coated — the four steps that decide whether an exterior lasts six years or sixteen.',
     hero: 'exterior',
@@ -419,6 +419,14 @@ export const services: Service[] = [
     // either offered in full or not listed at all. Do not add one.
     scopes: [
       {
+        title: 'Siding',
+        body: 'Wood, LP, fiber cement, aluminum and vinyl all move differently, hold moisture differently, and bond differently. The finish coat can be identical across all four — what changes is what goes underneath, and that one choice is most of the difference between an eight-year job and a two-year one. Stain-blocking primer on cedar and redwood, bonding primer on chalked aluminum, alkali-resistant on fiber cement. We name the substrate and its primer on the estimate; if a bid you are comparing does not name the primer, that is the question to ask. Cut ends and butt joints get sealed, because those are the two places siding drinks water and starts failing from behind.',
+      },
+      {
+        title: 'Front doors & shutters',
+        body: 'A front door is a small surface everyone looks at directly, so it takes a level of finish a wall never would. Hardware comes off rather than being taped around — taped hardware always leaves a ragged edge — the surface is washed and properly de-glossed, and the coating goes on thin and even. Fiberglass, metal and previously stained doors each take a different bonding primer. Shutters come down, get sprayed flat and go back up the same visit; faded chalky vinyl shutters age a house more than almost anything else and cost very little to bring back.',
+      },
+      {
         title: 'Soffit, fascia & gutters',
         body: 'The parts of a house nobody photographs and everybody notices once they are wrong. Fascia takes the worst of the water because the gutter hangs off it, so bare sections get primed and anything soft is flagged before we go any further. We paint gutters and downspouts on request — factory-finished aluminum needs washing and a bonding primer, because acrylic straight onto chalked aluminum releases in sheets. Vents and soffit perforations stay open rather than getting bridged closed with paint, since blocking them traps moisture in the attic.',
       },
@@ -440,6 +448,23 @@ export const services: Service[] = [
       },
     ],
     detail: [
+      // Carried over when /siding-painting and /front-door-painting were merged
+      // into this page. Both are warnings that cost the customer money if
+      // nobody says them out loud — do not trim them back to a scope card line.
+      {
+        heading: 'Vinyl siding can be painted, with one hard rule',
+        body: [
+          'You can absolutely paint vinyl, and it saves a great deal of money against replacement. The rule is that you cannot go darker than the original color unless you use a vinyl-safe formulation.',
+          'Dark paint on vinyl absorbs heat the panel was never designed for, and it warps and buckles — permanently, and not covered by anyone\'s warranty. Vinyl-safe product lines solve this with heat-reflective pigments, and they are what we quote whenever a color change is going darker.',
+        ],
+      },
+      {
+        heading: 'Deep colors on a sun-facing door',
+        body: [
+          'A deep navy, black-green, or oxblood front door is a fantastic look, and on a west-facing entry with no porch cover it is also the fastest-fading paint on the house. Dark colors absorb heat, and on a metal or fiberglass door that heat cycling stresses the coating hard.',
+          'If your entry gets full afternoon sun, we will point you toward a slightly lighter version of the color you want, or toward an exterior product line rated for deep bases. It is a small conversation that saves a repaint in year three.',
+        ],
+      },
       {
         heading: 'Why exteriors fail on the south and west sides first',
         body: [
@@ -473,55 +498,29 @@ export const services: Service[] = [
         q: 'Do you spray or brush?',
         a: 'Both. Spraying lays the material down fast and evenly; back-brushing works it into the grain and the laps so it bonds. On rough cedar and older wood siding, spray-only is the mark of a job being rushed.',
       },
-    ],
-    related: ['siding-painting', 'brick-painting', 'pressure-washing', 'deck-staining'],
-  },
-  {
-    slug: 'siding-painting',
-    category: 'exterior',
-    name: 'Siding Painting',
-    h1: 'Siding Painting & Refinishing',
-    metaTitle: 'Siding Painting in Cincinnati & Northern Kentucky',
-    metaDescription:
-      'Painting for wood, fiber cement, aluminum, and vinyl siding in Cincinnati and Northern Kentucky. Correct primer per substrate, two coats, 5-year warranty.',
-    eyebrow: 'Wood · Fiber cement · Aluminum · Vinyl',
-    lead: 'Every siding material takes a different primer. Getting that one choice right is most of the difference between an eight-year job and a two-year one.',
-    hero: 'siding',
-    intro: [
-      'Wood, fiber cement, aluminum, and vinyl all move differently, hold moisture differently, and bond differently. The finish coat can be identical across all four — what changes is what goes underneath it, and that is the decision that determines how long the job lasts.',
-      'We identify the substrate on the estimate visit and put the specific primer on the written quote. If you are comparing bids and one of them does not name the primer, that is the question to ask.',
-    ],
-    includes: [
-      { title: 'Substrate identified', body: 'Wood, LP, fiber cement, aluminum, or vinyl — named on the estimate along with the primer it takes.' },
-      { title: 'Wash and dry', body: 'Full wash to remove chalking and mildew, then a real dry-out window before anything is applied.' },
-      { title: 'Correct primer', body: 'Stain-blocking on cedar and redwood, bonding primer on chalked aluminum, alkali-resistant on fiber cement.' },
-      { title: 'Two coats acrylic', body: 'Premium 100% acrylic, sprayed and back-brushed into the grain and laps.' },
-      { title: 'Butt joints and end grain', body: 'Cut ends and butt joints sealed — the two places siding drinks water and starts failing from behind.' },
-    ],
-    detail: [
-      {
-        heading: 'Vinyl siding can be painted, with one hard rule',
-        body: [
-          'You can absolutely paint vinyl, and it saves a great deal of money against replacement. The rule is that you cannot go darker than the original color unless you use a vinyl-safe formulation.',
-          'Dark paint on vinyl absorbs heat the panel was never designed for, and it warps and buckles — permanently, and not covered by anyone\'s warranty. Vinyl-safe product lines solve this with heat-reflective pigments, and they are what we quote whenever a color change is going darker.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'Is painting fiber cement different from wood?',
-        a: 'Yes. Fiber cement is alkaline and takes an alkali-resistant primer on any cut or unfinished edge. Factory-finished board that is simply being recolored often needs no primer at all — just a clean, dry surface and two coats.',
-      },
+      // Carried over from the siding and front-door pages when they merged in.
       {
         q: 'My aluminum siding leaves chalk on my hand. Can it still be painted?',
         a: 'Yes, and that chalk is exactly why it needs a bonding primer. Chalking is the old finish breaking down; paint applied straight over it is bonding to powder. Wash, then a bonding primer, then two coats, and it holds for years.',
       },
       {
-        q: 'Should I paint or replace?',
+        q: 'Is painting fiber cement different from wood?',
+        a: 'Yes. Fiber cement is alkaline and takes an alkali-resistant primer on any cut or unfinished edge. Factory-finished board that is simply being recolored often needs no primer at all — just a clean, dry surface and two coats.',
+      },
+      {
+        q: 'Should I paint the siding or replace it?',
         a: 'If the siding is structurally sound, painting costs a fraction of replacement and lasts most of a decade. If boards are rotted through, or you are fighting the same failure every few years, replacement is the better spend and we will say so.',
       },
+      {
+        q: 'Can you paint a fiberglass front door?',
+        a: 'Yes. Fiberglass takes paint well with the right bonding primer, and painting a faded stained-look fiberglass door is far cheaper than replacing it.',
+      },
+      {
+        q: 'Can I use my front door the same day you paint it?',
+        a: 'Yes. We work in sections so the opening is never left unsecured, and the door is closeable the same evening. Full cure takes a couple of weeks, so be gentle with weatherstripping contact at first.',
+      },
     ],
-    related: ['exterior-painting', 'pressure-washing', 'brick-painting'],
+    related: ['brick-painting', 'pressure-washing', 'deck-staining'],
   },
   {
     slug: 'brick-painting',
@@ -568,7 +567,7 @@ export const services: Service[] = [
         a: 'Yes, and partial masonry work is common — painting a foundation wall below siding, or the brick surround on a porch. It is priced by area with a minimum for mobilization.',
       },
     ],
-    related: ['exterior-painting', 'pressure-washing', 'siding-painting'],
+    related: ['exterior-painting', 'pressure-washing'],
   },
   {
     // Deck and fence were separate routes. They are one page now: the prep is
@@ -654,54 +653,7 @@ export const services: Service[] = [
         a: 'Generally no, and you should be sceptical of anyone who says yes. Most composite boards are designed not to accept coatings. We can clean and brighten faded composite, which handles the majority of what people are unhappy about.',
       },
     ],
-    related: ['pressure-washing', 'exterior-painting', 'siding-painting'],
-  },
-  {
-    slug: 'front-door-painting',
-    category: 'exterior',
-    name: 'Front Door & Shutters',
-    h1: 'Front Door & Shutter Painting',
-    metaTitle: 'Front Door & Shutter Painting in Cincinnati',
-    metaDescription:
-      'Front door and shutter painting in Cincinnati and Northern Kentucky. Sprayed or hand-finished, hardware removed, one-day turnaround on most doors.',
-    eyebrow: 'The cheapest upgrade on the house',
-    lead: 'One day, one door, and the biggest visual change per dollar available anywhere on a house.',
-    hero: 'frontDoor',
-    intro: [
-      'A front door is a small surface that everyone looks at directly, which means it takes a level of finish that a wall never would. Hardware comes off rather than getting taped around, the surface gets properly de-glossed, and the coating goes on thin and even.',
-      'Shutters are the natural companion job. Faded, chalky vinyl shutters age a house more than almost anything else, and they can be taken down, sprayed, and rehung in the same visit.',
-    ],
-    includes: [
-      { title: 'Hardware removed', body: 'Handles, knockers, kick plates, and hinges off, not taped. Taped hardware always shows a ragged edge.' },
-      { title: 'Clean and de-gloss', body: 'Washed, de-glossed, and any weathered or chalking areas sanded back so the new finish grips.' },
-      { title: 'Bonding primer where needed', body: 'Fiberglass, metal, and previously stained doors each get the primer they specifically need.' },
-      { title: 'Sprayed or hand-finished', body: 'Sprayed for a glass-smooth result, or hand-finished with a fine brush on paneled doors where the profile calls for it.' },
-      { title: 'Shutters off and sprayed', body: 'Shutters taken down, sprayed flat, and rehung. Faded vinyl shutters come back to life for very little money.' },
-    ],
-    detail: [
-      {
-        heading: 'Deep colors on a sun-facing door',
-        body: [
-          'A deep navy, black-green, or oxblood front door is a fantastic look, and on a west-facing entry with no porch cover it is also the fastest-fading paint on the house. Dark colors absorb heat, and on a metal or fiberglass door that heat cycling stresses the coating hard.',
-          'If your entry gets full afternoon sun, we will point you toward a slightly lighter version of the color you want, or toward an exterior product line rated for deep bases. It is a small conversation that saves a repaint in year three.',
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: 'Can I use my door the same day?',
-        a: 'Yes. We work in sections so the opening is never left unsecured, and the door is closeable the same evening. Full cure takes a couple of weeks, so be gentle with weatherstripping contact at first.',
-      },
-      {
-        q: 'Can you paint a fiberglass door?',
-        a: 'Yes. Fiberglass takes paint well with the right bonding primer, and painting a faded stained-look fiberglass door is far cheaper than replacing it.',
-      },
-      {
-        q: 'Will you match my trim color?',
-        a: 'We can match any color you bring us — a chip, a can lid, or a scan off the existing trim. Matching aged trim exactly is tricky; usually it looks better to repaint the surround with the door.',
-      },
-    ],
-    related: ['exterior-painting', 'siding-painting', 'interior-painting'],
+    related: ['pressure-washing', 'exterior-painting'],
   },
   {
     slug: 'garage-floor-epoxy',
@@ -795,7 +747,7 @@ export const services: Service[] = [
         a: 'Always. Paint applied over chalking, mildew, and dirt is bonding to that layer rather than to the siding. It is included in every exterior painting estimate we write, not sold as an add-on.',
       },
     ],
-    related: ['exterior-painting', 'siding-painting', 'deck-staining'],
+    related: ['exterior-painting', 'deck-staining'],
   },
 
   // ═════════════════════════════════════════════════════════ COMMERCIAL ═══

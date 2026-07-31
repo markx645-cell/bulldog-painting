@@ -10,7 +10,7 @@ import { stats } from '@/content/site';
 export const metadata: Metadata = {
   title: 'Reviews',
   description:
-    'What Greater Cincinnati and Northern Kentucky homeowners say about Bulldog Painting — interior, exterior, and cabinet work.',
+    'What Greater Cincinnati and Northern Kentucky homeowners say about Bulldog Painters — interior, exterior, and cabinet work.',
   alternates: { canonical: '/reviews/' },
 };
 

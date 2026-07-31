@@ -27,7 +27,7 @@ export default function FaqAccordion({
   };
 
   return (
-    <section className={`section ${tone === 'cream' ? 'bg-cream' : 'bg-white'}`}>
+    <section className={`section border-t border-steel-200 ${tone === 'cream' ? 'bg-cream' : 'bg-white'}`}>
       {withSchema && (
         <script
           type="application/ld+json"

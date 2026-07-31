@@ -4,13 +4,15 @@
 // Every <Image> on the site resolves its src through this file. Nothing else
 // hardcodes an image path.
 //
-// Entries currently point at Pexels stock in /public/photos/, pulled by
-// `scripts/fetch-photos.mjs` (see public/photos/ATTRIBUTION.md for credits).
+// Entries are a MIX. Anything whose note says "Real job photo" is the company's
+// own photography, imported from human/ by scripts/import-job-photos.mjs. The
+// rest is still Pexels stock, pulled by `scripts/fetch-photos.mjs` (see
+// public/photos/ATTRIBUTION.md for credits).
 //
 // ⚠ Stock photos are other people's work. They are a stand-in so the site reads
-// as finished — they are NOT a portfolio. Replace them with real Bulldog job
-// photos before this is presented as the company's own work. The `note` on each
-// entry describes the shot to take; hand this list to whoever is shooting.
+// as finished — they are NOT a portfolio. Replace the remaining ones with real
+// Bulldog job photos before this is presented as the company's own work. The
+// `note` on each stock entry describes the shot to take.
 //
 // To swap one in: drop the photo in /public/photos/, change the `src` here.
 // Nothing else on the site needs to be touched.
@@ -25,13 +27,14 @@ const P = (name: string) => `/photos/${name}.jpg`;
 
 export const media = {
   // ---- Brand ----
-  // Real logo. Source artwork is LOGO.png at the repo root; this is the
-  // trimmed, web-sized copy. Regenerate both this and the icons from the
-  // source if the logo is ever revised.
+  // Real logo. Source artwork is "painters logo final.png" at the repo root;
+  // this is the web-sized copy. If the logo is ever revised, regenerate this
+  // AND app/icon.png AND app/apple-icon.png from the new source — the icons are
+  // head-only crops because the full badge is unreadable at 32px.
   logo: {
     src: '/logo.png',
-    alt: 'Bulldog Painting',
-    note: 'Supplied brand lockup, no strapline. Source is "FINAL LOGO PAINTING.png" at the repo root.',
+    alt: 'Bulldog Painters',
+    note: 'Supplied brand lockup, reading BULLDOG PAINTERS. Must stay in step with site.name — the header shows both.',
   },
 
   // Brand mascot illustration. The supplied artwork sits on a solid white
@@ -40,7 +43,7 @@ export const media = {
   // mascot.png at the repo root; re-run the script if the art is redrawn.
   mascot: {
     src: '/photos/mascot.png',
-    alt: 'The Bulldog Painting mascot — a bulldog in work coveralls holding a paint brush beside an open can',
+    alt: 'The Bulldog Painters mascot — a bulldog in work coveralls holding a paint brush beside an open can',
     note: 'Supplied brand illustration, background cut out. Keep — do not replace with stock.',
   },
 
@@ -80,23 +83,32 @@ export const media = {
     alt: 'The same house exterior after painting — charcoal siding with white trim around the patio door',
     note: 'Supplied job photo — keep. Must match showcaseBefore dimensions exactly.',
   },
-  // Real branded photograph, not stock. Source is human/exterior.png at the
+  // Real branded photograph, not stock. Source is "human/client 2.png" at the
   // repo root; this is the optimised copy. Deliberately NOT named home-hero so
   // scripts/fetch-photos.mjs can never overwrite it with a stock image.
+  //
+  // LANDSCAPE 1400x932 (1.502). The previous hero was portrait, and the hero
+  // boxes in app/page.tsx carry the photo's own ratio so nothing is cropped —
+  // if this is replaced again at a different shape, those aspect classes and
+  // the desktop column widths have to change with it.
   homeHero: {
-    src: P('hero-exterior'),
-    alt: 'A Bulldog Painting painter on a ladder cutting in fresh paint on a home exterior',
+    src: P('hero-client'),
+    alt: 'A Bulldog Painters estimator going through the scope with a homeowner in her entryway',
     note: 'Supplied brand photography — keep. Do not replace with stock.',
   },
   crew: {
-    src: P('crew'),
-    alt: 'The Bulldog Painting crew in front of a company van',
-    note: 'Landscape 16:9. Full crew, uniformed, in front of a branded van. Shoot on an overcast day.',
+    src: P('crew-team'),
+    alt: 'The full Bulldog Painters crew photographed together',
+    note: 'Real crew photo — keep. Source is human/group painters.png.',
   },
+  // A real OpenStreetMap-derived map of the region, not a city photo — the
+  // slot used to hold a stock Cincinnati skyline while claiming to be a map.
+  // .webp and square (768x768), so it does not go through the P() jpg helper.
+  // Wherever it is shown, the OSM attribution must be shown with it.
   serviceAreaMap: {
-    src: P('service-area-map'),
-    alt: 'Bulldog Painting service area across Cincinnati and the surrounding areas',
-    note: 'Map graphic, 16:9, showing the counties listed in content/areas.ts.',
+    src: '/photos/service-area-map.webp',
+    alt: 'Map of the Greater Cincinnati region covering southwest Ohio, Northern Kentucky and southeastern Indiana',
+    note: 'Real map — keep. Requires \"Map data (c) OpenStreetMap contributors\" wherever displayed.',
   },
   processHero: {
     src: P('process-hero'),
@@ -106,19 +118,19 @@ export const media = {
 
   // ---- Service heroes ----
   interior: {
-    src: P('interior-painting'),
-    alt: 'Freshly painted interior living room with clean trim lines',
-    note: 'Landscape 3:2. Finished living room, walls and trim in contrasting colors, styled but not staged.',
+    src: P('job-interior'),
+    alt: 'A Bulldog Painters painter rolling a finish coat onto an interior wall, floors covered',
+    note: 'Real job photo — keep. Source is human/interior.png.',
   },
   exterior: {
-    src: P('exterior-painting'),
-    alt: 'A repainted two-story home exterior with fresh trim',
-    note: 'Landscape 3:2. Full house elevation shot, late-afternoon light, no cars in frame.',
+    src: P('job-exterior'),
+    alt: 'A Bulldog Painters painter on a ladder cutting in fresh paint on a home exterior',
+    note: 'Real job photo — keep. Source is human/exterior.png. Portrait, so 4:3 cards crop it.',
   },
   cabinets: {
-    src: P('cabinet-painting'),
-    alt: 'Kitchen cabinets refinished in a soft green with brass hardware',
-    note: 'Landscape 3:2. Full kitchen showing sprayed cabinet doors, hardware reinstalled.',
+    src: P('job-cabinets'),
+    alt: 'A Bulldog Painters painter refinishing kitchen cabinet doors and frames',
+    note: 'Real job photo — keep. Source is human/kitchen cabinet.png.',
   },
   commercial: {
     src: P('commercial-painting'),
@@ -136,14 +148,14 @@ export const media = {
     note: 'Upward 4:3 shot of a finished ceiling with a clean wall junction.',
   },
   popcorn: {
-    src: P('popcorn-ceiling-removal'),
-    alt: 'A ceiling mid-way through popcorn texture removal',
-    note: 'Half-scraped ceiling showing before and after in one frame.',
+    src: P('job-popcorn'),
+    alt: 'A Bulldog Painters painter working overhead on a textured ceiling',
+    note: 'Real job photo — keep. Source is human/popcorn ceiling.png. Portrait, so 4:3 cards crop it.',
   },
   drywall: {
-    src: P('drywall-repair'),
-    alt: 'A drywall patch being feathered smooth before primer',
-    note: 'Detail shot of a taping knife feathering compound over a patch.',
+    src: P('job-drywall'),
+    alt: 'A Bulldog Painters crew member feathering compound over drywall patches',
+    note: 'Real job photo — keep. Source is human/drywall.jpg.',
   },
   wallpaper: {
     src: P('wallpaper-removal'),
@@ -154,11 +166,6 @@ export const media = {
     src: P('basement-painting'),
     alt: 'A finished basement with painted walls and a coated floor',
     note: 'Wide 3:2 of a finished basement, warm lighting.',
-  },
-  siding: {
-    src: P('siding-painting'),
-    alt: 'Freshly painted lap siding on a Cincinnati home',
-    note: 'Detail 4:3 of clean lap siding with a crisp corner board.',
   },
   brick: {
     src: P('brick-painting'),
@@ -175,15 +182,10 @@ export const media = {
     alt: 'A stained privacy fence running along a back yard',
     note: 'Fence line receding into frame, 16:9.',
   },
-  frontDoor: {
-    src: P('front-door-painting'),
-    alt: 'A repainted front door in deep green with polished hardware',
-    note: 'Straight-on 4:5 of a finished front door and surround.',
-  },
   epoxy: {
-    src: P('garage-floor-epoxy'),
-    alt: 'A garage floor finished in flake epoxy coating',
-    note: 'Wide 3:2 of a finished garage floor, door open, even light.',
+    src: P('job-floor-coating'),
+    alt: 'A Bulldog Painters painter applying a flake floor coating',
+    note: 'Real job photo — keep. Source is human/basement.png.',
   },
   pressureWash: {
     src: P('pressure-washing'),

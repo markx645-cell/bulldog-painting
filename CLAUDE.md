@@ -1,6 +1,6 @@
 # Project Overview
 
-Bulldog Painting — a Next.js site optimised for local SEO. Every page is
+Bulldog Painters — a Next.js site optimised for local SEO. Every page is
 pre-rendered to static HTML at build time (`output: 'export'`).
 
 A separate business from Bulldog Windows & Doors (`../project 2 connie`) and
@@ -60,7 +60,7 @@ All copy lives in flat TypeScript under `/content`. No database, no CMS.
 | File | Holds |
 |------|-------|
 | `content/site.ts` | Business facts, stats, offers, warranty, process, nav |
-| `content/services.ts` | All 13 service pages — copy, includes, `scopes`, FAQs. **No pricing: the site publishes no prices** |
+| `content/services.ts` | All 10 service pages — copy, includes, `scopes`, FAQs. **No pricing: the site publishes no prices** |
 | `content/areas.ts` | Coverage — 8 counties, 170+ communities grouped under each |
 | `content/media.ts` | **Every image path on the site**, in one registry. Currently Pexels stock in `public/photos/` — see `ATTRIBUTION.md` |
 | `content/reviews.ts` | Customer reviews (currently placeholder) |
@@ -93,7 +93,7 @@ and cities on `/service-areas` and in the footer.
 | Route | Source |
 |-------|--------|
 | `/` | `app/page.tsx` |
-| `/{service}` | `app/[service]/page.tsx` — 13 pages from `services` |
+| `/{service}` | `app/[service]/page.tsx` — 10 pages from `services` |
 | Static pages | `/contact`, `/reviews`, `/projects`, `/our-process`, `/financing`, `/service-areas` |
 
 Static route folders take precedence over the `[service]` dynamic segment, so

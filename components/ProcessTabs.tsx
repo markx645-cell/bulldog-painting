@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { process, processIntro } from '@/content/site';
 
-/** Step icons, drawn to match the treatment in MissionValues and ServiceCircles. */
+/** Step icons, drawn to match the treatment in MissionValues. */
 function StepIcon({ name }: { name: string }) {
   const common = {
     viewBox: '0 0 24 24',

@@ -59,7 +59,7 @@ export default function VideoTestimonials() {
                         alt={
                           hasClip
                             ? `${t.name} of ${t.location} on their ${t.project.toLowerCase()}`
-                            : 'Placeholder portrait — not a Bulldog Painting customer'
+                            : 'Placeholder portrait — not a Bulldog Painters customer'
                         }
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

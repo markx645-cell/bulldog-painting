@@ -43,32 +43,16 @@ const SLOTS = {
     queries: ['dark green painted wall texture'],
     desaturate: true,
   },
-  // homeHero is intentionally absent: the homepage hero uses real branded
-  // photography (human/exterior.png -> public/photos/hero-exterior.jpg) and
-  // must never be replaced by a stock fetch.
-  crew: {
-    file: 'crew',
-    queries: ['construction workers team portrait', 'painters team working house', 'contractor crew van'],
-  },
-  serviceAreaMap: {
-    file: 'service-area-map',
-    queries: ['cincinnati ohio skyline river', 'cincinnati city aerial', 'ohio river bridge city'],
-  },
+  // These slots are intentionally absent, same as homeHero: interior, exterior,
+  // cabinets, popcorn, drywall, epoxy and crew all use REAL job photography from
+  // human/, imported by scripts/import-job-photos.mjs. Re-adding them here would
+  // let a stock fetch overwrite the company's own photos.
+  //
+  // homeHero is intentionally absent too: the homepage hero uses real branded
+  // photography (human/client 2.png -> public/photos/hero-client.jpg).
   processHero: {
     file: 'process-hero',
     queries: ['room prepared for painting drop cloth', 'empty room renovation plastic covering', 'painting preparation masking tape'],
-  },
-  interior: {
-    file: 'interior-painting',
-    queries: ['freshly painted living room interior', 'bright modern living room white walls', 'painted interior room'],
-  },
-  exterior: {
-    file: 'exterior-painting',
-    queries: ['house exterior painted siding', 'american home exterior facade', 'suburban house exterior'],
-  },
-  cabinets: {
-    file: 'cabinet-painting',
-    queries: ['painted kitchen cabinets modern', 'green kitchen cabinets', 'kitchen cabinetry interior'],
   },
   commercial: {
     file: 'commercial-painting',
@@ -82,14 +66,6 @@ const SLOTS = {
     file: 'ceiling-painting',
     queries: ['painting ceiling roller', 'white ceiling interior', 'ceiling paint work'],
   },
-  popcorn: {
-    file: 'popcorn-ceiling-removal',
-    queries: ['ceiling repair scraping', 'drywall ceiling work', 'renovation ceiling removal'],
-  },
-  drywall: {
-    file: 'drywall-repair',
-    queries: ['drywall repair plaster trowel', 'plastering wall putty knife', 'drywall patching work'],
-  },
   wallpaper: {
     file: 'wallpaper-removal',
     queries: ['removing wallpaper wall', 'wallpaper stripping renovation', 'peeling wallpaper'],
@@ -97,10 +73,6 @@ const SLOTS = {
   basement: {
     file: 'basement-painting',
     queries: ['finished basement interior', 'basement room concrete wall', 'basement renovation'],
-  },
-  siding: {
-    file: 'siding-painting',
-    queries: ['house siding detail exterior', 'lap siding wall house', 'wooden siding facade'],
   },
   brick: {
     file: 'brick-painting',
@@ -113,15 +85,6 @@ const SLOTS = {
   fence: {
     file: 'fence-painting',
     queries: ['wooden fence backyard', 'painting fence garden', 'wood privacy fence'],
-  },
-  frontDoor: {
-    file: 'front-door-painting',
-    queries: ['painted front door house entrance', 'colorful front door home', 'house entrance door'],
-    orientation: 'portrait',
-  },
-  epoxy: {
-    file: 'garage-floor-epoxy',
-    queries: ['garage interior floor clean', 'empty garage floor', 'epoxy floor coating'],
   },
   pressureWash: {
     file: 'pressure-washing',
